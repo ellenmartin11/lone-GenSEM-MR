@@ -1,0 +1,194 @@
+---
+title: "GenSEM QC"
+author: "Ellen Martin"
+date: "07/02/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Setting Working Directories
+
+Setting WD to local storage (D://GSEM)
+Installing libraries:
+- GenomicSEM (v 0.0.2) installed from https://github.com/GenomicSEM/GenomicSEM
+- data.table
+
+Setting Output path (outPath) to (D://GSEM//processed GSEM data)
+
+```{r libraries}
+filepath="D://GSEM" #main WD
+setwd(filepath)
+outPath=paste0(filepath, "//processed GSEM data") #output path for saved data
+
+#libraries
+library(data.table)
+library(GenomicSEM)
+```
+
+## Cleaning and Quality Control of Raw Summary Statistics
+
+Raw Sumstats downloaded either as .gz files or .txt files
+
+```{r qc, echo=FALSE}
+
+##HowardMDD.txt##
+
+MDD_RawSumstats <- fread("D:\\GSEM\\text files\\HowardMDD.txt", header = T) #reading in the RawSumstats using fread()
+MDD_Sumstats <- MDD_RawSumstats #keeping the read-in file in case of errors
+head(MDD_Sumstats) #checking headers
+
+#changing names to correspond with GenSEM 
+names(MDD_Sumstats)[names(MDD_Sumstats)=="MarkerName"] <- "SNP" 
+names(MDD_Sumstats)[names(MDD_Sumstats)=="Freq"] <- "MAF"
+names(MDD_Sumstats)[names(MDD_Sumstats)=="LogOR"] <- "BETA"
+names(MDD_Sumstats)[names(MDD_Sumstats)=="StdErrLogOR"] <- "SE"
+
+#reformatting allele cols
+MDD_Sumstats$A1 <- toupper(MDD_Sumstats$A1)
+MDD_Sumstats$A2 <- toupper(MDD_Sumstats$A2)
+
+#writing a new table of QC'ed sumstats, stored in the outPath
+write.table(MDD_Sumstats, paste0(outPath,'//HowardMDD.txt'), col.names=T, row.names=F,quote=F)
+
+##StahlBIP.gz##
+BIP_RawSumstats <- fread("D://GSEM//gz files//StahlBIP.gz")
+BIP_Sumstats <- BIP_RawSumstats
+head(BIP_Sumstats)
+BIP_Sumstats <- BIP_Sumstats[,c(1,2,3,4,5,7,8,9,10,11)] #selecting only necessary columns
+names(BIP_Sumstats)[names(BIP_Sumstats)=="FRQ_U_31358"] <- "MAF"
+
+write.table(BIP_Sumstats, paste0(outPath,'/StahlBIP.txt'), col.names=T, row.names=F,quote=F)
+
+##OtowaANX.gz##
+ANX_RawSumstats <- fread("D://GSEM//gz files//OtowaANX.gz")
+ANX_Sumstats <- ANX_RawSumstats
+head(ANX_Sumstats)
+
+#renaming
+names(ANX_Sumstats)[names(ANX_Sumstats)=="SNPID"] <- "SNP"
+names(ANX_Sumstats)[names(ANX_Sumstats)=="Allele1"] <- "A1"
+names(ANX_Sumstats)[names(ANX_Sumstats)=="Allele2"] <- "A2"
+names(ANX_Sumstats)[names(ANX_Sumstats)=="Freq1"] <- "MAF"
+names(ANX_Sumstats)[names(ANX_Sumstats)=="Effect"] <- "OR"
+names(ANX_Sumstats)[names(ANX_Sumstats)=="StdErr"] <- "SE"
+names(ANX_Sumstats)[names(ANX_Sumstats)=="P.value"] <- "P"
+names(ANX_Sumstats)[names(ANX_Sumstats)=="TotalN"] <- "N"
+
+write.table(ANX_Sumstats, paste0(outPath,'/OtowaANX.txt'), col.names=T, row.names=F,quote=F)
+
+##NievergeltPTSD.gz##
+PTSD_RawSumstats <- fread("D://GSEM//gz files//NievergeltPTSD.gz")
+PTSD_Sumstats <- PTSD_RawSumstats
+head(PTSD_Sumstats)
+names(PTSD_Sumstats)[names(PTSD_Sumstats)=="FRQ_A_23212"] <- "MAF"
+PTSD_Sumstats <- PTSD_Sumstats[,c(1,2,3,4,5,6,8,9,10,11)]
+
+write.table(PTSD_Sumstats, paste0(outPath,'/NievergeltPTSD.txt'), col.names=T, row.names=F,quote=F)
+
+##DayLONE.txt##
+LONE_RawSumstats <- fread("D://GSEM//text files//DayLONE.txt")
+LONE_Sumstats <- LONE_RawSumstats
+head(LONE_Sumstats)
+
+#renaming
+names(LONE_Sumstats)[names(LONE_Sumstats)=="snpid"] <- "SNP"
+names(LONE_Sumstats)[names(LONE_Sumstats)=="chr"] <- "CHR"
+names(LONE_Sumstats)[names(LONE_Sumstats)=="bpos"] <- "BP"
+names(LONE_Sumstats)[names(LONE_Sumstats)=="a1"] <- "A1"
+names(LONE_Sumstats)[names(LONE_Sumstats)=="a2"] <- "A2"
+names(LONE_Sumstats)[names(LONE_Sumstats)=="mtag_z"] <- "Z"
+names(LONE_Sumstats)[names(LONE_Sumstats)=="n"] <- "N"
+names(LONE_Sumstats)[names(LONE_Sumstats)=="mtag_beta"] <- "BETA"
+names(LONE_Sumstats)[names(LONE_Sumstats)=="mtag_pval"] <- "P"
+names(LONE_Sumstats)[names(LONE_Sumstats)=="freq"] <- "MAF"
+names(LONE_Sumstats)[names(LONE_Sumstats)=="mtag_se"] <- "SE"
+
+LONE_Sumstats <- LONE_Sumstats[,c(1,2,3,4,5,7,8,9,10,11,12)] #selecting necessary cols
+
+write.table(LONE_Sumstats, paste0(outPath,'/DayLONE.txt'), col.names=T, row.names=F,quote=F)
+
+##JohnsonCUD.gz##
+CAN_RawSumstats <- fread("D://GSEM//gz files//JohnsonCUD.gz")
+CAN_Sumstats <- CAN_RawSumstats
+head(CAN_Sumstats)
+
+CAN_Sumstats <- CAN_Sumstats[,c(1,2,3,4,5,6,7,8)]
+
+write.table(CAN_Sumstats, paste0(outPath,'/JohnsonCAN.txt'), col.names=T, row.names=F,quote=F)
+
+##SchumannALC.gz##
+
+ALC_RawSumstats <- fread("D://GSEM//gz files//SchumannALC.gz")
+ALC_Sumstats <- ALC_RawSumstats
+head(ALC_Sumstats)
+
+ALC_Sumstats <- ALC_Sumstats[,c(1,2,3,4,5,6,7,8,9)] #col selection
+
+#renaming
+names(ALC_Sumstats)[names(ALC_Sumstats)=="MarkerName"] <- "SNP"
+names(ALC_Sumstats)[names(ALC_Sumstats)=="PhysPos"] <- "BP"
+names(ALC_Sumstats)[names(ALC_Sumstats)=="Allele1"] <- "A1"
+names(ALC_Sumstats)[names(ALC_Sumstats)=="Allele2"] <- "A2"
+names(ALC_Sumstats)[names(ALC_Sumstats)=="Freq1"] <- "MAF"
+names(ALC_Sumstats)[names(ALC_Sumstats)=="Effect"] <- "BETA"
+names(ALC_Sumstats)[names(ALC_Sumstats)=="StdErr"] <- "SE"
+names(ALC_Sumstats)[names(ALC_Sumstats)=="P.value"] <- "P"
+names(ALC_Sumstats)[names(ALC_Sumstats)=="Chr"] <- "CHR"
+
+#reformatting alleles
+ALC_Sumstats$A1 <- toupper(ALC_Sumstats$A1)
+ALC_Sumstats$A2 <- toupper(ALC_Sumstats$A2)
+
+write.table(ALC_Sumstats, paste0(outPath,'/SchumannALC.txt'), col.names=T, row.names=F,quote=F)
+
+##WoottonSMK.txt##
+SMK_RawSumstats <- fread("D://GSEM//text files//WoottonSMK.txt")
+SMK_Sumstats <- SMK_RawSumstats
+head(SMK_Sumstats) #already QC'ed
+
+##GroveASD##
+ASD_RawSumstats <- fread("D://GSEM//GroveASD")
+ASD_Sumstats <- ASD_RawSumstats
+head(ASD_Sumstats)
+
+names(ASD_Sumstats)[names(ASD_Sumstats)=="EUR_FRQ"] <- "MAF"
+
+write.table(ASD_Sumstats, paste0(outPath,'/GroveASD.txt'), col.names=T, row.names=F,quote=F)
+
+##DemontisADHD.txt##
+
+ADHD_RawSumstats <- fread("D://GSEM//text files//DemontisADHD.txt")
+ADHD_Sumstats <- ADHD_RawSumstats
+head(ADHD_Sumstats) #already QC'ed
+
+##PardinasSCZ.txt##
+
+SCZ_RawSumstats <- fread("D://GSEM//text files//PardinasSCZ.txt")
+SCZ_Sumstats <- SCZ_RawSumstats
+head(SCZ_Sumstats) #aready QC'ed
+
+
+```
+
+## Munging using GenomicSEM
+
+```{r munge, echo=FALSE}
+
+setwd(outPath) #sets new WD to outPath so cleaned and munged files are saved
+
+##munging
+files <- c("DemontisADHD.txt","OtowaANX.txt","GroveASD.txt","StahlBIP.txt","JohnsonCAN.txt","SchumannALC.txt","HowardMDD.txt","PardinasSCZ.txt","NievergeltPTSD.txt","WoottonSMK.txt","DayLONE.txt")
+trait.names<-c("ADHD","ANX","ASD","BIP","CAN","ALC","MDD","SCZ","PTSD","SMK","LONELINESS")
+hm3 = "D://GSEM//w_hm3.noMHC.snplist" #hapmap3 reference alleles downloaded 
+
+#N = total sample size for traits
+N<-c(55374,17310,46350,51710,384032,70460,807553,105318,9537,462690,487647)
+
+#Run the munge function. This will create all the .sumstats.gz files (e.g., DEP_HM3.sumstats.gz)
+munge(files=files,hm3=hm3, trait.names=trait.names, N=N)
+
+```
+
