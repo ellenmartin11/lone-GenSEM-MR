@@ -1,0 +1,249 @@
+---
+title: "GenSEM LDSC"
+author: "Ellen Martin"
+date: "07/02/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## LDSC
+
+6 LDSC analyses are run:
+1) no loneliness odd
+2) full odd
+3) no loneliness even
+4) full even
+5) full all
+6) no loneliness all
+
+```{r ldsc}
+
+setwd("D:\\GSEM\\processed GSEM data") #setting WD to where the munged .sumstat.gz files are
+
+##(1) no loneliness odd##
+traits <- c("ADHD.sumstats.gz","ALC.sumstats.gz","ANX.sumstats.gz","GroveASD.sumstats.gz","BIP.sumstats.gz","CAN.sumstats.gz","HowardMDD.sumstats.gz","PTSD.sumstats.gz","SCZ.sumstats.gz","SMK.sumstats.gz")
+sample.prev <- c(0.364,NA,0.405,0.118,0.394,0.054,0.305,0.133,0.386,NA)
+population.prev <- c(0.05,NA,0.209,0.0012,0.02,0.01,0.206,0.068,0.01,NA)
+ld <- "eur_w_ld_chr/"
+wld <- "eur_w_ld_chr/"
+trait.names<-c("ADHD","ALC","ANX","ASD","BIP","CAN","MDD","PTSD","SCZ","SMK")
+LDSCoutput <- ldsc(traits, sample.prev, population.prev, ld, wld, trait.names, select = "ODD") #selecting odd CHR using LDSC in GenomicSEM
+no_loneliness_odd <- LDSCoutput
+save(no_loneliness_odd, file="D:\\GSEM\\processed GSEM data\\GSEM2\\no_loneliness_odd.RData") #saving to new folder GSEM2
+
+
+##(2) full odd##
+
+traits <- c("ADHD.sumstats.gz","ALC.sumstats.gz","ANX.sumstats.gz","GroveASD.sumstats.gz","BIP.sumstats.gz","CAN.sumstats.gz","HowardMDD.sumstats.gz","PTSD.sumstats.gz","SCZ.sumstats.gz","SMK.sumstats.gz","LONE.sumstats.gz")
+sample.prev <- c(0.364,NA,0.405,0.118,0.394,0.054,0.305,0.133,0.386,NA,NA)
+population.prev <- c(0.05,NA,0.209,0.0012,0.02,0.01,0.206,0.068,0.01,NA,NA)
+ld <- "eur_w_ld_chr/"
+wld <- "eur_w_ld_chr/"
+trait.names<-c("ADHD","ALC","ANX","ASD","BIP","CAN","MDD","PTSD","SCZ","SMK","LONELINESS") #includes loneliness
+LDSCoutput <- ldsc(traits=traits, sample.prev=sample.prev, population.prev=population.prev, ld=ld, wld=wld,trait.names=trait.names, select = "ODD")
+complete_odd <- LDSCoutput
+save(complete_odd, file="D:\\GSEM\\processed GSEM data\\GSEM2\\complete_odd.RData")
+
+
+##(3) no loneliness even
+traits <- c("ADHD.sumstats.gz","ALC.sumstats.gz","ANX.sumstats.gz","GroveASD.sumstats.gz","BIP.sumstats.gz","CAN.sumstats.gz","HowardMDD.sumstats.gz","PTSD.sumstats.gz","SCZ.sumstats.gz","SMK.sumstats.gz")
+sample.prev <- c(0.364,NA,0.405,0.118,0.394,0.054,0.305,0.133,0.386,NA)
+population.prev <- c(0.05,NA,0.209,0.0012,0.02,0.01,0.206,0.068,0.01,NA)
+ld <- "eur_w_ld_chr/"
+wld <- "eur_w_ld_chr/"
+trait.names<-c("ADHD","ALC","ANX","ASD","BIP","CAN","MDD","PTSD","SCZ","SMK")
+LDSCoutput <- ldsc(traits, sample.prev, population.prev, ld, wld, trait.names, select = "EVEN")
+no_loneliness_even <- LDSCoutput
+save(no_loneliness_even, file="D:\\GSEM\\processed GSEM data\\GSEM2\\no_loneliness_even.RData")
+
+
+##(4) full even##
+traits <- c("ADHD.sumstats.gz","ALC.sumstats.gz","ANX.sumstats.gz","GroveASD.sumstats.gz","BIP.sumstats.gz","CAN.sumstats.gz","HowardMDD.sumstats.gz","PTSD.sumstats.gz","SCZ.sumstats.gz","SMK.sumstats.gz","LONE.sumstats.gz")
+sample.prev <- c(0.364,NA,0.405,0.118,0.394,0.054,0.305,0.133,0.386,NA,NA)
+population.prev <- c(0.05,NA,0.209,0.0012,0.02,0.01,0.206,0.068,0.01,NA,NA)
+ld <- "eur_w_ld_chr/"
+wld <- "eur_w_ld_chr/"
+trait.names<-c("ADHD","ALC","ANX","ASD","BIP","CAN","MDD","PTSD","SCZ","SMK","LONELINESS")
+LDSCoutput <- ldsc(traits=traits, sample.prev=sample.prev, population.prev=population.prev, ld=ld, wld=wld,trait.names=trait.names, select = "EVEN")
+complete_even <- LDSCoutput
+save(complete_even, file="D:\\GSEM\\processed GSEM data\\GSEM2\\complete_even.RData")
+
+
+##(5) combined complete##
+traits <- c("ADHD.sumstats.gz","ALC.sumstats.gz","ANX.sumstats.gz","GroveASD.sumstats.gz","BIP.sumstats.gz","CAN.sumstats.gz","HowardMDD.sumstats.gz","PTSD.sumstats.gz","SCZ.sumstats.gz","SMK.sumstats.gz","LONE.sumstats.gz")
+sample.prev <- c(0.364,NA,0.405,0.118,0.394,0.054,0.305,0.133,0.386,NA,NA)
+population.prev <- c(0.05,NA,0.209,0.0012,0.02,0.01,0.206,0.068,0.01,NA,NA)
+ld <- "eur_w_ld_chr/"
+wld <- "eur_w_ld_chr/"
+trait.names<-c("ADHD","ALC","ANX","ASD","BIP","CAN","MDD","PTSD","SCZ","SMK","LONELINESS")
+LDSCoutput <- ldsc(traits=traits, sample.prev=sample.prev, population.prev=population.prev, ld=ld, wld=wld,trait.names=trait.names)
+combined_covstruc <- LDSCoutput
+save(combined_covstruc, file="D:\\GSEM\\processed GSEM data\\GSEM2\\combined_covstruc.RData")
+
+
+##(6) no loneliness combined LDSC##
+traits <- c("ADHD.sumstats.gz","ALC.sumstats.gz","ANX.sumstats.gz","GroveASD.sumstats.gz","BIP.sumstats.gz","CAN.sumstats.gz","HowardMDD.sumstats.gz","PTSD.sumstats.gz","SCZ.sumstats.gz","SMK.sumstats.gz")
+sample.prev <- c(0.364,NA,0.405,0.118,0.394,0.054,0.305,0.133,0.386,NA)
+population.prev <- c(0.05,NA,0.209,0.0012,0.02,0.01,0.206,0.068,0.01,NA)
+ld <- "eur_w_ld_chr/"
+wld <- "eur_w_ld_chr/"
+trait.names<-c("ADHD","ALC","ANX","ASD","BIP","CAN","MDD","PTSD","SCZ","SMK")
+LDSCoutput <- ldsc(traits=traits, sample.prev=sample.prev, population.prev=population.prev, ld=ld, wld=wld,trait.names=trait.names)
+no_loneliness_combined_covstruc <- LDSCoutput
+save(no_loneliness_combined_covstruc, file="D:\\GSEM\\processed GSEM data\\GSEM2\\no_loneliness_combined_covstruc.RData")
+
+```
+
+##Correlation Heatmap Using LDSC Output
+
+```{r cors}
+
+#specifying a model to obtain unadjusted LDSC estimates for a correlation heatmap
+cor.mod <- '
+lADHD =~ NA*ADHD
+lANX =~ NA*ANX
+lASD =~ NA*ASD
+lALC =~ NA*ALC
+lBIP =~ NA*BIP
+lCAN =~ NA*CAN
+lLONELINESS =~ NA*LONELINESS
+lMDD =~ NA*MDD
+lPTSD =~ NA*PTSD
+lSMK =~ NA*SMK
+lSCZ =~ NA*SCZ
+
+ADHD ~~ 0*ADHD + 0*ANX + 0*ASD + 0*ALC + 0*BIP + 0*CAN + 0*LONELINESS + 0*MDD + 0*PTSD + 0*SMK + 0*SCZ
+ANX ~~ 0*ANX + 0*ASD + 0*ALC + 0*BIP + 0*CAN + 0*LONELINESS + 0*MDD + 0*PTSD + 0*SMK + 0*SCZ
+ASD ~~ 0*ASD + 0*ALC + 0*BIP + 0*CAN + 0*LONELINESS + 0*MDD + 0*PTSD + 0*SMK + 0*SCZ
+ALC ~~ 0*ALC + 0*BIP + 0*CAN + 0*LONELINESS + 0*MDD + 0*PTSD + 0*SMK + 0*SCZ
+BIP ~~ 0*BIP + 0*CAN + 0*LONELINESS + 0*MDD + 0*PTSD + 0*SMK + 0*SCZ
+CAN ~~ 0*CAN + 0*LONELINESS + 0*MDD + 0*PTSD + 0*SMK + 0*SCZ
+LONELINESS ~~ 0*LONELINESS + 0*MDD + 0*PTSD + 0*SMK + 0*SCZ
+MDD ~~ 0*MDD + 0*PTSD + 0*SMK + 0*SCZ
+PTSD ~~ 0*PTSD + 0*SMK + 0*SCZ
+SMK ~~ 0*SMK + 0*SCZ
+SCZ ~~ 0*SCZ
+
+lADHD ~~ 1*lADHD + lANX + lASD + lALC + lBIP + lCAN + lLONELINESS + lMDD + lPTSD + lSMK + lSCZ
+lANX ~~ 1*lANX + lASD + lALC + lBIP + lCAN + lLONELINESS + lMDD + lPTSD + lSMK + lSCZ
+lASD ~~ 1*lASD + lALC + lBIP + lCAN + lLONELINESS + lMDD + lPTSD + lSMK + lSCZ
+lALC ~~ 1*lALC + lBIP + lCAN + lLONELINESS + lMDD + lPTSD + lSMK + lSCZ
+lBIP ~~ 1*lBIP + lCAN + lLONELINESS + lMDD + lPTSD + lSMK + lSCZ
+lCAN ~~ 1*lCAN + lLONELINESS + lMDD + lPTSD + lSMK + lSCZ
+lLONELINESS ~~ 1*lLONELINESS + lMDD + lPTSD + lSMK + lSCZ
+lMDD ~~ 1*lMDD + lPTSD + lSMK + lSCZ
+lPTSD ~~ 1*lPTSD + lSMK + lSCZ
+lSMK ~~ 1*lSMK + lSCZ
+lSCZ ~~ 1*lSCZ
+'
+
+cors <-  usermodel(covstruc = combined_covstruc ,estimation = "DWLS",model = cor.mod) #uses the combined full covstruc
+View(cors$results) #prints correlation coefficient estimates and p-values
+
+
+```
+
+##FDR adjustment of correlation coefficient estimates##
+
+#Preparing Correlation Matrices
+
+```{r matrices}
+
+##reading in data##
+
+#scanning the data from the LDSC correlation matrix
+CorrMat <- matrix(scan(),11,11, byrow = TRUE)
+1	0.034429	0.22739	0.29878	0.100076	0.554397	0.363435	0.435944	0.653635	0.119374	0.590547
+0.034429	1	-0.023041	0.1331276	0.0172002	0.2342652	-0.0883738	0.0033234	0.001708	0.046788	0.2659978
+0.22739	-0.023041	1	0.267594	0.18475	0.423273	0.6463498	0.84348	0.543285	0.275032	0.347125
+0.29878	0.1331276	0.267594	1	0.133288	0.103323	0.260332	0.350378	0.341662	0.223555	0.022857
+0.100076	0.0172002	0.18475	0.133288	1	0.23821	0.016829	0.331038	0.213156	0.663127	0.106835
+0.554397	0.2342652	0.423273	0.103323	0.23821	1	0.258467	0.35657	0.526477	0.388205	0.743214
+0.363435	-0.0883738	0.6463498	0.260332	0.016829	0.258467	1	0.587439	0.767502	0.17777	0.345027
+0.435944	0.0033234	0.84348	0.350378	0.331038	0.35657	0.587439	1	0.7182257	0.329616	0.3374818
+0.653635	0.001708	0.543285	0.341662	0.213156	0.526477	0.767502	0.7182257	1	0.3483088	0.5233047
+0.119374	0.046788	0.275032	0.223555	0.663127	0.388205	0.17777	0.329616	0.3483088	1	0.20135
+0.590547	0.2659978	0.347125	0.022857	0.106835	0.743214	0.345027	0.3374818	0.5233047	0.20135	1
+
+
+#matrix of p-values
+PMat <- matrix(scan(),11,11, byrow = TRUE)
+0.00E+00	6.84E-01	1.75E-01	3.61E-05	5.92E-02	1.90E-13	1.28E-15	1.11E-19	1.26E-09	5.77E-03	3.95E-41
+6.84E-01	0.00E+00	8.89E-01	7.75E-02	7.88E-01	2.24E-03	1.40E-01	9.47E-01	9.88E-01	3.10E-01	1.96E-08
+1.75E-01	8.89E-01	0.00E+00	6.06E-02	5.99E-02	8.07E-04	3.40E-07	7.41E-08	7.33E-03	4.61E-04	1.36E-04
+3.61E-05	7.75E-02	6.06E-02	0.00E+00	4.24E-03	9.27E-02	3.22E-10	3.30E-21	1.94E-04	6.84E-09	5.79E-01
+5.92E-02	7.88E-01	5.99E-02	4.24E-03	0.00E+00	2.59E-07	6.17E-01	1.41E-32	3.54E-04	3.13E-96	8.10E-05
+1.90E-13	2.24E-03	8.07E-04	9.27E-02	2.59E-07	0.00E+00	8.38E-11	3.46E-25	4.95E-10	7.27E-27	4.71E-99
+1.28E-15	1.40E-01	3.40E-07	3.22E-10	6.17E-01	8.38E-11	0.00E+00	8.78E-134	9.27E-25	2.39E-15	1.47E-46
+1.11E-19	9.47E-01	7.41E-08	3.30E-21	1.41E-32	3.46E-25	8.78E-134	0.00E+00	1.56E-24	4.58E-39	5.72E-54
+1.26E-09	9.88E-01	7.33E-03	1.94E-04	3.54E-04	4.95E-10	9.27E-25	1.56E-24	0.00E+00	8.06E-09	8.00E-17
+5.77E-03	3.10E-01	4.61E-04	6.84E-09	3.13E-96	7.27E-27	2.39E-15	4.58E-39	8.06E-09	0.00E+00	1.84E-23
+3.95E-41	1.96E-08	1.36E-04	5.79E-01	8.10E-05	4.71E-99	1.47E-46	5.72E-54	8.00E-17	1.84E-23	0.00E+00
+
+##renaming columns##
+
+#renaming the column names with traits
+colNames <- c("ADHD","ALC","ANX","ASD","BIP","CAN","LONELINESS","MDD", "PTSD","SCZ","SMK")
+colnames(CorrMat) <- colNames #changin colnames of CorrMat
+colnames(PMat) <- colNames #changin colnames of PMat
+
+#renaming row names with traits
+rownames(CorrMat) <- colNames
+rownames(PMat) <- colNames
+
+#checking the matrices
+CorrMat
+PMat
+
+#saving the matrices
+save(PMat, file="corrpvals.RData")
+save(CorrMat, file="corrcoeff.RData")
+
+#loading matrices
+load("corrpvals.RData")
+load("corrcoeff.RData")
+
+##initial correlation heatmap##
+#looking at initial, uncorrected correlation matrix
+library(corrplot) #corrplot library verion .84
+
+corrplot(CorrMat, p.mat = PMat, method = "color", type = "upper", is.corr = TRUE, diag = TRUE, sig.level = .05, insig = "label_sig", pch.col = "black", pch.cex = 1.5)
+
+```
+
+#Adjusting using FDR Correction
+
+```{r FDR}
+
+library(gdata) #getting gdata package
+
+#gathering just the upper Triangle
+PMat.upper <- upperTriangle(PMat, diag = FALSE, byrow=TRUE)
+PMat.upper #checking that the upper triangle has been gathered
+
+#calculating FDR values from the upper triangle P values
+PMat.FDR <- p.adjust(PMat.upper, method = "fdr")
+PMat.FDR #checking that fdr values have been calculated
+
+PmatU <- PMat
+
+upperTriangle(PmatU) <- NA #filling the upper triangle with NA values to be overwritten
+
+upperTriangle(PmatU, byrow = TRUE) <- PMat.FDR #overwriting NA values with the FDR values in the Upper Triangle
+PmatU #now contains upper triangle full of FDR-corrected p-values
+
+#filling the lower triangle with FDR values (making the matrix symmetric)
+lowerTriangle(PmatU) <- NA
+lowerTriangle(PmatU, byrow=TRUE) <- upperTriangle(PmatU) #assigning upper triangle values to lower triangle
+PmatU #this is now symmetric and adjusted by FDR
+
+save(PmatU, file="FDRp.RData") #saving the corrected P-values matrix
+
+#generating correlation heatmap using new p-values with corrplot function
+corrplot(CorrMat, p.mat = PmatU, method = "color", type = "upper", is.corr = TRUE, diag = TRUE, sig.level = .05, insig = "label_sig", pch.col = "black", pch.cex = 1)
+
+```
+
