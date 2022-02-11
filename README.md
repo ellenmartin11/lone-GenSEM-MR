@@ -4,6 +4,6 @@ Genomic Structural Equation Modelling and Mendelian Randomization of Loneliness 
 This project uses the GenomicSEM package in R created by Grotzinger et al (https://github.com/GenomicSEM/GenomicSEM)
 
 Scripts include:
-- Quality Control and Data Preparation Procedures
+- Quality Control and Data Preparation Procedures (https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/GenSEM%20QC.Rmd)
 - Linkage Disequilibrium Score Regression (conducted via GenomicSEM)
 - Exploratory Factor Analysis, Confirmatory Factor Analysis, Genomic Structural Equation Modelling
