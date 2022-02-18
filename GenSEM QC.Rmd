@@ -25,8 +25,9 @@ outPath=paste0(filepath, "//processed GSEM data") #output path for saved data
 library(data.table)
 library(GenomicSEM)
 ```
-
-## Cleaning and Quality Control of Raw Summary Statistics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## Cleaning and Quality Control of Raw Summary Statistics ##
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Raw Sumstats downloaded either as .gz files or .txt files
 
@@ -115,6 +116,13 @@ head(CAN_Sumstats)
 
 CAN_Sumstats <- CAN_Sumstats[,c(1,2,3,4,5,6,7,8)]
 
+#calculating BETA
+CAN_Sumstats$BETA <- CAN_Sumstats$Z / sqrt((2*CAN_Sumstats$P)*(1-CAN_Sumstats$P)*(CAN_Sumstats$N + (CAN_Sumstats$Z)^2))
+
+#calculating SE
+
+CAN_Sumstats$SE <- 1 / sqrt((2*CAN_Sumstats$P)*(1-CAN_Sumstats$P)*(CAN_Sumstats$N + (CAN_Sumstats$Z)^2))
+
 write.table(CAN_Sumstats, paste0(outPath,'/JohnsonCAN.txt'), col.names=T, row.names=F,quote=F)
 
 ##SchumannALC.gz##
@@ -170,8 +178,9 @@ head(SCZ_Sumstats) #aready QC'ed
 
 
 ```
-
-## Munging using GenomicSEM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## Munging using GenomicSEM ##
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ```{r munge, echo=FALSE}
 
