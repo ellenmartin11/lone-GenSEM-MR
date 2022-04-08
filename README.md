@@ -9,4 +9,4 @@ Scripts include:
 - Multivariate GWAS (conducted via GenomicSEM using the UCL Myriad Cluster)
 
 Figures include:
-- Correlation Heatmap (
+- Correlation Heatmap (https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure1.pdf)
