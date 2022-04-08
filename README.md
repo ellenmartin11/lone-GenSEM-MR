@@ -1,5 +1,4 @@
-# lone-GenSEM-MR
-Genomic Structural Equation Modelling and Mendelian Randomization of Loneliness and Psychiatric/Substance Use Phenotypes
+# Genomic Structural Equation Modelling and Mendelian Randomization of Loneliness and Psychiatric/Substance Use Phenotypes
 
 This project uses the GenomicSEM package in R created by Grotzinger et al (https://github.com/GenomicSEM/GenomicSEM)
 
