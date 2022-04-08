@@ -245,8 +245,5 @@ save(PmatU, file="FDRp.RData") #saving the corrected P-values matrix
 #generating correlation heatmap using new p-values with corrplot function
 corrplot(CorrMat, p.mat = PmatU, method = "color", type = "upper", is.corr = TRUE, diag = TRUE, sig.level = .05, insig = "label_sig", pch.col = "black", pch.cex = 1)
 
-#the heatmap
-![image](https://user-images.githubusercontent.com/68326791/162479835-5e945ec7-a3da-42f0-89b6-c1f1d5ba0cef.png)
-
 ```
 
