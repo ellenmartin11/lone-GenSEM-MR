@@ -371,13 +371,13 @@ View(fitc$results)
 
 ## GenomicSEM with Loneliness
 - specifying both a multivariate (adjusted) and non-adjusted model
+### multivariate (adjusted), constrained model
 
 ```r
 setwd("C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2") #setting WD locally
 
 load("combined_covstruc.RData") #full ldsc data set used
 
-#multivariate (adjusted), constrained model
 multivar_constrained<- '
 #specifying factor structure
                         F1 =~ NA*ADHD + ANX + ASD + PTSD + MDD
@@ -403,9 +403,9 @@ fit1constr$modelfit #SRMR = .10, CFI = .94 - poorer fit than unconstrained multi
 ##       chisq df     p_chisq      AIC       CFI       SRMR
 ## df 387.4599 41 5.98959e-58 437.4599 0.9354812 0.09849712
 ```
+### multivar model constrained and latent indicator for lone
 
 ```r
-#multivar model constrained and latent indicator for lone
 multivar_constrained_latent<- 'F1 =~ NA*ADHD + ANX + ASD + PTSD + MDD
                                F2 =~ NA*ALC + CAN + SMK
                                F3 =~ NA*BIP + SCZ
@@ -437,6 +437,8 @@ fit1constrlatent$modelfit #same fit
 ##       chisq df      p_chisq      AIC       CFI       SRMR
 ## df 387.4601 41 5.989008e-58 437.4601 0.9354812 0.09849714
 ```
+![image](https://user-images.githubusercontent.com/68326791/163407388-0276b80d-106a-4d15-b57c-5ebe44721638.png)
+
 ### unadjusted model
 
 ```r
