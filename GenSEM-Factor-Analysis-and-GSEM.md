@@ -75,6 +75,8 @@ screeplot(res.pca, type = "lines")
 ```
 
 ![](GenSEM-Factor-Analysis-and-GSEM_files/figure-html/scree-2.png)<!-- -->
+![image](https://user-images.githubusercontent.com/68326791/163401691-763a73cd-f12b-4409-816c-3acee8fed2e0.png)
+
 
 ```r
 fviz_eig(res.pca)
