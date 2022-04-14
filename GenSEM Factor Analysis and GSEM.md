@@ -434,7 +434,9 @@ fit1constrlatent$modelfit #same fit
 #write.csv(fit1constrlatent$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\multivarconstrlatent.csv", row.names = TRUE)
 
 ```
+Full usermodel results:
 
+https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/multivarconstrlatent.csv
 ```
 ##       chisq df      p_chisq      AIC       CFI       SRMR
 ## df 387.4601 41 5.989008e-58 437.4601 0.9354812 0.09849714
@@ -468,9 +470,10 @@ fit2unadj<-usermodel(combined_covstruc, estimation = "DWLS", model = unadjusted_
 View(fit2unadj$results) 
 fit2unadj$modelfit
 #write.csv(fit2unadj$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\fit2unadj.csv", row.names = TRUE)
-
 ```
+Full usermodel results:
 
+https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/fit2unadj.csv
 ```
 ##       chisq df      p_chisq      AIC       CFI       SRMR
 ## df 319.2259 39 1.116823e-45 373.2259 0.9478155 0.09417271
