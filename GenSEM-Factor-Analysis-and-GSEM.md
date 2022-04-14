@@ -19,7 +19,7 @@ Factor Analysis:
 
 - Specification of GenomicSEM model with loneliness, based on best-fitting factor structure
 
-##Setting WD's and Getting Libraries
+Setting WD's and Getting Libraries
 
 
 ```r
@@ -30,168 +30,16 @@ library(Matrix) #for smoothing the data
 library(GenomicSEM) #for confirmatory factor analysis
 ```
 
-```
-## Warning: replacing previous import 'gdata::nobs' by 'lavaan::nobs' when loading
-## 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'gdata::last' by 'data.table::last' when
-## loading 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'gdata::first' by 'data.table::first' when
-## loading 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'gdata::env' by 'R.utils::env' when loading
-## 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'gdata::resample' by 'R.utils::resample' when
-## loading 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'data.table::last' by 'dplyr::last' when
-## loading 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'plyr::summarize' by 'dplyr::summarize' when
-## loading 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'plyr::mutate' by 'dplyr::mutate' when
-## loading 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'plyr::id' by 'dplyr::id' when loading
-## 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'plyr::arrange' by 'dplyr::arrange' when
-## loading 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'plyr::summarise' by 'dplyr::summarise' when
-## loading 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'data.table::first' by 'dplyr::first' when
-## loading 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'plyr::rename' by 'dplyr::rename' when
-## loading 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'plyr::desc' by 'dplyr::desc' when loading
-## 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'plyr::count' by 'dplyr::count' when loading
-## 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'gdata::combine' by 'dplyr::combine' when
-## loading 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'data.table::between' by 'dplyr::between'
-## when loading 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'plyr::failwith' by 'dplyr::failwith' when
-## loading 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'Matrix::tail' by 'utils::tail' when loading
-## 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'Rcpp::.DollarNames' by 'utils::.DollarNames'
-## when loading 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'Rcpp::prompt' by 'utils::prompt' when
-## loading 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'Matrix::head' by 'utils::head' when loading
-## 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'R.utils::timestamp' by 'utils::timestamp'
-## when loading 'GenomicSEM'
-```
-
-```
-## Warning: replacing previous import 'gdata::object.size' by 'utils::object.size'
-## when loading 'GenomicSEM'
-```
 
 ```r
 library(psych) #for factor analysis
 library(factoextra) #for factor analysis
 ```
 
-```
-## Loading required package: ggplot2
-```
-
-```
-## 
-## Attaching package: 'ggplot2'
-```
-
-```
-## The following objects are masked from 'package:psych':
-## 
-##     %+%, alpha
-```
-
-```
-## Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa
-```
-
 ```r
 library(nFactors) #for factor analysis
 ```
 
-```
-## Loading required package: lattice
-```
-
-```
-## 
-## Attaching package: 'nFactors'
-```
-
-```
-## The following object is masked from 'package:lattice':
-## 
-##     parallel
-```
 
 ```r
 #data
