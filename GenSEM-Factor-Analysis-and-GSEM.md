@@ -65,6 +65,8 @@ plotnScree(nS) #plots scree
 ```
 
 ![](GenSEM-Factor-Analysis-and-GSEM_files/figure-html/scree-1.png)<!-- -->
+![image](https://user-images.githubusercontent.com/68326791/163401518-4c1be344-a44c-4290-972b-7014cd2278b3.png)
+
 
 ```r
 #alternate visualisation of scree plot
