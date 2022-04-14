@@ -19,6 +19,8 @@ Factor Analysis:
 
 - Specification of GenomicSEM model with loneliness, based on best-fitting factor structure
 
+- Path diagrams were manually generated using PowerPoint
+
 Setting WD's and Getting Libraries
 
 
