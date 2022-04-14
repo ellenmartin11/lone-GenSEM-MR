@@ -116,9 +116,9 @@ fviz_screeplot(res.pca)
 
 Conducted specifying 1 - 4 factors to retain.
 
-
+### 1 factor
 ```r
-#1 factor
+
 fit1 <- fa(corrstruc_smooth, nfactors = 1, rotate = "promax", fm = "uls")
 fit1$loadings
 ```
@@ -142,25 +142,12 @@ fit1$loadings
 ## SS loadings    3.551
 ## Proportion Var 0.355
 ```
-
+### 2 factor
 ```r
-#factor structure
-# 'F1 =~ ADHD + CAN + PTSD + SMK + MDD
-#  F2 =~ ANX + BIP + MDD + SCZ
 
-
-#2 factor
 fit2 <- fa(corrstruc_smooth, nfactors = 2, rotate = "promax", fm = "uls")
-```
-
-```
-## Loading required namespace: GPArotation
-```
-
-```r
 fit2$loadings
 ```
-
 ```
 ## 
 ## Loadings:
@@ -181,14 +168,14 @@ fit2$loadings
 ## Proportion Var 0.265 0.193
 ## Cumulative Var 0.265 0.458
 ```
+F1 =~ ADHD + CAN + PTSD + SMK + MDD
 
-```r
-#factor structure
-# 'F1 =~ ADHD + CAN + PTSD + SMK + MDD
-#  F2 =~ ANX + BIP + MDD + SCZ
+F2 =~ ANX + BIP + MDD + SCZ
 
 
-#3 factor
+### 3 factor
+
+```
 fit3 <- fa(corrstruc_smooth, nfactors = 3, rotate = "promax", fm = "uls")
 fit3$loadings
 ```
@@ -213,26 +200,17 @@ fit3$loadings
 ## Proportion Var 0.275 0.139 0.139
 ## Cumulative Var 0.275 0.413 0.552
 ```
+F1 =~ ADHD + ANX + ASD + MDD + PTSD
 
+F2 =~ ALC + CAN + SMK
+
+F3 =~ BIP + SCZ
+
+
+### 4 factor
 ```r
-#factor structure
-# 'F1 =~ ADHD + ANX + ASD + MDD + PTSD
-#  F2 =~ ALC + CAN + SMK
-#  F3 =~ BIP + SCZ
-
-
-#4 factor
 
 fit4 <- fa(corrstruc_smooth, nfactors = 4, rotate="promax", fm = "uls")
-```
-
-```
-## Warning in fa.stats(r = r, f = f, phi = phi, n.obs = n.obs, np.obs = np.obs, :
-## The estimated weights for the factor scores are probably incorrect. Try a
-## different factor score estimation method.
-```
-
-```r
 fit4$loadings
 ```
 
@@ -256,112 +234,62 @@ fit4$loadings
 ## Proportion Var 0.207 0.162 0.143 0.138
 ## Cumulative Var 0.207 0.369 0.512 0.650
 ```
+F1 =~ ADHD + ASD + MDD + PTSD
 
-```r
-#factor structure
-# 'F1 =~ ADHD + ASD + MDD + PTSD
-#  F2 =~ ANX + MDD
-#  F3 =~ BIP + SCZ
-#  F4 =~ ALC + CAN + SMK
-```
+F2 =~ ANX + MDD
+
+F3 =~ BIP + SCZ
+
+F4 =~ ALC + CAN + SMK
 
 ## Confirmatory Factor Analysis
 
 Conducted using GenomicSEM, using the EVEN data to prevent overfitting
 - Results suggest that a 3 factor solution achieves the best fit
-
-
 ```r
 setwd("C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2") #setting WD locally
 
 load("no_loneliness_even.RData")
-
-#1 factor (p-factor)
-
+```
+### 1 factor (p-factor)
+```
 model1CFA <- 'F1 =~ NA*ADHD + ANX + ASD + MDD + PTSD + BIP + SCZ + CAN + SMK'
 pfact<-usermodel(no_loneliness_even, estimation = "DWLS", model = model1CFA, CFIcalc = TRUE, std.lv = TRUE)
 ```
 
-```
-## [1] "Running primary model"
-## [1] "Calculating model chi-square"
-## [1] "Calculating CFI"
-## [1] "Calculating Standardized Results"
-## [1] "Calculating SRMR"
-## elapsed 
-##    2.59 
-## [1] "The S matrix was smoothed prior to model estimation due to a non-positive definite matrix. The largest absolute difference in a cell between the smoothed and non-smoothed matrix was  0.00725703275851572 As a result of the smoothing, the largest Z-statistic change for the genetic covariances was  1.55294575366921 . We recommend setting the smooth_check argument to true if you are going to run a multivariate GWAS."
-```
-
-```
-## Warning in usermodel(no_loneliness_even, estimation = "DWLS", model =
-## model1CFA, : A difference greater than .025 was observed pre- and post-
-## smoothing for Z-statistics in the genetic covariance matrix. This reflects a
-## large difference and results should be interpreted with caution!! This can often
-## result from including low powered traits, and you might consider removing those
-## traits from the model. If you are going to run a multivariate GWAS we strongly
-## recommend setting the smooth_check argument to true to check smoothing for each
-## SNP.
-```
-
 ```r
-pfact$modelfit #0.15 SRMR, 0.76 CFI - poor fit
+pfact$modelfit 
+View(pfact$results)
 ```
-
+- 0.15 SRMR and 0.76 CFI suggests poor fit
 ```
 ##       chisq df      p_chisq      AIC       CFI      SRMR
 ## df 336.2923 27 3.947636e-55 372.2923 0.7644647 0.1545144
+
+
 ```
-
-```r
-View(pfact$results)
-
-
-#2 factor (bi-factor)
+### 2 factor (bi-factor)
+```
 
 model2CFA <- 'F1 =~ NA*ADHD + CAN + PTSD + SMK + MDD
               F2 =~ NA*ANX + BIP + MDD + SCZ
 '
 fita<-usermodel(no_loneliness_even, estimation = "DWLS", model = model2CFA, CFIcalc = TRUE, std.lv = TRUE)
-```
+
+fita$modelfit 
+View(fita$results)
 
 ```
-## [1] "Running primary model"
-## [1] "Calculating model chi-square"
-## [1] "Calculating CFI"
-## [1] "Calculating Standardized Results"
-## [1] "Calculating SRMR"
-## elapsed 
-##    1.79 
-## [1] "The S matrix was smoothed prior to model estimation due to a non-positive definite matrix. The largest absolute difference in a cell between the smoothed and non-smoothed matrix was  0.00646004760582394 As a result of the smoothing, the largest Z-statistic change for the genetic covariances was  1.6333380233469 . We recommend setting the smooth_check argument to true if you are going to run a multivariate GWAS."
-```
-
-```
-## Warning in usermodel(no_loneliness_even, estimation = "DWLS", model =
-## model2CFA, : A difference greater than .025 was observed pre- and post-
-## smoothing for Z-statistics in the genetic covariance matrix. This reflects a
-## large difference and results should be interpreted with caution!! This can often
-## result from including low powered traits, and you might consider removing those
-## traits from the model. If you are going to run a multivariate GWAS we strongly
-## recommend setting the smooth_check argument to true to check smoothing for each
-## SNP.
-```
-
-```r
-fita$modelfit #0.19 SRMR, 0.88 CFI - poor fit
-```
-
+- 0.19 SRMR and 0.88 CFI suggests poor fit
 ```
 ##       chisq df      p_chisq      AIC       CFI      SRMR
 ## df 149.5153 18 9.231812e-23 185.5153 0.8819682 0.1908851
 ```
 
+
+### 3 factor 
+smoking forced to one factor (F2)
 ```r
-View(fita$results)
-
-
-#3 factor 
-#smoking forced to one factor (F2)
 
 model3CFA <- 'F1 =~ NA*ADHD + ANX + ASD + MDD + PTSD
               F2 =~ NA*ALC + CAN + SMK
@@ -376,52 +304,18 @@ model3CFA <- 'F1 =~ NA*ADHD + ANX + ASD + MDD + PTSD
               a > .001
 '
 fitb<-usermodel(no_loneliness_even, estimation = "DWLS", model = model3CFA, CFIcalc = TRUE, std.lv = TRUE)
+fitb$modelfit 
+View(fitb$results)
+#write.csv(fitb$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\CFA3.csv", row.names = TRUE)
 ```
-
-```
-## [1] "Running primary model"
-## [1] "Calculating model chi-square"
-## [1] "Calculating CFI"
-## [1] "Calculating Standardized Results"
-## [1] "Calculating SRMR"
-## elapsed 
-##    7.62 
-## [1] "The S matrix was smoothed prior to model estimation due to a non-positive definite matrix. The largest absolute difference in a cell between the smoothed and non-smoothed matrix was  0.00725092094356261 As a result of the smoothing, the largest Z-statistic change for the genetic covariances was  1.54896439799155 . We recommend setting the smooth_check argument to true if you are going to run a multivariate GWAS."
-```
-
-```
-## Warning in usermodel(no_loneliness_even, estimation = "DWLS", model =
-## model3CFA, : A difference greater than .025 was observed pre- and post-
-## smoothing for Z-statistics in the genetic covariance matrix. This reflects a
-## large difference and results should be interpreted with caution!! This can often
-## result from including low powered traits, and you might consider removing those
-## traits from the model. If you are going to run a multivariate GWAS we strongly
-## recommend setting the smooth_check argument to true to check smoothing for each
-## SNP.
-```
-
-```
-## [1] "Please note that when equality constraints are used in the current version of Genomic SEM that the standardized output will also impose the same constraint."
-```
-
-```r
-fitb$modelfit #CFI # .93, SRMR = .10 - acceptable fit
-```
-
+- CFI = .93 and SRMR = .10 suggests acceptable fit, so this will be the selected 3 factor model
 ```
 ##       chisq df      p_chisq      AIC       CFI      SRMR
 ## df 139.4249 33 4.868991e-15 183.4249 0.9274874 0.1047666
 ```
-
+### alternate 3 factor
+smoking on both F1 and F2
 ```r
-View(fitb$results)
-#write.csv(fitb$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\CFA3.csv", row.names = TRUE)
-
-
-
-#alternate 3 factor
-#smoking on both F1 and F2
-
 model3bCFA <- 'F1 =~ NA*ADHD + ANX + ASD + MDD + PTSD + SMK
                F2 =~ NA*ALC + CAN + SMK
                F3 =~ NA*BIP + SCZ
@@ -434,82 +328,18 @@ model3bCFA <- 'F1 =~ NA*ADHD + ANX + ASD + MDD + PTSD + SMK
                a > .001
 '
 fitb2<-usermodel(no_loneliness_even, estimation = "DWLS", model = model3bCFA, CFIcalc = TRUE, std.lv = TRUE)
-```
+fitb2$modelfit 
+View(fitb2$results)
 
 ```
-## [1] "Running primary model"
-## [1] "Calculating model chi-square"
-## [1] "Calculating CFI"
-## [1] "Calculating Standardized Results"
-```
-
-```
-## Warning in sqrt(1/diag(V)): NaNs produced
-```
-
-```
-## Warning in cov2cor(Sigma.hat): diag(.) had 0 or NA entries; non-finite result is
-## doubtful
-```
-
-```
-## Warning in sqrt(1/diag(V)): NaNs produced
-```
-
-```
-## Warning in cov2cor(Sigma.hat): diag(.) had 0 or NA entries; non-finite result is
-## doubtful
-```
-
-```
-## [1] "Calculating SRMR"
-```
-
-```
-## Warning in sqrt(1/diag(V)): NaNs produced
-
-## Warning in sqrt(1/diag(V)): diag(.) had 0 or NA entries; non-finite result is
-## doubtful
-```
-
-```
-## Warning in usermodel(no_loneliness_even, estimation = "DWLS", model =
-## model3bCFA, : CFI estimates below 0 should not be trusted, and indicate that
-## the other model fit estimates should be interpreted with caution. A negative CFI
-## estimates typically appears due to negative residual variances.
-```
-
-```
-## elapsed 
-##    7.47 
-## [1] "The S matrix was smoothed prior to model estimation due to a non-positive definite matrix. The largest absolute difference in a cell between the smoothed and non-smoothed matrix was  0.00725092094356261 As a result of the smoothing, the largest Z-statistic change for the genetic covariances was  1.54896439799155 . We recommend setting the smooth_check argument to true if you are going to run a multivariate GWAS."
-```
-
-```
-## Warning in usermodel(no_loneliness_even, estimation = "DWLS", model =
-## model3bCFA, : A difference greater than .025 was observed pre- and post-
-## smoothing for Z-statistics in the genetic covariance matrix. This reflects a
-## large difference and results should be interpreted with caution!! This can often
-## result from including low powered traits, and you might consider removing those
-## traits from the model. If you are going to run a multivariate GWAS we strongly
-## recommend setting the smooth_check argument to true to check smoothing for each
-## SNP.
-```
-
-```r
-fitb2$modelfit #CFI # .93, SRMR = .10 - similar fit, so the first 3 factor solution is still better because it is more parismonious and aligns better with existing theory
-```
-
+- CFI = .93 and SRMR = .10 which is a similar fit to the first 3 factor solution. 
+- Since the first 3 factor solution is more parsimonious and aligns better with existing theory, it is favoured over this model.
 ```
 ##      chisq df p_chisq     AIC       CFI     SRMR
 ## df 1141880 31       0 1141928 -769.7565 7.615717
 ```
-
+### 4 factor
 ```r
-View(fitb2$results)
-
-
-#4 factor
 
 model4CFA <-  'F1 =~ NA*ADHD + ASD + MDD + PTSD
                F2 =~ NA*ANX + MDD
@@ -528,88 +358,19 @@ model4CFA <-  'F1 =~ NA*ADHD + ASD + MDD + PTSD
                a > .001
 '
 fitc<-usermodel(no_loneliness_even, estimation = "DWLS", model = model4CFA, CFIcalc = TRUE, std.lv = TRUE)
-```
 
+fitc$modelfit 
+View(fitc$results)
 ```
-## [1] "Running primary model"
-## [1] "Calculating model chi-square"
-## [1] "Calculating CFI"
-## [1] "Calculating Standardized Results"
-```
-
-```
-## Warning in sqrt(1/diag(V)): NaNs produced
-```
-
-```
-## Warning in cov2cor(Sigma.hat): diag(.) had 0 or NA entries; non-finite result is
-## doubtful
-```
-
-```
-## Warning in sqrt(1/diag(V)): NaNs produced
-```
-
-```
-## Warning in cov2cor(Sigma.hat): diag(.) had 0 or NA entries; non-finite result is
-## doubtful
-```
-
-```
-## [1] "Calculating SRMR"
-```
-
-```
-## Warning in sqrt(1/diag(V)): NaNs produced
-
-## Warning in sqrt(1/diag(V)): diag(.) had 0 or NA entries; non-finite result is
-## doubtful
-```
-
-```
-## Warning in usermodel(no_loneliness_even, estimation = "DWLS", model =
-## model4CFA, : CFI estimates below 0 should not be trusted, and indicate that the
-## other model fit estimates should be interpreted with caution. A negative CFI
-## estimates typically appears due to negative residual variances.
-```
-
-```
-## elapsed 
-##    6.83 
-## [1] "The S matrix was smoothed prior to model estimation due to a non-positive definite matrix. The largest absolute difference in a cell between the smoothed and non-smoothed matrix was  0.00725092094356261 As a result of the smoothing, the largest Z-statistic change for the genetic covariances was  1.54896439799155 . We recommend setting the smooth_check argument to true if you are going to run a multivariate GWAS."
-```
-
-```
-## Warning in usermodel(no_loneliness_even, estimation = "DWLS", model =
-## model4CFA, : A difference greater than .025 was observed pre- and post-
-## smoothing for Z-statistics in the genetic covariance matrix. This reflects a
-## large difference and results should be interpreted with caution!! This can often
-## result from including low powered traits, and you might consider removing those
-## traits from the model. If you are going to run a multivariate GWAS we strongly
-## recommend setting the smooth_check argument to true to check smoothing for each
-## SNP.
-```
-
-```
-## [1] "Please note that when equality constraints are used in the current version of Genomic SEM that the standardized output will also impose the same constraint."
-```
-
+- incredibly poor fit
 ```r
-fitc$modelfit #0.14 SRMR, 0.96 CFI - poor fit
-```
-
-```
 ##       chisq df p_chisq      AIC       CFI     SRMR
 ## df 908593.4 29       0 908645.4 -612.2881 7.479126
 ```
 
-```r
-View(fitc$results)
-```
 
-##GenomicSEM with Loneliness
+## GenomicSEM with Loneliness
 - specifying both a multivariate (adjusted) and non-adjusted model
-
 
 ```r
 setwd("C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2") #setting WD locally
