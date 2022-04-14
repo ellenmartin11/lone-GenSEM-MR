@@ -394,16 +394,6 @@ multivar_constrained<- '
 fit1constr<-usermodel(combined_covstruc, estimation = "DWLS", model = multivar_constrained, CFIcalc = TRUE, std.lv = TRUE)
 ```
 
-```
-## [1] "Running primary model"
-## [1] "Calculating model chi-square"
-## [1] "Calculating CFI"
-## [1] "Calculating Standardized Results"
-## [1] "Calculating SRMR"
-## elapsed 
-##     5.5
-```
-
 ```r
 View(fit1constr$results) 
 fit1constr$modelfit #SRMR = .10, CFI = .94 - poorer fit than unconstrained multivar, but slightly acceptable still
@@ -435,32 +425,24 @@ multivar_constrained_latent<- 'F1 =~ NA*ADHD + ANX + ASD + PTSD + MDD
 fit1constrlatent<-usermodel(combined_covstruc, estimation = "DWLS", model = multivar_constrained_latent, CFIcalc = TRUE, std.lv = TRUE)
 ```
 
-```
-## [1] "Running primary model"
-## [1] "Calculating model chi-square"
-## [1] "Calculating CFI"
-## [1] "Calculating Standardized Results"
-## [1] "Calculating SRMR"
-## elapsed 
-##    4.61
-```
 
 ```r
 View(fit1constrlatent$results) 
 fit1constrlatent$modelfit #same fit
+#write.csv(fit1constrlatent$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\multivarconstrlatent.csv", row.names = TRUE)
+
 ```
 
 ```
 ##       chisq df      p_chisq      AIC       CFI       SRMR
 ## df 387.4601 41 5.989008e-58 437.4601 0.9354812 0.09849714
 ```
+### unadjusted model
 
 ```r
-#write.csv(fit1constrlatent$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\multivarconstrlatent.csv", row.names = TRUE)
 
 
 
-#unadjusted model
 unadjusted_model<- 'F1 =~ NA*ADHD + ANX + ASD + PTSD + MDD
                     F2 =~ NA*ALC + CAN + SMK
                     F3 =~ NA*BIP + SCZ
@@ -478,27 +460,17 @@ unadjusted_model<- 'F1 =~ NA*ADHD + ANX + ASD + PTSD + MDD
 fit2unadj<-usermodel(combined_covstruc, estimation = "DWLS", model = unadjusted_model, CFIcalc = TRUE, std.lv = TRUE)
 ```
 
-```
-## [1] "Running primary model"
-## [1] "Calculating model chi-square"
-## [1] "Calculating CFI"
-## [1] "Calculating Standardized Results"
-## [1] "Calculating SRMR"
-## elapsed 
-##    3.56
-```
-
 ```r
 View(fit2unadj$results) 
 fit2unadj$modelfit
+#write.csv(fit2unadj$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\fit2unadj.csv", row.names = TRUE)
+
 ```
 
 ```
 ##       chisq df      p_chisq      AIC       CFI       SRMR
 ## df 319.2259 39 1.116823e-45 373.2259 0.9478155 0.09417271
 ```
+![image](https://user-images.githubusercontent.com/68326791/163406898-9713ed93-6ef6-499a-b00f-5d170f816752.png)
 
-```r
-#write.csv(fit2unadj$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\fit2unadj.csv", row.names = TRUE)
-```
 
