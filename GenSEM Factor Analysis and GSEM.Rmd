@@ -2,7 +2,9 @@
 title: "GenSEM Factor Analysis"
 author: "Ellen Martin"
 date: "11/02/2022"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ## GenSEM Factor Analyisis
@@ -111,6 +113,8 @@ Conducted using GenomicSEM, using the EVEN data to prevent overfitting
 - Results suggest that a 3 factor solution achieves the best fit
 
 ```{r cfa}
+setwd("C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2") #setting WD locally
+
 load("no_loneliness_even.RData")
 
 #1 factor (p-factor)
@@ -149,7 +153,8 @@ model3CFA <- 'F1 =~ NA*ADHD + ANX + ASD + MDD + PTSD
 fitb<-usermodel(no_loneliness_even, estimation = "DWLS", model = model3CFA, CFIcalc = TRUE, std.lv = TRUE)
 fitb$modelfit #CFI # .93, SRMR = .10 - acceptable fit
 View(fitb$results)
-save(fitb$results) #saving the results of this acceptable fit
+#write.csv(fitb$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\CFA3.csv", row.names = TRUE)
+
 
 
 #alternate 3 factor
@@ -199,6 +204,8 @@ View(fitc$results)
 - specifying both a multivariate (adjusted) and non-adjusted model
 
 ```{r GenSEM}
+setwd("C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2") #setting WD locally
+
 load("combined_covstruc.RData") #full ldsc data set used
 
 #multivariate (adjusted), constrained model
@@ -240,6 +247,8 @@ multivar_constrained_latent<- 'F1 =~ NA*ADHD + ANX + ASD + PTSD + MDD
 fit1constrlatent<-usermodel(combined_covstruc, estimation = "DWLS", model = multivar_constrained_latent, CFIcalc = TRUE, std.lv = TRUE)
 View(fit1constrlatent$results) 
 fit1constrlatent$modelfit #same fit
+#write.csv(fit1constrlatent$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\multivarconstrlatent.csv", row.names = TRUE)
+
 
 
 #unadjusted model
@@ -260,5 +269,6 @@ unadjusted_model<- 'F1 =~ NA*ADHD + ANX + ASD + PTSD + MDD
 fit2unadj<-usermodel(combined_covstruc, estimation = "DWLS", model = unadjusted_model, CFIcalc = TRUE, std.lv = TRUE)
 View(fit2unadj$results) 
 fit2unadj$modelfit
+#write.csv(fit2unadj$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\fit2unadj.csv", row.names = TRUE)
 ```
 
