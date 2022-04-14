@@ -311,6 +311,10 @@ View(fitb$results)
 #write.csv(fitb$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\CFA3.csv", row.names = TRUE)
 ```
 - CFI = .93 and SRMR = .10 suggests acceptable fit, so this will be the selected 3 factor model
+
+full CFA output:
+
+https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/CFA3.csv
 ```
 ##       chisq df      p_chisq      AIC       CFI      SRMR
 ## df 139.4249 33 4.868991e-15 183.4249 0.9274874 0.1047666
