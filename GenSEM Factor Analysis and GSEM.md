@@ -262,14 +262,11 @@ pfact<-usermodel(no_loneliness_even, estimation = "DWLS", model = model1CFA, CFI
 ```r
 pfact$modelfit 
 View(pfact$results)
-```
-- 0.15 SRMR and 0.76 CFI suggests poor fit
-```
 ##       chisq df      p_chisq      AIC       CFI      SRMR
 ## df 336.2923 27 3.947636e-55 372.2923 0.7644647 0.1545144
-
-
 ```
+- 0.15 SRMR and 0.76 CFI suggests poor fit
+
 ### 2 factor (bi-factor)
 ```
 
@@ -281,12 +278,10 @@ fita<-usermodel(no_loneliness_even, estimation = "DWLS", model = model2CFA, CFIc
 fita$modelfit 
 View(fita$results)
 
-```
-- 0.19 SRMR and 0.88 CFI suggests poor fit
-```
 ##       chisq df      p_chisq      AIC       CFI      SRMR
 ## df 149.5153 18 9.231812e-23 185.5153 0.8819682 0.1908851
 ```
+- 0.19 SRMR and 0.88 CFI suggests poor fit
 
 
 ### 3 factor 
@@ -309,16 +304,16 @@ fitb<-usermodel(no_loneliness_even, estimation = "DWLS", model = model3CFA, CFIc
 fitb$modelfit 
 View(fitb$results)
 #write.csv(fitb$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\CFA3.csv", row.names = TRUE)
+
+##       chisq df      p_chisq      AIC       CFI      SRMR
+## df 139.4249 33 4.868991e-15 183.4249 0.9274874 0.1047666
 ```
 - CFI = .93 and SRMR = .10 suggests acceptable fit, so this will be the selected 3 factor model
 
 full CFA output:
 
 https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/CFA3.csv
-```
-##       chisq df      p_chisq      AIC       CFI      SRMR
-## df 139.4249 33 4.868991e-15 183.4249 0.9274874 0.1047666
-```
+
 ### alternate 3 factor
 smoking on both F1 and F2
 ```r
@@ -337,13 +332,10 @@ fitb2<-usermodel(no_loneliness_even, estimation = "DWLS", model = model3bCFA, CF
 fitb2$modelfit 
 View(fitb2$results)
 
-```
-- CFI = .93 and SRMR = .10 which is a similar fit to the first 3 factor solution. 
-- Since the first 3 factor solution is more parsimonious and aligns better with existing theory, it is favoured over this model.
-```
 ##      chisq df p_chisq     AIC       CFI     SRMR
 ## df 1141880 31       0 1141928 -769.7565 7.615717
 ```
+- poor fit
 ### 4 factor
 ```r
 
@@ -367,12 +359,11 @@ fitc<-usermodel(no_loneliness_even, estimation = "DWLS", model = model4CFA, CFIc
 
 fitc$modelfit 
 View(fitc$results)
-```
-- incredibly poor fit
-```r
+
 ##       chisq df p_chisq      AIC       CFI     SRMR
 ## df 908593.4 29       0 908645.4 -612.2881 7.479126
 ```
+- incredibly poor fit
 
 
 ## GenomicSEM with Loneliness
