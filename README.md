@@ -1,7 +1,8 @@
 # Genomic Structural Equation Modelling and Mendelian Randomization of Loneliness and Psychiatric/Substance Use Phenotypes
 
-All scripts used for data analysis can be found in https://github.com/ellenmartin11/lone-GenSEM-MR/Analysis .
-This project uses the GenomicSEM package in R created by Grotzinger et al (https://github.com/GenomicSEM/GenomicSEM).
+All scripts used for data analysis can be found in [Analysis](https://github.com/ellenmartin11/lone-GenSEM-MR/Analysis).
+
+This project uses the [GenomicSEM package](https://github.com/GenomicSEM/GenomicSEM) and scripts from [Schoeler 2021](https://github.com/TabeaSchoeler/TS2021_CommonLiabAddiction).
 
 ## Scripts include:
 - Quality Control and Data Preparation Procedures (https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/GenSEM%20QC.Rmd)
