@@ -11,7 +11,7 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 - Multivariate GWAS (conducted via GenomicSEM using the UCL Myriad Cluster)
 
 ## Results include:
-- Correlation Heatmap (https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure1.pdf) 
+- [Correlation Heatmap](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure1.pdf) 
 - [The final 3 factor confirmatory factor analysis model loadings](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/CFA3.csv)
 - The unadjusted Genomic Structural Equation Model and the Path Diagram
 - The multivariate Genomic Structural Equation Model and the Path Diagram (used for the multivariate GWAS and Mendelian Randomization)
