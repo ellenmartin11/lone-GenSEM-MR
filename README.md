@@ -19,3 +19,4 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 ![image](https://user-images.githubusercontent.com/68326791/163831366-9412c5ac-3633-4ead-b480-5cafb15cdfc8.png)
 
 - [The multivariate Genomic Structural Equation Model](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure4.pdf) (used for the multivariate GWAS and Mendelian Randomization) and the [Path Diagram](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure4.pdf)
+![image](https://user-images.githubusercontent.com/68326791/163831501-86328e1d-d074-4809-aef2-d80b543b1406.png)
