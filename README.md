@@ -13,5 +13,5 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 ## Results include:
 - [Correlation Heatmap](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure1.pdf) 
 - [The final 3 factor confirmatory factor analysis model loadings](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/CFA3.csv)
-- The unadjusted Genomic Structural Equation Model and the Path Diagram
+- [The unadjusted Genomic Structural Equation Model and the Path Diagram](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/GSEM-unadj-model.csv)
 - The multivariate Genomic Structural Equation Model and the Path Diagram (used for the multivariate GWAS and Mendelian Randomization)
