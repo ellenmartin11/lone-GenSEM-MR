@@ -16,4 +16,6 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 
 - [The final 3 factor confirmatory factor analysis model loadings](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/CFA3.csv)
 - [The unadjusted Genomic Structural Equation Model](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/GSEM-unadj-model.csv) and the [Path Diagram](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure2.pdf)
+![image](https://user-images.githubusercontent.com/68326791/163831366-9412c5ac-3633-4ead-b480-5cafb15cdfc8.png)
+
 - [The multivariate Genomic Structural Equation Model](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure4.pdf) (used for the multivariate GWAS and Mendelian Randomization) and the [Path Diagram](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure4.pdf)
