@@ -21,3 +21,7 @@
 ## Data Preprocessing and Quality Control
 - the script for this can be found [Here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/GenSEM%20QC.Rmd)
 - it includes the general data clean-up and pre-processing as well as munging through GenomicSEM
+
+## LD Score Regression
+- the script for this can be found [Here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/GenSEM%20LDSC%20and%20Correlations.Rmd)
+- it includes LDSC executed through GenomicSEM and the production of a correlation heatmap between all the phenotypes using the LDSC output 
