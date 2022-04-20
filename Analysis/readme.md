@@ -19,3 +19,5 @@
 
 
 ## Data Preprocessing and Quality Control
+- the script for this can be found [Here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/GenSEM%20QC.Rmd)
+- it includes the general data clean-up and pre-processing as well as munging through GenomicSEM
