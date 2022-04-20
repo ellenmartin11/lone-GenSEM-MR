@@ -25,3 +25,9 @@
 ## LD Score Regression
 - the script for this can be found [Here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/GenSEM%20LDSC%20and%20Correlations.Rmd)
 - it includes LDSC executed through GenomicSEM and the production of a correlation heatmap between all the phenotypes using the LDSC output 
+
+## Construction of Latent Genomic Factors
+- the script for this can be found Here
+- it contains the exploratory factor analysis and confirmatory factor analysis 
+- the GenomicSEM usermodels were then specified based on the best-fitting model according to confirmatory factor analysis output
+- the path diagrams were manually generated and can be found in Fig and Fig
