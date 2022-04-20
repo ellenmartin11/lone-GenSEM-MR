@@ -1,12 +1,4 @@
----
-title: "GenSEM Factor Analysis"
-author: "Ellen Martin"
-date: "11/02/2022"
-output:
-  html_document: 
-    keep_md: yes
-  pdf_document: default
----
+
 
 ## GenSEM Factor Analyisis
 
