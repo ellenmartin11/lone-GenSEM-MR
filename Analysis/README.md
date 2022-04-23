@@ -5,16 +5,16 @@
 
 | Phenotype     | Source                 |
 | ------------- | ---------------------- |
-| ADHD          | Demontis et al (2018)  |
-| ALC           | Schumann (2016)        |
-| ASD           | Grove et al (2019)     |
-| ANX           | Otowa et al (2016)     |
-| BIP           | Stahl et al (2019)     |
-| CAN           | Johnson et al (2020)   |
-| LONELINESS    | Day et al (2018)       |
-| MDD           | Howard et al (2019)    |
-| PTSD          | Nievergelt et al (2019)|
-| SCZ           | Pardinas et al (2018)  |
+| ADHD          | [Demontis et al (2018)](https://pubmed.ncbi.nlm.nih.gov/30478444/) |
+| ALC           | [Schumann (2016)](https://pubmed.ncbi.nlm.nih.gov/27911795/)       |
+| ASD           | [Grove et al (2019)](https://www.biorxiv.org/content/10.1101/224774v2)     |
+| ANX           | [Otowa et al (2016)](https://pubmed.ncbi.nlm.nih.gov/26754954/)     |
+| BIP           | [Stahl et al (2019)](https://www.med.unc.edu/pgc/download-results/)     |
+| CAN           | [Johnson et al (2020)](https://www.med.unc.edu/pgc/download-results/)   |
+| LONELINESS    | [Day et al (2018)](https://pubmed.ncbi.nlm.nih.gov/29970889/)       |
+| MDD           | [Howard et al (2019)](https://www.med.unc.edu/pgc/download-results/)     |
+| PTSD          | [Nievergelt et al (2019)](https://www.med.unc.edu/pgc/download-results/)|
+| SCZ           | [Pardinas et al (2018)](https://pubmed.ncbi.nlm.nih.gov/29483656/)  |
 | SMK           | Wootton et al (2019)   |
 
 ## Data Preprocessing and Quality Control
