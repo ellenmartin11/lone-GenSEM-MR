@@ -32,5 +32,5 @@
 - the path diagrams were manually generated and can be found in [Fig 2](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure2.pdf) and [Fig 4](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure4.pdf)
 
 ## Multivariate GWAS
-- for detailed analysis steps for multivariate GWAS, see [Schoeler (2021)](https://github.com/TabeaSchoeler/TS2021_CommonLiabAddiction)
+- for detailed analysis steps for multivariate GWAS, see [Schoeler (2021)](https://github.com/TabeaSchoeler/TS2021_CommonLiabAddiction/tree/master/analysis)
 
