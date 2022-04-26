@@ -170,7 +170,58 @@ names(SteigerSNPs) <- names(DataMR_lonelinesstointernalising_Steiger)
 knitr::kable(head(SteigerSNPs), "markdown")
 
 table(SteigerSNPs$correct_causal_direction) # all SNPS valid instruments
-#tells us that all int
+
+#direct calculation of r
+DataMR_lonelinesstointernalising$r.exposure =
+  get_r_from_pn(n = DataMR_lonelinesstointernalising$samplesize.exposure,
+                p = DataMR_lonelinesstointernalising$pval.exposure)
+
+DataMR_lonelinesstointernalising$r.outcome =
+  get_r_from_pn(n = 184305,
+                p = DataMR_lonelinesstointernalising$pval.outcome)
+#and recalculate Steiger
+SteigerSNPs1 = matrix(nrow = dim(DataMR_lonelinesstointernalising)[1],ncol = 8) 
+for (i in 1:dim(DataMR_lonelinesstointernalising)[1]){
+  temp  <- directionality_test(DataMR_lonelinesstointernalising[i, ])
+  SteigerSNPs1[i, ] = as.matrix(temp)
+}
+
+SteigerSNPs1 = as.data.frame(SteigerSNPs1)
+names(SteigerSNPs1) = names(DataMR_lonelinesstointernalising_Steiger)  
+table(SteigerSNPs1$correct_causal_direction) # most SNPS valid instruments
+head(SteigerSNPs1)
+# As expected, these are identical as we are just using the internal function used by directionality_test() to calculate r
+identical(SteigerSNPs$steiger_pval, SteigerSNPs1$steiger_pval) #NOT IDENTICAL
+
+DataMR_lonelinesstointernalising$r.outcome =
+  get_r_from_lor(lor = DataMR_lonelinesstointernalising$beta.outcome,
+                 af = DataMR_lonelinesstointernalising$eaf.outcome,
+                 ncase = 60801,
+                 ncontrol = 123504,
+                 prevalence = 0.05, #They assume prevalence of 5% in the paper
+                 model = "logit",
+                 correction = FALSE)
+
+#and recalculate appropriate Steiger
+SteigerSNPs2 = matrix(nrow =dim(DataMR_lonelinesstointernalising)[1],ncol = 8) 
+for (i in 1:dim(DataMR_lonelinesstointernalising)[1]){
+  temp  <- directionality_test(DataMR_lonelinesstointernalising[i, ])
+  SteigerSNPs2[i, ] = as.matrix(temp)
+}
+
+SteigerSNPs2 = as.data.frame(SteigerSNPs2)
+names(SteigerSNPs2) = names(DataMR_lonelinesstointernalising_Steiger)  
+table(SteigerSNPs2$correct_causal_direction)
+head(SteigerSNPs2)
+# no change in validity of instruments though
+
+DataMR_lonelinesstointernalising$correct_causal_direction <- SteigerSNPs2$correct_causal_direction # integrate the correct_causal_direction column into DataMR
+DataMR_lonelinesstointernalising_Steigerfiltered <- DataMR_lonelinesstointernalising[DataMR_lonelinesstointernalising$correct_causal_direction == "TRUE",] #create DataMR only with those SNPs
+dim(DataMR_lonelinesstointernalising_Steigerfiltered) #check that number of rows matches
+# Redo MR with Steiger 
+(MR_lonelinesstointernalising_Steigerfiltered <- mr(DataMR_lonelinesstointernalising_Steigerfiltered))
+knitr::kable(MR_lonelinesstointernalising_Steigerfiltered, "markdown") 
+#the results of the steiger filtered MR are extremely similar to the original MR
 ```
 
 ### Plots
