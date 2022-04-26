@@ -82,7 +82,7 @@ attr(DataMR_lonelinesstointernalising, "log") # Detailed summary of what was don
 ```
 
 ### Mendelian Randomization
-- Results can be found Here.
+- Results can be found [Here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/MR%20Loneliness%20against%20Internalising.md).
 ```r
 #running MR
 (MR_lonelinesstointernalising <- mr(DataMR_lonelinesstointernalising))
@@ -128,7 +128,7 @@ knitr::kable(head(SteigerSNPs), "markdown")
 ### Plots
 - Produces a SNP forest plot 
 - Produces a scatterplot comparing MR Egger and Inverse Median Weighted
-- These plots can be found Here.
+- These plots can be found [Here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/MR%20Loneliness%20against%20Internalising.md).
 ```r
 #Create forest plot
 #Pick the different methods that you want to compare
