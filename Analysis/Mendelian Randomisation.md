@@ -246,3 +246,23 @@ DataMR_lonelinesstointernalisingk_single <- mr_singlesnp(DataMR_lonelinesstointe
 DataMR_lonelinesstointernalisingk_funnel <- mr_funnel_plot(DataMR_lonelinesstointernalisingk_single)
 DataMR_lonelinesstointernalisingk_funnel[[1]]
 ```
+
+### MR PRESSO
+- determines whether MR is influenced by outliers
+```r
+# load package
+library(MRPRESSO)
+
+# Perform MR-PRESSO
+out_presso <- mr_presso(BetaOutcome = "internalising", BetaExposure = "loneliness", # define effects of SNPs on exposure and outcome
+                        SdOutcome = "internalising_se", SdExposure = "loneliness_se", # define standard errors of exposure and outcome
+                        OUTLIERtest = TRUE, # correction of pleiotropy via outlier removal
+                        DISTORTIONtest = TRUE, # testing of significant distortion in the causal estimate before and after MR-PRESSO correction
+                        data = mr_frame1, 
+                        NbDistribution = 1000, # number of elements to simulate to form the null distribution to compute empirical P-values
+                        SignifThreshold = 0.05,
+                        seed = 123) # seed for reproducibility of estimates
+out_presso$`Main MR results`
+
+knitr::kable(head(out_presso$`Main MR results`), "markdown")
+```
