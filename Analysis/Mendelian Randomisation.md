@@ -227,6 +227,7 @@ knitr::kable(MR_lonelinesstointernalising_Steigerfiltered, "markdown")
 ### Plots
 - Produces a SNP forest plot 
 - Produces a scatterplot comparing MR Egger and Inverse Median Weighted
+- Produces a funnel plot
 - These plots can be found [Here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/MR%20Loneliness%20against%20Internalising.md).
 ```r
 #Create forest plot
@@ -239,4 +240,9 @@ MR_lonelinesstointernalising_forest[[1]]
 MR_lonelinesstointernalising_IVW_Egger <- mr(DataMR_lonelinesstointernalising, method_list = c("mr_egger_regression", "mr_ivw"))
 MR_lonelinesstointernalising_IVW_Egger_scatter <- mr_scatter_plot(MR_lonelinesstointernalising_IVW_Egger, DataMR_lonelinesstointernalising)
 MR_lonelinesstointernalising_IVW_Egger_scatter[[1]]
+
+# Funnel plot
+DataMR_lonelinesstointernalisingk_single <- mr_singlesnp(DataMR_lonelinesstointernalisingk, all_method = c("mr_ivw","mr_egger_regression", "mr_weighted_median", "mr_weighted_mode"))
+DataMR_lonelinesstointernalisingk_funnel <- mr_funnel_plot(DataMR_lonelinesstointernalisingk_single)
+DataMR_lonelinesstointernalisingk_funnel[[1]]
 ```
