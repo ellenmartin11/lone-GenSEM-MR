@@ -102,6 +102,9 @@ Results_lonelinesstointernalising_pleiotropy #just non sig, suggesting that resu
 knitr::kable(as.data.frame(Results_lonelinesstointernalising_pleiotropy), "markdown")
 ```
 Leave-one-out Egger analysis - good to see if results are biased by single SNPS
+- MR Egger assumes no measurement error as measurement error can lead to underestimation of the true causal effect
+- To check for this, the I2 can be measured, which is an indication of measurement error annd is derived from the Cochran Q statistics
+- if IR > 90%, then we do not need to worry about measurement error or bias by single SNPS
 ```r
 DataMR_lonelinesstointernalising_leaveOut_egger<- mr_leaveoneout(DataMR_lonelinesstointernalising, method = mr_egger_regression) # Default: ivw method
 DataMR_lonelinesstointernalising_leaveOut_egger
@@ -142,10 +145,18 @@ Isq <- function(y,s){
 ```
 
 ### MR Steiger
+- this tests whether the directionality we have specified is correct
+- it does this by comparing the independent correlations to see if they are statistically different and, if so, to what degree they statistically differ
+- The test calculates the variance explained in the exposure and the outcome by the instrumenting SNPs, and tests if the variance in the outcome is less than the exposure
 ```r
 #Run MR-Steiger
 DataMR_lonelinesstointernalising_Steiger <- directionality_test(DataMR_lonelinesstointernalising)
 DataMR_lonelinesstointernalising_Steiger #says correct causal direction and highly sig (loneliness to internalising)
+
+# We can apply the test on one SNP
+DataMR_lonelinesstointernalising_Steiger <- directionality_test(DataMR_lonelinesstointernalising[1, ])
+# As can be seen the r2 for the exposure is much bigger than for the outcome
+DataMR_lonelinesstointernalising_Steiger$snp_r2.exposure/DataMR_lonelinesstointernalising_Steiger$snp_r2.outcome #effect on the exposure 48.7 times bigger
 
 #Loop over all SNPs
 SteigerSNPs= matrix(nrow = dim(DataMR_lonelinesstointernalising)[1], ncol = 8) 
@@ -157,6 +168,9 @@ for (i in 1:dim(DataMR_lonelinesstointernalising)[1]){
 SteigerSNPs <- as.data.frame(SteigerSNPs)
 names(SteigerSNPs) <- names(DataMR_lonelinesstointernalising_Steiger)  
 knitr::kable(head(SteigerSNPs), "markdown")
+
+table(SteigerSNPs$correct_causal_direction) # all SNPS valid instruments
+#tells us that all int
 ```
 
 ### Plots
