@@ -95,3 +95,16 @@ Note - R^2 values are approximate
 |puZ4MB      |MB5zG3     |internalising |loneliness |Inverse variance weighted |  133| 0.2375566| 0.0216460| 0.0000000|
 |puZ4MB      |MB5zG3     |internalising |loneliness |Simple mode               |  133| 0.1754546| 0.0539756| 0.0014613|
 |puZ4MB      |MB5zG3     |internalising |loneliness |Weighted mode             |  133| 0.1819925| 0.0530992| 0.0008130|
+
+---
+### MR PRESSO
+- corrects for the influence of outliers
+- in this case, both the raw MR and the outlier-corrected MR results are very similar
+
+
+|Exposure   |MR Analysis       | Causal Estimate|        Sd|   T-stat| P-value|
+|:----------|:-----------------|---------------:|---------:|--------:|-------:|
+|loneliness |Raw               |       0.2375566| 0.0216460| 10.97463|       0|
+|loneliness |Outlier-corrected |       0.2551023| 0.0191968| 13.28879|       0|
+
+
