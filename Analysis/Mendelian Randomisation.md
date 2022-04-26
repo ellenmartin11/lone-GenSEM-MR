@@ -115,6 +115,29 @@ DataMR_lonelinesstointernalisingk <- DataMR_lonelinesstointernalising[abs(DataMR
 #Second, take out instruments excluded in  TwoSampleMR
 DataMR_lonelinesstointernalisingk_keep <- DataMR_lonelinesstointernalisingk[DataMR_lonelinesstointernalisingk$mr_keep == "TRUE", ] 
 length(DataMR_lonelinesstointernalisingk_keep$SNP) # 25 variants selected. Note that a very small number for MR Egger (e.g. 8) yield completely unstable estimates.
+
+#Function to calculate I2
+Isq <- function(y,s){
+  k = length(y)
+  w = 1/s^2; sum.w = sum(w)
+  mu.hat = sum(y*w)/sum.w
+  Q = sum(w*(y - mu.hat)^2)
+  Isq = (Q - (k - 1))/Q
+  Isq = max(0, Isq)
+  return(Isq)
+}
+
+# If BetaXG and seBetaXG represent the vector of SNP-exposure estimates and standard errors, and BetaYG and seBetaYG represent the vector of SNP-exposure estimates and standard errors. We calculate the I 2
+# Then do: Isq(BetaXG,seBetaXG)
+# For MR regression weighted: Isq(BetaXG/seBetaYG,seBetaXG/seBetaYG)
+
+#
+#Calculate I2 (I squared) - include all instruments
+(isqldl <- Isq(y = DataMR_lonelinesstointernalisingk$beta.exposure, s = DataMR_lonelinesstointernalisingk$se.exposure))# Very high (95.6%) many strong variants, so not much to correct for
+
+#Calculate I2 (I squared) - include only weak instruments
+(isqldl_w <- Isq(DataMR_lonelinesstointernalisingk$beta.exposure/DataMR_lonelinesstointernalisingk$se.outcome, DataMR_lonelinesstointernalisingk$se.exposure/DataMR_lonelinesstointernalisingk$se.outcome))# Very close
+# Despite weaker variant, I2 is high (95.8%) so really no problem of weak instrument
 ```
 
 ### MR Steiger
