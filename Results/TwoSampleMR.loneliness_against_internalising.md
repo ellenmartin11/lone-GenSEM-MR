@@ -1,7 +1,4 @@
 
-```
-## Error in library(Cairo): there is no package called 'Cairo'
-```
 
 # Two sample MR report
 
@@ -58,7 +55,8 @@ Note - R^2 values are approximate
 
 ### Forest plot of single SNP MR
 
-![plot of chunk chunk5](figure/loneliness_against_internalisingchunk5-1.png)
+![image](https://user-images.githubusercontent.com/68326791/165383133-a5b1fe04-f906-4d66-a1db-bfb077bc18f0.png)
+
 
 ---
 
@@ -75,5 +73,7 @@ Note - R^2 values are approximate
 ---
 
 ### Leave-one-out sensitivity analysis
-
-![plot of chunk chunk8](figure/loneliness_against_internalisingchunk8-1.png)
+|         b|         p|
+|---------:|---------:|
+| 0.8544645| 0.0083827|
+| 1.2132926| 0.0617026|
