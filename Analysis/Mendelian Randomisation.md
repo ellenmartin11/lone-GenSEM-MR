@@ -101,14 +101,15 @@ Results_lonelinesstointernalising_pleiotropy <- mr_pleiotropy_test(DataMR_loneli
 Results_lonelinesstointernalising_pleiotropy #just non sig, suggesting that results are unlikely to be  driven by pleiotropy, IVW is fine, but so is Egger
 knitr::kable(as.data.frame(Results_lonelinesstointernalising_pleiotropy), "markdown")
 ```
-Leave-one-out analysis - good to see if results are biased by single SNPS
+Leave-one-out Egger analysis - good to see if results are biased by single SNPS
 ```r
 DataMR_lonelinesstointernalising_leaveOut_egger<- mr_leaveoneout(DataMR_lonelinesstointernalising, method = mr_egger_regression) # Default: ivw method
 DataMR_lonelinesstointernalising_leaveOut_egger
 # Check max and min of the beta and the pvalue to see if any snp has changed them dramatically
 out2 <- apply(DataMR_lonelinesstointernalising_leaveOut_egger[,c("b","p")], 2, function(x) {cbind(min(x), max(x))})
 knitr::kable(as.data.frame(out2), "markdown") #doesnt seem that any SNP has had a dramatic effect
-#Calculate baselines estimates on this new dataset with weaker instruments
+
+#Calculate baselines estimates on this new Egger dataset with weaker instruments
 #Preliminary step: take only variants with smallest absolute effect sizes, if not (we have I2 >99%) and no correction needed
 #First, select variants with the weaker betas
 DataMR_lonelinesstointernalisingk <- DataMR_lonelinesstointernalising[abs(DataMR_lonelinesstointernalising$beta.exposure) < quantile(abs(DataMR_lonelinesstointernalising$beta.exposure), 0.20), ] 
