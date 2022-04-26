@@ -60,10 +60,9 @@ Note - R^2 values are approximate
 
 ---
 
-### Comparison of results using different MR methods
+### Scatter Plot Comparing MR Egger and IVW
 
-![image](https://user-images.githubusercontent.com/68326791/165384044-804fcb37-1b1f-458d-86c7-758f9b36111a.png)
-
+![MR_lonelinesstointernalising_IVW_Egger_scatter](https://user-images.githubusercontent.com/68326791/165394642-509ca441-19cc-4cda-9aff-eca9cddafec1.png)
 
 ---
 
