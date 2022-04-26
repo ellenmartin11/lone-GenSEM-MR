@@ -31,6 +31,11 @@
 - the GenomicSEM usermodels were then specified based on the best-fitting model according to [confirmatory factor analysis output](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/CFA3.csv)
 - the path diagrams were manually generated and can be found in [Fig 2](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure2.pdf) and [Fig 4](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure4.pdf)
 
-## Multivariate GWAS
-- for detailed analysis steps for multivariate GWAS, see [Schoeler (2021)](https://github.com/TabeaSchoeler/TS2021_CommonLiabAddiction/tree/master/analysis)
+## Multivariate GWA
+- for detailed analysis steps for multivariate GWA, see [Schoeler (2021)](https://github.com/TabeaSchoeler/TS2021_CommonLiabAddiction/tree/master/analysis)
+- a multivariate GWA was conducted only for F1 (internalising disorders) as this factor was the only one that remained significantly positively associated with loneliness in multivariate GenomicSEM
 
+## Mendelian Randomization
+- the script for this can be found Here.
+- it includes Mendelian Randomisation conducted in R using the [TwoSampleMR](https://mrcieu.github.io/TwoSampleMR/) package
+- it tests the SNP effects from loneliness (Day et al, 2018)  to internalising (output of multivariate GWA)
