@@ -62,13 +62,8 @@ Note - R^2 values are approximate
 
 ### Comparison of results using different MR methods
 
-![plot of chunk chunk6](figure/loneliness_against_internalisingchunk6-1.png)
+![image](https://user-images.githubusercontent.com/68326791/165384044-804fcb37-1b1f-458d-86c7-758f9b36111a.png)
 
----
-
-### Funnel plot
-
-![plot of chunk chunk7](figure/loneliness_against_internalisingchunk7-1.png)
 
 ---
 
