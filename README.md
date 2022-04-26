@@ -9,6 +9,7 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 - [Linkage Disequilibrium Score Regression (conducted via GenomicSEM) and Correlation Heatmap](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/GenSEM%20LDSC%20and%20Correlations.Rmd)
 - [Exploratory Factor Analysis, Confirmatory Factor Analysis, Genomic Structural Equation Modelling](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/GenSEM%20Factor%20Analysis%20and%20GSEM.md)
 - Multivariate GWAS (conducted via GenomicSEM using the UCL Myriad Cluster)
+- [Mendelian Randomization](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/Mendelian%20Randomisation.md)
 
 ## Results include:
 - [Correlation Heatmap](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure1.pdf)
@@ -20,3 +21,5 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 
 - [The multivariate Genomic Structural Equation Model](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure4.pdf) (used for the multivariate GWAS and Mendelian Randomization) and the [Path Diagram](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure4.pdf)
 ![image](https://user-images.githubusercontent.com/68326791/163831501-86328e1d-d074-4809-aef2-d80b543b1406.png)
+
+- Mendelian Randomization Report and Plots
