@@ -1,6 +1,6 @@
 ## Mendelian Randomization in R
 
-- Mendelian Randomization was executed using TwoSampleMR in R
+- Mendelian Randomization was executed using [TwoSampleMR](https://mrcieu.github.io/TwoSampleMR/) in R
 - the loneliness sumstats file (Day et al, 2018) was used as the exposure
 - the internalising (F1) sumstats file (generated via multivariate GWA) was used as the outcome
 
