@@ -249,6 +249,7 @@ DataMR_lonelinesstointernalisingk_funnel[[1]]
 
 ### MR PRESSO
 - determines whether MR is influenced by outliers
+- see [Here](https://github.com/rondolab/MR-PRESSO) for more details
 ```r
 # load package
 library(MRPRESSO)
