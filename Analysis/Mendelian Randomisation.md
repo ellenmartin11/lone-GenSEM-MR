@@ -81,30 +81,40 @@ table(DataMR_lonelinesstointernalising$mr_keep) # This columns tells you which S
 attr(DataMR_lonelinesstointernalising, "log") # Detailed summary of what was done and reasons for excluding SNPs 
 ```
 
-### Mendelian Randomization
+## Mendelian Randomization
 - Results can be found [Here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/MR%20Loneliness%20against%20Internalising.md).
 ```r
 #running MR
 (MR_lonelinesstointernalising <- mr(DataMR_lonelinesstointernalising))
 knitr::kable(as.data.frame(MR_lonelinesstointernalising), "markdown")
+```
 
-#Sensitivity Analyses
-#Cochran Q statistics
+### Sensitivity Analyses
+Cochran Q statistics
+```r
 Results_lonelinesstointernalising_heterogeneity <- mr_heterogeneity(DataMR_lonelinesstointernalising)
 Results_lonelinesstointernalising_heterogeneity 
-
-#Pleiotropy test
+```
+Pleiotropy test
+```r
 Results_lonelinesstointernalising_pleiotropy <- mr_pleiotropy_test(DataMR_lonelinesstointernalising)
 Results_lonelinesstointernalising_pleiotropy #just non sig, suggesting that results are unlikely to be  driven by pleiotropy, IVW is fine, but so is Egger
 knitr::kable(as.data.frame(Results_lonelinesstointernalising_pleiotropy), "markdown")
-
-# Leave-one-out analysis - good to see if results are biased by single SNPS
+```
+Leave-one-out analysis - good to see if results are biased by single SNPS
+```r
 DataMR_lonelinesstointernalising_leaveOut_egger<- mr_leaveoneout(DataMR_lonelinesstointernalising, method = mr_egger_regression) # Default: ivw method
 DataMR_lonelinesstointernalising_leaveOut_egger
-
 # Check max and min of the beta and the pvalue to see if any snp has changed them dramatically
 out2 <- apply(DataMR_lonelinesstointernalising_leaveOut_egger[,c("b","p")], 2, function(x) {cbind(min(x), max(x))})
 knitr::kable(as.data.frame(out2), "markdown") #doesnt seem that any SNP has had a dramatic effect
+#Calculate baselines estimates on this new dataset with weaker instruments
+#Preliminary step: take only variants with smallest absolute effect sizes, if not (we have I2 >99%) and no correction needed
+#First, select variants with the weaker betas
+DataMR_lonelinesstointernalisingk <- DataMR_lonelinesstointernalising[abs(DataMR_lonelinesstointernalising$beta.exposure) < quantile(abs(DataMR_lonelinesstointernalising$beta.exposure), 0.20), ] 
+#Second, take out instruments excluded in  TwoSampleMR
+DataMR_lonelinesstointernalisingk_keep <- DataMR_lonelinesstointernalisingk[DataMR_lonelinesstointernalisingk$mr_keep == "TRUE", ] 
+length(DataMR_lonelinesstointernalisingk_keep$SNP) # 25 variants selected. Note that a very small number for MR Egger (e.g. 8) yield completely unstable estimates.
 ```
 
 ### MR Steiger
