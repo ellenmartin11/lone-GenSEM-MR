@@ -21,7 +21,6 @@ Date: **26 April, 2022**
 |Simple mode               |  133| 0.1754546| 0.0531232| 0.0012320|
 |Weighted mode             |  133| 0.1819925| 0.0538574| 0.0009562|
 
----
 
 ### Heterogeneity tests
 
@@ -31,7 +30,6 @@ Date: **26 April, 2022**
 |MR Egger                  | 214.0721|  131| 6.3e-06|
 |Inverse variance weighted | 219.5702|  132| 2.6e-06|
 
---- 
 
 ### Test for directional horizontal pleiotropy
 
@@ -40,7 +38,6 @@ Date: **26 April, 2022**
 |---------------:|---------:|---------:|
 |      -0.0107765| 0.0058751| 0.0688844|
 
---- 
 
 ### Test that the loneliness exposure is upstream of the F1 outcome
 
@@ -58,7 +55,6 @@ Note - R^2 values are approximate
 ![image](https://user-images.githubusercontent.com/68326791/165383133-a5b1fe04-f906-4d66-a1db-bfb077bc18f0.png)
 
 
----
 
 ### Scatter Plot Comparing MR Egger and IVW
 
@@ -124,7 +120,6 @@ Note - R^2 values are approximate
 |qJTRF1      |UKKKZb     |loneliness |F1       |Simple mode               |    9|  0.3289754| 0.0945554| 0.0083296|
 |qJTRF1      |UKKKZb     |loneliness |F1       |Weighted mode             |    9|  0.2958618| 0.0885858| 0.0102337|
 
----
 
 ### Heterogeneity Tests
 
@@ -133,7 +128,6 @@ Note - R^2 values are approximate
 |qJTRF1      |UKKKZb     |loneliness |F1       |MR Egger                  | 60.75190|    7|      0|
 |qJTRF1      |UKKKZb     |loneliness |F1       |Inverse variance weighted | 63.01223|    8|      0|
 
----
 
 ### Test for directional horizontal pleiotropy
 
@@ -141,7 +135,6 @@ Note - R^2 values are approximate
 |:-----------|:----------|:----------|:--------|---------------:|---------:|---------:|
 |qJTRF1      |UKKKZb     |loneliness |F1       |       0.0044256| 0.0086719| 0.6255115|
 
----
 
 ### Test that the F1 exposure is upstream of loneliness outcome
 
@@ -186,7 +179,6 @@ Note - R^2 values are approximate
 
 ![MR_F1toloneliness_forest_Steig](https://user-images.githubusercontent.com/68326791/165521094-5989095f-609a-4b84-96b8-b630df8d934c.png)
 
----
 
 ### Scatter Plot
 
@@ -196,7 +188,6 @@ Note - R^2 values are approximate
 
 ![MR_F1toloneliness_IVW_Egger_scatter_Steig](https://user-images.githubusercontent.com/68326791/165521237-7cab469c-8e72-4536-bc20-24b344cacf17.png)
 
----
 
 ### Funnel Plot
 
