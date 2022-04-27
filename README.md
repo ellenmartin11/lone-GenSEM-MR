@@ -24,13 +24,11 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 
 - GWA on F1 (Mood and neurodevelopmental latent factor)
 
-- Manhattan Plot
 ![image](https://user-images.githubusercontent.com/68326791/165550787-442404f9-e59d-4df1-9fc4-c030dc68de00.png)
 
-- QQ Plot
 ![image](https://user-images.githubusercontent.com/68326791/165552480-941a8a6f-bb95-4276-858d-1a74efba3b2d.png)
-
 
 - [Mendelian Randomization Report and Plots](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/Bidirectional%20Mendelian%20Randomization%20Lone%20and%20F1.md)
 
 
+![MR_lonelinesstoF1_forest](https://user-images.githubusercontent.com/68326791/165552941-142c5711-ac39-440e-82d0-5a7df048d834.png)
