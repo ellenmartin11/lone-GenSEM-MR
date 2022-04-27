@@ -123,10 +123,12 @@ Date: **26 April, 2022**
 
 ### Heterogeneity Tests
 
-|method                    |        Q| Q_df| Q_pval|
+
+|         |method                    |        Q| Q_df| Q_pval|
 |:--------|:-------------------------|--------:|----:|------:|
 |F1       |MR Egger                  | 60.75190|    7|      0|
 |F1       |Inverse variance weighted | 63.01223|    8|      0|
+
 
 - since results do indicate heterogeneity, we have to refer to MR Egger instead of IVW
 
