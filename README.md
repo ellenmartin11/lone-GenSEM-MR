@@ -23,3 +23,4 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 ![image](https://user-images.githubusercontent.com/68326791/163831501-86328e1d-d074-4809-aef2-d80b543b1406.png)
 
 - [Mendelian Randomization Report and Plots](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/MR%20Loneliness%20against%20Internalising.md)
+![MR_lonelinesstointernalising_forest](https://user-images.githubusercontent.com/68326791/165499815-a3faf433-8c94-40c7-be3f-ae82c29772fa.png)
