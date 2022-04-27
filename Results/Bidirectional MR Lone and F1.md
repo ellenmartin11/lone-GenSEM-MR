@@ -13,30 +13,30 @@ Date: **26 April, 2022**
 ### Results from two sample MR:
 
 
-|method                    | nsnp|         b|        se|      pval|
-|:-------------------------|----:|---------:|---------:|---------:|
-|MR Egger                  |  133| 1.0804870| 0.4600482| 0.0203383|
-|Weighted median           |  133| 0.2255302| 0.0238316| 0.0000000|
-|Inverse variance weighted |  133| 0.2375566| 0.0216460| 0.0000000|
-|Simple mode               |  133| 0.1754546| 0.0531232| 0.0012320|
-|Weighted mode             |  133| 0.1819925| 0.0538574| 0.0009562|
+|id.exposure |id.outcome |outcome |exposure   |method                    | nsnp|          b|        se|      pval|
+|:-----------|:----------|:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
+|QWvjAh      |CUcqLz     |F1      |loneliness |MR Egger                  |    4| -1.3373398| 1.3802029| 0.4347899|
+|QWvjAh      |CUcqLz     |F1      |loneliness |Weighted median           |    4|  0.3164848| 0.1226593| 0.0098745|
+|QWvjAh      |CUcqLz     |F1      |loneliness |Inverse variance weighted |    4|  0.4086131| 0.1058460| 0.0001132|
+|QWvjAh      |CUcqLz     |F1      |loneliness |Simple mode               |    4|  0.3061203| 0.1750974| 0.1787344|
+|QWvjAh      |CUcqLz     |F1      |loneliness |Weighted mode             |    4|  0.2851900| 0.1593545| 0.1714478|
 
 
 ### Heterogeneity tests
 
 
-|method                    |        Q| Q_df|  Q_pval|
-|:-------------------------|--------:|----:|-------:|
-|MR Egger                  | 214.0721|  131| 6.3e-06|
-|Inverse variance weighted | 219.5702|  132| 2.6e-06|
+|id.exposure |id.outcome |outcome |exposure   |method                    |        Q| Q_df|    Q_pval|
+|:-----------|:----------|:-------|:----------|:-------------------------|--------:|----:|---------:|
+|QWvjAh      |CUcqLz     |F1      |loneliness |MR Egger                  | 2.142708|    2| 0.3425444|
+|QWvjAh      |CUcqLz     |F1      |loneliness |Inverse variance weighted | 3.865533|    3| 0.2763550|
 
 
 ### Test for directional horizontal pleiotropy
 
 
-| egger_intercept|        se|      pval|
-|---------------:|---------:|---------:|
-|      -0.0107765| 0.0058751| 0.0688844|
+|id.exposure |id.outcome |outcome |exposure   | egger_intercept|        se|      pval|
+|:-----------|:----------|:-------|:----------|---------------:|---------:|---------:|
+|QWvjAh      |CUcqLz     |F1      |loneliness |         0.02251| 0.0177509| 0.3324007|
 
 
 ### Test that the loneliness exposure is upstream of the F1 outcome
@@ -52,56 +52,50 @@ Note - R^2 values are approximate
 
 ### Forest plot of single SNP MR
 
-![image](https://user-images.githubusercontent.com/68326791/165383133-a5b1fe04-f906-4d66-a1db-bfb077bc18f0.png)
+![MR_lonelinesstoF1_forest](https://user-images.githubusercontent.com/68326791/165531974-8358deab-c307-46b7-8856-338d94b0da11.png)
 
 
 
-### Scatter Plot Comparing MR Egger and IVW
+### Scatter Plot 
 
-![MR_lonelinesstointernalising_IVW_Egger_scatter](https://user-images.githubusercontent.com/68326791/165394642-509ca441-19cc-4cda-9aff-eca9cddafec1.png)
+![MR_lonelinesstoF1_IVW_Egger_scatter_](https://user-images.githubusercontent.com/68326791/165532011-bf8e93b9-e312-466f-a959-e7c11752886d.png)
+
+
+### Funnel Plot
+
+![DataMR_lonelinesstoF1k_funnel](https://user-images.githubusercontent.com/68326791/165532068-b2171958-ff0c-492d-8525-b42ca328eba9.png)
 
 ---
 
 ### Leave-one-out sensitivity analysis
-|         b|         p|
-|---------:|---------:|
-| 0.8544645| 0.0083827|
-| 1.2132926| 0.0617026|
+|          b|         p|
+|----------:|---------:|
+| -2.2245975| 0.3707499|
+| -0.4501856| 0.9110630|
 
 ---
 
 ### MR Steiger
-- Steiger Filtering
 
-|id.exposure |id.outcome |exposure   |outcome       |snp_r2.exposure |snp_r2.outcome |correct_causal_direction |steiger_pval |
-|:-----------|:----------|:----------|:-------------|:---------------|:--------------|:------------------------|:------------|
-|puZ4MB      |MB5zG3     |loneliness |F1            |6.882232e-05    |1.413843e-06   |TRUE                     |0.001305355  |
-|puZ4MB      |MB5zG3     |loneliness |F1            |7.55431e-05     |3.600965e-06   |TRUE                     |0.002117355  |
-|puZ4MB      |MB5zG3     |loneliness |F1            |7.269648e-05    |3.263003e-05   |TRUE                     |0.2030444    |
-|puZ4MB      |MB5zG3     |loneliness |F1            |6.711018e-05    |1.50147e-06    |TRUE                     |0.001624853  |
-|puZ4MB      |MB5zG3     |loneliness |F1            |7.46318e-05     |3.305729e-05   |TRUE                     |0.19119      |
-|puZ4MB      |MB5zG3     |loneliness |F1            |6.923491e-05    |1.846996e-06   |TRUE                     |0.001637526  |
+- Steiger SNPS
+|id.exposure |id.outcome |exposure   |outcome |snp_r2.exposure |snp_r2.outcome |correct_causal_direction |steiger_pval |
+|:-----------|:----------|:----------|:-------|:---------------|:--------------|:------------------------|:------------|
+|QWvjAh      |CUcqLz     |loneliness |F1      |7.089193e-05    |2.94108e-05    |TRUE                     |0.1752496    |
+|QWvjAh      |CUcqLz     |loneliness |F1      |0.0001012337    |5.066085e-06   |TRUE                     |0.0004105067 |
+|QWvjAh      |CUcqLz     |loneliness |F1      |7.838155e-05    |6.355604e-06   |TRUE                     |0.004177349  |
+|QWvjAh      |CUcqLz     |loneliness |F1      |8.288739e-05    |2.007288e-05   |TRUE                     |0.036465     |
+
 
 - MR with Steiger Filtering (very similar to original MR)
 
-|id.exposure |id.outcome |outcome       |exposure   |method                    | nsnp|         b|        se|      pval|
-|:-----------|:----------|:-------------|:----------|:-------------------------|----:|---------:|---------:|---------:|
-|puZ4MB      |MB5zG3     |F1            |loneliness |MR Egger                  |  133| 1.0804870| 0.4600482| 0.0203383|
-|puZ4MB      |MB5zG3     |F1            |loneliness |Weighted median           |  133| 0.2255302| 0.0239481| 0.0000000|
-|puZ4MB      |MB5zG3     |F1            |loneliness |Inverse variance weighted |  133| 0.2375566| 0.0216460| 0.0000000|
-|puZ4MB      |MB5zG3     |F1            |loneliness |Simple mode               |  133| 0.1754546| 0.0539756| 0.0014613|
-|puZ4MB      |MB5zG3     |F1            |loneliness |Weighted mode             |  133| 0.1819925| 0.0530992| 0.0008130|
+|id.exposure |id.outcome |outcome |exposure   |method                    | nsnp|          b|        se|      pval|
+|:-----------|:----------|:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
+|QWvjAh      |CUcqLz     |F1      |loneliness |MR Egger                  |    4| -1.3373398| 1.3802029| 0.4347899|
+|QWvjAh      |CUcqLz     |F1      |loneliness |Weighted median           |    4|  0.3164848| 0.1282560| 0.0136021|
+|QWvjAh      |CUcqLz     |F1      |loneliness |Inverse variance weighted |    4|  0.4086131| 0.1058460| 0.0001132|
+|QWvjAh      |CUcqLz     |F1      |loneliness |Simple mode               |    4|  0.3061203| 0.1872071| 0.2005229|
+|QWvjAh      |CUcqLz     |F1      |loneliness |Weighted mode             |    4|  0.2851900| 0.1597900| 0.1722889|
 
----
-### MR PRESSO
-- corrects for the influence of outliers
-- in this case, both the raw MR and the outlier-corrected MR results are very similar
-
-
-|Exposure   |MR Analysis       | Causal Estimate|        Sd|   T-stat| P-value|
-|:----------|:-----------------|---------------:|---------:|--------:|-------:|
-|loneliness |Raw               |       0.2375566| 0.0216460| 10.97463|       0|
-|loneliness |Outlier-corrected |       0.2551023| 0.0191968| 13.28879|       0|
 
 
 ---
