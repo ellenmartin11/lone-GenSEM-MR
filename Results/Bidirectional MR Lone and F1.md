@@ -1,6 +1,6 @@
 
 
-# Two sample MR report
+# Bidirectional MR
 
 ---
 
@@ -108,3 +108,8 @@ Note - R^2 values are approximate
 |loneliness |Outlier-corrected |       0.2551023| 0.0191968| 13.28879|       0|
 
 
+---
+
+## F1 against Loneliness
+
+---
