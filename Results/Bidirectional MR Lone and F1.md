@@ -134,22 +134,24 @@ Note - R^2 values are approximate
 
 |id.exposure |id.outcome |exposure |outcome    | snp_r2.exposure| snp_r2.outcome|correct_causal_direction | steiger_pval|
 |:-----------|:----------|:--------|:----------|---------------:|--------------:|:------------------------|------------:|
-|qJTRF1      |UKKKZb     |F1       |loneliness |        9.81e-05|        3.5e-06|TRUE                     |     0.000281|
+|qJTRF1      |UKKKZb     |F1       |loneliness |       0.0010096|      0.0004938|TRUE                     |     1.53e-05|
 
 ---
 
 ### MR Steiger
 
-- Steiger Filtered MR !CHECK IF THIS IS CORRECT because it's extremely different and the graphs are extremely different
+- Steiger SNPS
 
 |id.exposure |id.outcome |exposure |outcome    |snp_r2.exposure |snp_r2.outcome |correct_causal_direction |steiger_pval |
 |:-----------|:----------|:--------|:----------|:---------------|:--------------|:------------------------|:------------|
-|qJTRF1      |UKKKZb     |F1       |loneliness |9.813141e-05    |3.521383e-06   |TRUE                     |0.0002809675 |
-|qJTRF1      |UKKKZb     |F1       |loneliness |8.288929e-05    |1.203016e-05   |TRUE                     |0.01078943   |
-|qJTRF1      |UKKKZb     |F1       |loneliness |0.0001401907    |5.48707e-05    |TRUE                     |0.04493204   |
-|qJTRF1      |UKKKZb     |F1       |loneliness |8.625831e-05    |3.21007e-06    |TRUE                     |0.0006969074 |
-|qJTRF1      |UKKKZb     |F1       |loneliness |0.00012688      |5.666129e-05   |TRUE                     |0.0909476    |
-|qJTRF1      |UKKKZb     |F1       |loneliness |0.0001036672    |1.623191e-05   |TRUE                     |0.00538071   |
+|qJTRF1      |UKKKZb     |F1       |loneliness |9.813141e-05    |8.502824e-06   |TRUE                     |0.001566527  |
+|qJTRF1      |UKKKZb     |F1       |loneliness |8.288929e-05    |2.904829e-05   |TRUE                     |0.09287999   |
+|qJTRF1      |UKKKZb     |F1       |loneliness |0.0001401907    |0.0001324908   |TRUE                     |0.881412     |
+|qJTRF1      |UKKKZb     |F1       |loneliness |8.625831e-05    |7.75112e-06    |TRUE                     |0.003262243  |
+|qJTRF1      |UKKKZb     |F1       |loneliness |0.00012688      |0.0001368143   |FALSE                    |0.8448159    |
+|qJTRF1      |UKKKZb     |F1       |loneliness |0.0001036672    |3.919389e-05   |TRUE                     |0.07609016   |
+
+
 
 - this is the table produced from directly calculating the R2
 
