@@ -151,18 +151,15 @@ Note - R^2 values are approximate
 |qJTRF1      |UKKKZb     |F1       |loneliness |0.00012688      |0.0001368143   |FALSE                    |0.8448159    |
 |qJTRF1      |UKKKZb     |F1       |loneliness |0.0001036672    |3.919389e-05   |TRUE                     |0.07609016   |
 
-
-
-- this is the table produced from directly calculating the R2
-
+- MR Steiger
 
 |id.exposure |id.outcome |outcome    |exposure |method                    | nsnp|         b|        se|      pval|
 |:-----------|:----------|:----------|:--------|:-------------------------|----:|---------:|---------:|---------:|
 |qJTRF1      |UKKKZb     |loneliness |F1       |MR Egger                  |    8| 0.4582029| 0.3560016| 0.2454859|
-|qJTRF1      |UKKKZb     |loneliness |F1       |Weighted median           |    8| 0.2738640| 0.0702526| 0.0000969|
+|qJTRF1      |UKKKZb     |loneliness |F1       |Weighted median           |    8| 0.2738640| 0.0751421| 0.0002678|
 |qJTRF1      |UKKKZb     |loneliness |F1       |Inverse variance weighted |    8| 0.2277049| 0.0834891| 0.0063843|
-|qJTRF1      |UKKKZb     |loneliness |F1       |Simple mode               |    8| 0.3286496| 0.1105886| 0.0207541|
-|qJTRF1      |UKKKZb     |loneliness |F1       |Weighted mode             |    8| 0.2952316| 0.0917594| 0.0147053|
+|qJTRF1      |UKKKZb     |loneliness |F1       |Simple mode               |    8| 0.3286496| 0.1014612| 0.0142696|
+|qJTRF1      |UKKKZb     |loneliness |F1       |Weighted mode             |    8| 0.2952316| 0.0918087| 0.0147405|
 
 ---
 
