@@ -24,3 +24,4 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 
 - [Mendelian Randomization Report and Plots](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/MR%20Loneliness%20against%20Internalising.md)
 ![MR_lonelinesstointernalising_forest](https://user-images.githubusercontent.com/68326791/165499815-a3faf433-8c94-40c7-be3f-ae82c29772fa.png)
+### TO BE EDITED SO INTERNALISING SAYS F1 (MOOD/NEURODEVELOPMENTAL)
