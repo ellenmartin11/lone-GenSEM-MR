@@ -22,6 +22,6 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 - [The multivariate Genomic Structural Equation Model](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure4.pdf) (used for the multivariate GWAS and Mendelian Randomization) and the [Path Diagram](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure4.pdf)
 ![image](https://user-images.githubusercontent.com/68326791/163831501-86328e1d-d074-4809-aef2-d80b543b1406.png)
 
-- [Mendelian Randomization Report and Plots]https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/Bidirectional%20Mendelian%20Randomization%20Lone%20and%20F1.md
+- [Mendelian Randomization Report and Plots](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/Bidirectional%20Mendelian%20Randomization%20Lone%20and%20F1.md)
 
 
