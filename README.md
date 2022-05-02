@@ -28,6 +28,15 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 ![image](https://user-images.githubusercontent.com/68326791/165552480-941a8a6f-bb95-4276-858d-1a74efba3b2d.png)
 
 ### Bidirectional Mendelian Randomization
+
+|outcome |exposure   |method                    | nsnp|          b|        se|      pval|
+|:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
+|F1      |loneliness |MR Egger                  |    4| -1.3373398| 1.3802029| 0.4347899|
+|F1      |loneliness |Weighted median           |    4|  0.3164848| 0.1226593| 0.0098745|
+|F1      |loneliness |Inverse variance weighted |    4|  0.4086131| 0.1058460| 0.0001132|
+|F1      |loneliness |Simple mode               |    4|  0.3061203| 0.1750974| 0.1787344|
+|F1      |loneliness |Weighted mode             |    4|  0.2851900| 0.1593545| 0.1714478|
+
 [Mendelian Randomization Report and Plots](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/Bidirectional%20Mendelian%20Randomization%20Lone%20and%20F1.md)
 
 
