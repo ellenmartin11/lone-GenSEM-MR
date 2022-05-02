@@ -13,32 +13,31 @@ Date: **26 April, 2022**
 ### Results from two sample MR:
 
 
-|id.exposure |id.outcome |outcome |exposure   |method                    | nsnp|          b|        se|      pval|
-|:-----------|:----------|:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
-|QWvjAh      |CUcqLz     |F1      |loneliness |MR Egger                  |    4| -1.3373398| 1.3802029| 0.4347899|
-|QWvjAh      |CUcqLz     |F1      |loneliness |Weighted median           |    4|  0.3164848| 0.1226593| 0.0098745|
-|QWvjAh      |CUcqLz     |F1      |loneliness |Inverse variance weighted |    4|  0.4086131| 0.1058460| 0.0001132|
-|QWvjAh      |CUcqLz     |F1      |loneliness |Simple mode               |    4|  0.3061203| 0.1750974| 0.1787344|
-|QWvjAh      |CUcqLz     |F1      |loneliness |Weighted mode             |    4|  0.2851900| 0.1593545| 0.1714478|
+|outcome |exposure   |method                    | nsnp|          b|        se|      pval|
+|:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
+|F1      |loneliness |MR Egger                  |    4| -1.3373398| 1.3802029| 0.4347899|
+|F1      |loneliness |Weighted median           |    4|  0.3164848| 0.1226593| 0.0098745|
+|F1      |loneliness |Inverse variance weighted |    4|  0.4086131| 0.1058460| 0.0001132|
+|F1      |loneliness |Simple mode               |    4|  0.3061203| 0.1750974| 0.1787344|
+|F1      |loneliness |Weighted mode             |    4|  0.2851900| 0.1593545| 0.1714478|
 
 - IVW suggests beta loneliness to F1 is .41 (se = .11) and is significant (p < .001)
 
 ### Heterogeneity tests
 
-
-|id.exposure |id.outcome |outcome |exposure   |method                    |        Q| Q_df|    Q_pval|
-|:-----------|:----------|:-------|:----------|:-------------------------|--------:|----:|---------:|
-|QWvjAh      |CUcqLz     |F1      |loneliness |MR Egger                  | 2.142708|    2| 0.3425444|
-|QWvjAh      |CUcqLz     |F1      |loneliness |Inverse variance weighted | 3.865533|    3| 0.2763550|
+|outcome |exposure   |method                    |        Q| Q_df|    Q_pval|
+|:-------|:----------|:-------------------------|--------:|----:|---------:|
+|F1      |loneliness |MR Egger                  | 2.142708|    2| 0.3425444|
+|F1      |loneliness |Inverse variance weighted | 3.865533|    3| 0.2763550|
 
 - since Q is low and not statistically significant, we can assume homogeneity and refer to IVW instead of Egger
 
 ### Test for directional horizontal pleiotropy
 
 
-|id.exposure |id.outcome |outcome |exposure   | egger_intercept|        se|      pval|
-|:-----------|:----------|:-------|:----------|---------------:|---------:|---------:|
-|QWvjAh      |CUcqLz     |F1      |loneliness |         0.02251| 0.0177509| 0.3324007|
+|outcome |exposure   | egger_intercept|        se|      pval|
+|:-------|:----------|---------------:|---------:|---------:|
+|F1      |loneliness |         0.02251| 0.0177509| 0.3324007|
 
 - test for pleiotropy suggests no horizontal pleiotropy, meaning we can continue to refer to IVW
 
@@ -94,13 +93,13 @@ Date: **26 April, 2022**
 
 - MR with Steiger Filtering (very similar to original MR)
 
-|id.exposure |id.outcome |outcome |exposure   |method                    | nsnp|          b|        se|      pval|
-|:-----------|:----------|:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
-|QWvjAh      |CUcqLz     |F1      |loneliness |MR Egger                  |    4| -1.3373398| 1.3802029| 0.4347899|
-|QWvjAh      |CUcqLz     |F1      |loneliness |Weighted median           |    4|  0.3164848| 0.1282560| 0.0136021|
-|QWvjAh      |CUcqLz     |F1      |loneliness |Inverse variance weighted |    4|  0.4086131| 0.1058460| 0.0001132|
-|QWvjAh      |CUcqLz     |F1      |loneliness |Simple mode               |    4|  0.3061203| 0.1872071| 0.2005229|
-|QWvjAh      |CUcqLz     |F1      |loneliness |Weighted mode             |    4|  0.2851900| 0.1597900| 0.1722889|
+|outcome |exposure   |method                    | nsnp|          b|        se|      pval|
+|:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
+|F1      |loneliness |MR Egger                  |    4| -1.3373398| 1.3802029| 0.4347899|
+|F1      |loneliness |Weighted median           |    4|  0.3164848| 0.1282560| 0.0136021|
+|F1      |loneliness |Inverse variance weighted |    4|  0.4086131| 0.1058460| 0.0001132|
+|F1      |loneliness |Simple mode               |    4|  0.3061203| 0.1872071| 0.2005229|
+|F1      |loneliness |Weighted mode             |    4|  0.2851900| 0.1597900| 0.1722889|
 
 - the results are quite consistent with IVW MR
 
