@@ -25,6 +25,8 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 
 ![image](https://user-images.githubusercontent.com/68326791/165550787-442404f9-e59d-4df1-9fc4-c030dc68de00.png)
 
+![ManHplot2_commonLiability](https://user-images.githubusercontent.com/68326791/166987952-c4416ae4-2a64-4562-968c-c54c4fdccf26.jpeg)
+
 ![image](https://user-images.githubusercontent.com/68326791/165552480-941a8a6f-bb95-4276-858d-1a74efba3b2d.png)
 
 ### Bidirectional Mendelian Randomization
