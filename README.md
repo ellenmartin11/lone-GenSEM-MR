@@ -25,6 +25,10 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 
 ![ManHplot2_commonLiability](https://user-images.githubusercontent.com/68326791/166987952-c4416ae4-2a64-4562-968c-c54c4fdccf26.jpeg)
 
+|GWAS    | N (sample)| included SNPs| number of LD-independent genome-wide SNPs|smallest p-value | SNPs (shared)| SNPs (non-shared)|
+|:-------|----------:|-------------:|-----------------------------------------:|:----------------|-------------:|-----------------:|
+|F1 LONE |     378755|       1096627|                                        18|3.2e-13          |             3|                15|
+
 ![image](https://user-images.githubusercontent.com/68326791/165552480-941a8a6f-bb95-4276-858d-1a74efba3b2d.png)
 
 ### Bidirectional Mendelian Randomization
