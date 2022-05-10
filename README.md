@@ -20,6 +20,8 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 
 - The multivariate Genomic Structural Equation Model (used for the multivariate GWAS and Mendelian Randomization) and the Path Diagram
 ![image](https://user-images.githubusercontent.com/68326791/167618348-cf0ef1f8-da99-4731-8489-58c50bdf2781.png)
+- The supplemental figure with pathways between F2/F3 and LONE constrained to 0
+![image](https://user-images.githubusercontent.com/68326791/167619089-1e1c1a89-ed61-4e92-a342-8bf0d83bbb00.png)
 
 
 ### GWA on F1 (Mood and neurodevelopmental latent factor)
