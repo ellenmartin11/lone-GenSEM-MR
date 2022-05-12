@@ -38,6 +38,7 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 [Mendelian Randomization Report and Plots](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/Bidirectional%20Mendelian%20Randomization%20Lone%20and%20F1.md)
 
 - this also includes sensitivity tests 
+- Loneliness on F1
 
 |outcome |exposure   |method                    | nsnp|          b|        se|      pval|
 |:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
@@ -47,6 +48,8 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 |F1      |loneliness |Simple mode               |    4|  0.3061203| 0.1750974| 0.1787344|
 |F1      |loneliness |Weighted mode             |    4|  0.2851900| 0.1593545| 0.1714478|
 
+- F1 on Loneliness
+
 |outcome    |exposure |method                    | nsnp|          b|        se|      pval|
 |:----------|:--------|:-------------------------|----:|----------:|---------:|---------:|
 |loneliness |F1       |MR Egger                  |    9| -0.1737334| 0.5206376| 0.7483842|
@@ -55,6 +58,6 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 |loneliness |F1       |Simple mode               |    9|  0.3289754| 0.0945554| 0.0083296|
 |loneliness |F1       |Weighted mode             |    9|  0.2958618| 0.0885858| 0.0102337|
 
-
+- Plot of loneliness on F1
 
 ![MR_lonelinesstoF1_forest](https://user-images.githubusercontent.com/68326791/165552941-142c5711-ac39-440e-82d0-5a7df048d834.png)
