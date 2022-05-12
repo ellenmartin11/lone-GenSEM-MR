@@ -34,8 +34,9 @@
 ## Multivariate GWA
 - for detailed analysis steps for multivariate GWA, see [Schoeler (2021)](https://github.com/TabeaSchoeler/TS2021_CommonLiabAddiction/tree/master/analysis)
 - a multivariate GWA was conducted only for F1 (internalising disorders) as this factor was the only one that remained significantly positively associated with loneliness in multivariate GenomicSEM
+- a manhattan plot illustrating genome-wide significant hits can be found here
 
 ## Mendelian Randomization
 - the script for this can be found Here.
-- it includes Mendelian Randomisation conducted in R using the [TwoSampleMR](https://mrcieu.github.io/TwoSampleMR/) package
-- it tests the SNP effects from loneliness (Day et al, 2018)  to internalising (output of multivariate GWA)
+- it includes bidirectional Mendelian Randomisation conducted in R using the [TwoSampleMR](https://mrcieu.github.io/TwoSampleMR/) package alongside sensitivity analyses
+- it tests the SNP effects from loneliness (Day et al, 2018) to internalising (output of multivariate GWA) as well as from internalising to loneliness
