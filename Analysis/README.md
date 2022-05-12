@@ -29,7 +29,7 @@
 - the script for this can be found [Here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/GenSEM%20Factor%20Analysis%20and%20GSEM.md)
 - it contains the exploratory factor analysis and confirmatory factor analysis 
 - the GenomicSEM usermodels were then specified based on the best-fitting model according to [confirmatory factor analysis output](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/CFA3.csv)
-- the path diagrams were manually generated and can be found in [Fig 2](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure2.pdf) and [Fig 4](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/MartinFigure4.pdf)
+- the path diagrams were manually generated using Powerpoint and were based on the output of the GenomicSEM usermodels.
 
 ## Multivariate GWA
 - for detailed analysis steps for multivariate GWA, see [Schoeler (2021)](https://github.com/TabeaSchoeler/TS2021_CommonLiabAddiction/tree/master/analysis)
