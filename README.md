@@ -37,6 +37,7 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 ### Bidirectional Mendelian Randomization
 [Mendelian Randomization Report and Plots](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/Bidirectional%20Mendelian%20Randomization%20Lone%20and%20F1.md)
 
+- this also includes sensitivity tests 
 
 |outcome |exposure   |method                    | nsnp|          b|        se|      pval|
 |:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
