@@ -49,6 +49,10 @@ names(MDD_Sumstats)[names(MDD_Sumstats)=="StdErrLogOR"] <- "SE"
 MDD_Sumstats$A1 <- toupper(MDD_Sumstats$A1)
 MDD_Sumstats$A2 <- toupper(MDD_Sumstats$A2)
 
+#assigning missing N data
+MDD_Sumstats$N <- as.numeric(807553)
+
+
 #writing a new table of QC'ed sumstats, stored in the outPath
 write.table(MDD_Sumstats, paste0(outPath,'//HowardMDD.txt'), col.names=T, row.names=F,quote=F)
 
@@ -58,6 +62,19 @@ BIP_Sumstats <- BIP_RawSumstats
 head(BIP_Sumstats)
 BIP_Sumstats <- BIP_Sumstats[,c(1,2,3,4,5,7,8,9,10,11)] #selecting only necessary columns
 names(BIP_Sumstats)[names(BIP_Sumstats)=="FRQ_U_31358"] <- "MAF"
+BIP_Sumstats$N <- as.numeric(51710)
+
+BIP_Sumstats$BETA <- log(as.numeric(BIP_Sumstats$OR))
+
+#calculate the CI of the OR
+BIP_Sumstats$CI_upper <- as.numeric(BIP_Sumstats$OR) + 1.96*BIP$SE
+BIP_Sumstats$CI_lower <- as.numeric(BIP_Sumstats$OR) - 1.96*BIP$SE
+
+BIP_Sumstats$SE_B <- as.numeric((log(BIP_Sumstats$CI_upper)-log(abs(BIP_Sumstats$CI_lower)))/(1.96*2))
+
+BIP_Sumstats$P <- as.numeric(BIP_Sumstats$P)
+
+BIP_Sumstats$SE <- BIP_Sumstats$SE_B
 
 write.table(BIP_Sumstats, paste0(outPath,'/StahlBIP.txt'), col.names=T, row.names=F,quote=F)
 
@@ -71,7 +88,7 @@ names(ANX_Sumstats)[names(ANX_Sumstats)=="SNPID"] <- "SNP"
 names(ANX_Sumstats)[names(ANX_Sumstats)=="Allele1"] <- "A1"
 names(ANX_Sumstats)[names(ANX_Sumstats)=="Allele2"] <- "A2"
 names(ANX_Sumstats)[names(ANX_Sumstats)=="Freq1"] <- "MAF"
-names(ANX_Sumstats)[names(ANX_Sumstats)=="Effect"] <- "OR"
+names(ANX_Sumstats)[names(ANX_Sumstats)=="Effect"] <- "BETA"
 names(ANX_Sumstats)[names(ANX_Sumstats)=="StdErr"] <- "SE"
 names(ANX_Sumstats)[names(ANX_Sumstats)=="P.value"] <- "P"
 names(ANX_Sumstats)[names(ANX_Sumstats)=="TotalN"] <- "N"
@@ -83,7 +100,20 @@ PTSD_RawSumstats <- fread("D://GSEM//gz files//NievergeltPTSD.gz")
 PTSD_Sumstats <- PTSD_RawSumstats
 head(PTSD_Sumstats)
 names(PTSD_Sumstats)[names(PTSD_Sumstats)=="FRQ_A_23212"] <- "MAF"
+
 PTSD_Sumstats <- PTSD_Sumstats[,c(1,2,3,4,5,6,8,9,10,11)]
+
+PTSD_Sumstats$BETA <- log(as.numeric(PTSD_Sumstats$OR))
+PTSD_Sumstats$N <- as.numeric(9537)
+#calculate the CI of the OR
+PTSD_Sumstats$CI_upper <- as.numeric(PTSD_Sumstats$OR) + 1.96*PTSD_Sumstats$SE
+PTSD_Sumstats$CI_lower <- as.numeric(PTSD_Sumstats$OR) - 1.96*PTSD_Sumstats$SE
+
+PTSD_Sumstats$SE_B <- as.numeric((log(PTSD_Sumstats$CI_upper)-log(abs(PTSD_Sumstats$CI_lower)))/(1.96*2))
+
+PTSD_Sumstats$P <- as.numeric(PTSD_Sumstats$P)
+
+PTSD_Sumstats$SE <- PTSD_Sumstats$SE_B
 
 write.table(PTSD_Sumstats, paste0(outPath,'/NievergeltPTSD.txt'), col.names=T, row.names=F,quote=F)
 
@@ -153,7 +183,10 @@ write.table(ALC_Sumstats, paste0(outPath,'/SchumannALC.txt'), col.names=T, row.n
 ##WoottonSMK.txt##
 SMK_RawSumstats <- fread("D://GSEM//text files//WoottonSMK.txt")
 SMK_Sumstats <- SMK_RawSumstats
+SMK_Sumstats$N <- as.numeric(462690)
+
 head(SMK_Sumstats) #already QC'ed
+write.table(SMK_Sumstats, paste0(outPath,'/WoottonSMK.txt'), col.names=T, row.names=F,quote=F)
 
 ##GroveASD##
 ASD_RawSumstats <- fread("D://GSEM//GroveASD")
@@ -161,6 +194,16 @@ ASD_Sumstats <- ASD_RawSumstats
 head(ASD_Sumstats)
 
 names(ASD_Sumstats)[names(ASD_Sumstats)=="EUR_FRQ"] <- "MAF"
+ASD_Sumstats$N <- as.numeric(46350)
+
+ASD_Sumstats$BETA <- as.numeric(log(ASD_Sumstats$OR))
+
+ASD_Sumstats$CI_upper <- ASD_Sumstats$OR + 1.96*ASD$SE
+ASD_Sumstats$CI_lower <- ASD_Sumstats$OR - 1.96*ASD$SE
+
+ASD_Sumstats$SE_B <- as.numeric((log(ASD_Sumstats$CI_upper)-log(abs(ASD_Sumstats$CI_lower)))/(1.96*2))
+ASD_Sumstats$SE <- ASD_Sumstats$SE_B
+ASD_Sumstats$P <- as.numeric(ASD_Sumstats$P)
 
 write.table(ASD_Sumstats, paste0(outPath,'/GroveASD.txt'), col.names=T, row.names=F,quote=F)
 
@@ -174,9 +217,25 @@ head(ADHD_Sumstats) #already QC'ed
 
 SCZ_RawSumstats <- fread("D://GSEM//text files//PardinasSCZ.txt")
 SCZ_Sumstats <- SCZ_RawSumstats
+SCZ_Sumstats$N <- as.numeric(105318)
+SCZ_Sumstats$BETA <- log(as.numeric(SCZ_Sumstats$OR))
+
+#calculate the CI of the OR
+SCZ_Sumstats$CI_upper <- as.numeric(SCZ_Sumstats$OR) + 1.96*SCZ$SE
+SCZ_Sumstats$CI_lower <- as.numeric(SCZ_Sumstats$OR) - 1.96*SCZ$SE
+
+SCZ_Sumstats$SE_B <- as.numeric((log(SCZ_Sumstats$CI_upper)-log(abs(SCZ_Sumstats$CI_lower)))/(1.96*2))
+
+SCZ_Sumstats$P <- as.numeric(SCZ_Sumstats$P)
+
+SCZ_Sumstats$SE <- SCZ_Sumstats$SE_B
 head(SCZ_Sumstats) #aready QC'ed
 
-
+write.table(SCZ_Sumstats, file="PardinasSCZ.txt", 
+            sep="\t", 
+            row.names = FALSE, 
+            col.names = TRUE, 
+            quote=F)
 ```
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## Munging using GenomicSEM ##
