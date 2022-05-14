@@ -37,6 +37,6 @@
 - a manhattan plot illustrating genome-wide significant hits can be found here
 
 ## Mendelian Randomization
-- the script for this can be found Here.
+- the script for this can be found [Here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/Mendelian%20Randomisation.md).
 - it includes bidirectional Mendelian Randomisation conducted in R using the [TwoSampleMR](https://mrcieu.github.io/TwoSampleMR/) package alongside sensitivity analyses
 - it tests the SNP effects from loneliness (Day et al, 2018) to internalising (output of multivariate GWA) as well as from internalising to loneliness
