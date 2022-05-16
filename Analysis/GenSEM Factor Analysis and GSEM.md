@@ -392,9 +392,7 @@ View(fit1constrlatent$results)
 fit1constrlatent$modelfit #SRMR = .10, CFI = .94 
 ```
 - usermodel results can be found [here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/multivarlatent.csv)
-```
 
-```
 ### multivar model constrained and latent indicator for lone
 
 ```r
