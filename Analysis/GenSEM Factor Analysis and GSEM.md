@@ -302,9 +302,9 @@ View(fitb$results)
 ```
 - CFI = .93 and SRMR = .10 suggests acceptable fit, so this will be the selected 3 factor model
 
-full CFA output:
+- the full 3 factor CFA output can be found [Here]()
 
-https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/CFA3.csv
+
 
 ### alternate 3 factor
 smoking on both F1 and F2
