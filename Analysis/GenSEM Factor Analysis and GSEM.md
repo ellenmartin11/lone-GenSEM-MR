@@ -360,7 +360,7 @@ View(fitc$results)
 
 ## GenomicSEM with Loneliness
 - specifying both a multivariate (adjusted) and non-adjusted model
-### multivariate (adjusted), constrained model
+### multivariate (adjusted) model
 
 ```r
 setwd("C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2") #setting WD locally
@@ -391,7 +391,7 @@ View(fit1constrlatent$results)
 View(fit1constrlatent$results) 
 fit1constrlatent$modelfit #SRMR = .10, CFI = .94 - poorer fit than unconstrained multivar, but slightly acceptable still
 ```
-- usermodel results can be found [here]()
+- usermodel results can be found [here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/multivarlatent.csv)
 ```
 
 ```
