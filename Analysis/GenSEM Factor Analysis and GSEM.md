@@ -367,30 +367,33 @@ setwd("C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2") #set
 
 load("combined_covstruc.RData") #full ldsc data set used
 
-multivar_constrained<- '
-#specifying factor structure
-                        F1 =~ NA*ADHD + ANX + ASD + PTSD + MDD
-                        F2 =~ NA*ALC + CAN + SMK
-                        F3 =~ NA*BIP + SCZ
-                        
-#regressed with lonelineliness, constrained to 0 for F2 and F3 because non-constrained output showed negative factor loadings from F2 and F3 to loneliness.
-                        LONELINESS ~ F1 + 0*F2 + 0*F3
+multivar_constrained_latent<- 'F1 =~ NA*ADHD + ANX + ASD + PTSD + MDD
+                               F2 =~ NA*ALC + CAN + SMK
+                               F3 =~ NA*BIP + SCZ
 
-                        F1 ~~ F2 + F3
-                        F2 ~~ F3
+#latent indicator for loneliness
+                               LONE =~ LONELINESS
+                               LONE~~1*LONE
+                               LONELINESS~~0*LONELINESS
+
+#regressions with LONE and multivar adjustment
+                               LONE ~ F1 + F2 + F3
+
+                               F1 ~~ F2 + F3
+                               F2 ~~ F3
 '
 
-fit1constr<-usermodel(combined_covstruc, estimation = "DWLS", model = multivar_constrained, CFIcalc = TRUE, std.lv = TRUE)
+fit1constrlatent<-usermodel(combined_covstruc, estimation = "DWLS", model = multivar_constrained_latent, CFIcalc = TRUE, std.lv = TRUE)
+View(fit1constrlatent$results) 
 ```
 
 ```r
-View(fit1constr$results) 
-fit1constr$modelfit #SRMR = .10, CFI = .94 - poorer fit than unconstrained multivar, but slightly acceptable still
+View(fit1constrlatent$results) 
+fit1constrlatent$modelfit #SRMR = .10, CFI = .94 - poorer fit than unconstrained multivar, but slightly acceptable still
+```
+- usermodel results can be found [here]()
 ```
 
-```
-##       chisq df     p_chisq      AIC       CFI       SRMR
-## df 387.4599 41 5.98959e-58 437.4599 0.9354812 0.09849712
 ```
 ### multivar model constrained and latent indicator for lone
 
@@ -405,7 +408,7 @@ multivar_constrained_latent<- 'F1 =~ NA*ADHD + ANX + ASD + PTSD + MDD
                                LONELINESS~~0*LONELINESS
 
 #with constraints
-                               LONE ~ F1 + 0*F2 + 0*F3
+                               LONE ~ F1 + 0*F2 + 0*F3 #constrained to 0 to check for potential over-inflation of positive association between LONE and F1
 
                                F1 ~~ F2 + F3
                                F2 ~~ F3
@@ -417,13 +420,16 @@ fit1constrlatent<-usermodel(combined_covstruc, estimation = "DWLS", model = mult
 
 ```r
 View(fit1constrlatent$results) 
-fit1constrlatent$modelfit #same fit
+fit1constrlatent$modelfit 
+
+##       chisq df     p_chisq      AIC       CFI       SRMR
+## df 387.4599 41 5.98959e-58 437.4599 0.9354812 0.09849712
+
 #write.csv(fit1constrlatent$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\multivarconstrlatent.csv", row.names = TRUE)
 
 ```
-Full usermodel results:
+Full usermodel results can be found [here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/multivarlatent.csv)
 
-https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/multivarconstrlatent.csv
 ```
 ##       chisq df      p_chisq      AIC       CFI       SRMR
 ## df 387.4601 41 5.989008e-58 437.4601 0.9354812 0.09849714
