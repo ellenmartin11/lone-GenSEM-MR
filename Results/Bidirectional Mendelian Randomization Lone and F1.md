@@ -79,6 +79,9 @@ Date: **26 April, 2022**
 
 ### MR Steiger
 
+- This is useful for detecting any reverse causation in genetic instruments, which could have biased the MR estimate
+- Steiger filtering assumes that the instrument, if truly valid, should explain more variance in the exposure than the outcome, otherwise it removes such variants
+
 - Steiger SNPS
 
 |exposure   |outcome |snp_r2.exposure |snp_r2.outcome |correct_causal_direction |steiger_pval |
@@ -88,7 +91,7 @@ Date: **26 April, 2022**
 |loneliness |F1      |7.838155e-05    |6.355604e-06   |TRUE                     |0.004177349  |
 |loneliness |F1      |8.288739e-05    |2.007288e-05   |TRUE                     |0.036465     |
 
-- the 4 remaining SNPs are in the correct causal direction
+- the 4 remaining SNPs are in the correct causal direction and explain more variance in loneliness than in F1
 
 
 - MR with Steiger Filtering (very similar to original MR)
@@ -101,7 +104,7 @@ Date: **26 April, 2022**
 |F1      |loneliness |Simple mode               |    4|  0.3061203| 0.1872071| 0.2005229|
 |F1      |loneliness |Weighted mode             |    4|  0.2851900| 0.1597900| 0.1722889|
 
-- the results are quite consistent with IVW MR
+- the results are quite consistent with IVW MR, suggesting that it is unlikely for reverse causation of genetic instruments to have biased the IVW MR estimate
 
 ---
 
@@ -119,6 +122,7 @@ Date: **26 April, 2022**
 |loneliness |F1       |Simple mode               |    9|  0.3289754| 0.0945554| 0.0083296|
 |loneliness |F1       |Weighted mode             |    9|  0.2958618| 0.0885858| 0.0102337|
 
+- neither IVW or Egger are significant, suggesting that the correct causal direction is likely to be Loneliness to F1 rather than F1 to Loneliness
 
 ### Heterogeneity Tests
 
@@ -129,7 +133,7 @@ Date: **26 April, 2022**
 |F1       |Inverse variance weighted | 63.01223|    8|      0|
 
 
-- since results do indicate heterogeneity, we have to refer to MR Egger instead of IVW
+- since results do indicate heterogeneity, we have to refer to MR Egger instead of IVW, which is not significant either way
 
 
 ### Test for directional horizontal pleiotropy
@@ -146,8 +150,7 @@ Date: **26 April, 2022**
 |:--------|:----------|---------------:|--------------:|:------------------------|------------:|
 |F1       |loneliness |       0.0010096|      0.0004938|TRUE                     |     1.53e-05|
 
-- not sure how to interpret this
--
+- Steiger seems to suggest correct causal direction from F1 to Loneliness 
 ---
 
 ### MR Steiger
@@ -173,7 +176,8 @@ Date: **26 April, 2022**
 |loneliness |F1       |Simple mode               |    8| 0.3286496| 0.1014612| 0.0142696|
 |loneliness |F1       |Weighted mode             |    8| 0.2952316| 0.0918087| 0.0147405|
 
-- Steiger results are very different from MR results
+- As the Steiger results are very different to the initial MR, there seems to be some bias due to revere causation
+- However, Mr Egger is still not significant according to MR Steiger
 ---
 
 
@@ -213,13 +217,5 @@ Date: **26 April, 2022**
 |  0.4582029| 0.9322272|
 
 ---
-
-### MR PRESSO
-
-|Exposure |MR Analysis       | Causal Estimate|        Sd|   T-stat|   P-value|
-|:--------|:-----------------|---------------:|---------:|--------:|---------:|
-|F1       |Raw               |       0.0835448| 0.1238827| 0.674386| 0.5190745|
-|F1       |Outlier-corrected |       0.1840524| 0.0837013| 2.198920| 0.0702066|
-
 
 
