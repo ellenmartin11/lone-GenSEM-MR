@@ -426,7 +426,8 @@ fit1constrlatent$modelfit
 #write.csv(fit1constrlatent$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\multivar-latent-constr-SUPP.csv", row.names = TRUE)
 
 ```
-Full usermodel results can be found [here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/multivar-latent-constr-SUPP.csv)
+Full usermodel results can be found [here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/multivar-latent-constr.csv)
+This is the model on which the multivariate GWA is specified in the next stage of analysis, as F1 is the only latent genetic factor of interest.
 
 ```
 ##       chisq df      p_chisq      AIC       CFI       SRMR
