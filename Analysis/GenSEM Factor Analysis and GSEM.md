@@ -367,7 +367,7 @@ setwd("C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2") #set
 
 load("combined_covstruc.RData") #full ldsc data set used
 
-multivar_constrained_latent<- 'F1 =~ NA*ADHD + ANX + ASD + PTSD + MDD
+multivarlatent<- 'F1 =~ NA*ADHD + ANX + ASD + PTSD + MDD
                                F2 =~ NA*ALC + CAN + SMK
                                F3 =~ NA*BIP + SCZ
 
@@ -383,13 +383,13 @@ multivar_constrained_latent<- 'F1 =~ NA*ADHD + ANX + ASD + PTSD + MDD
                                F2 ~~ F3
 '
 
-fit1constrlatent<-usermodel(combined_covstruc, estimation = "DWLS", model = multivar_constrained_latent, CFIcalc = TRUE, std.lv = TRUE)
+fit1constrlatent<-usermodel(combined_covstruc, estimation = "DWLS", model = multivarlatent, CFIcalc = TRUE, std.lv = TRUE)
 View(fit1constrlatent$results) 
 ```
 
 ```r
 View(fit1constrlatent$results) 
-fit1constrlatent$modelfit #SRMR = .10, CFI = .94 - poorer fit than unconstrained multivar, but slightly acceptable still
+fit1constrlatent$modelfit #SRMR = .10, CFI = .94 
 ```
 - usermodel results can be found [here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/multivarlatent.csv)
 ```
@@ -425,10 +425,10 @@ fit1constrlatent$modelfit
 ##       chisq df     p_chisq      AIC       CFI       SRMR
 ## df 387.4599 41 5.98959e-58 437.4599 0.9354812 0.09849712
 
-#write.csv(fit1constrlatent$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\multivarconstrlatent.csv", row.names = TRUE)
+#write.csv(fit1constrlatent$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\multivar-latent-constr-SUPP.csv", row.names = TRUE)
 
 ```
-Full usermodel results can be found [here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/multivarlatent.csv)
+Full usermodel results can be found [here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/multivar-latent-constr-SUPP.csv)
 
 ```
 ##       chisq df      p_chisq      AIC       CFI       SRMR
@@ -462,7 +462,7 @@ fit2unadj<-usermodel(combined_covstruc, estimation = "DWLS", model = unadjusted_
 ```r
 View(fit2unadj$results) 
 fit2unadj$modelfit
-#write.csv(fit2unadj$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\fit2unadj.csv", row.names = TRUE)
+#write.csv(fit2unadj$results, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\GSEM2\\GSEMUnadjModelSUPP.csv", row.names = TRUE)
 ```
 Full usermodel results are shown [here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/GSEMUnadjModelSUPP.csv)
 
