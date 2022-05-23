@@ -8,9 +8,9 @@ These analyses were carried out in R version 4.0.3 and GenomicSEM version 0.0.2.
 
 ## Getting Started
 - Refer to the GenomicSEM wiki 
-- Install necessary R Packages
-- Download necessary software tools, e.g., PLINK
-- Download summary statistics files
+- Install necessary [R Packages](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/GenSEM%20QC.Rmd)
+- Download necessary software tools, e.g., [PLINK](https://www.cog-genomics.org/plink/)
+- Download summary statistics files shown in the analysis scripts
 
 ## [Analysis Scripts](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/analysis.md):
 ### [Quality Control and Data Preparation Procedures](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/GenSEM%20QC.Rmd)
