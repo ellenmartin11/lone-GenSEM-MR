@@ -21,9 +21,20 @@ filepath="D://GSEM" #main WD
 setwd(filepath)
 outPath=paste0(filepath, "//processed GSEM data") #output path for saved data
 
-#libraries
-library(data.table)
-library(GenomicSEM)
+# Load and install libraries
+load.lib=c('pheatmap', 'ggthemes', 'ggpubr', 'Qtlizer', 'devtools', 'GenomicSEM', 'data.table', 'Matrix',
+           'sem', 'Matrix', 'stats', 'semTools', 'ggcorrplot', 'grex', 'openxlsx', 'rJava', 'qqman', 'gmodels', 'ggplot2',
+           'ggcorrplot', 'tidyverse', 'reshape2', 'pdftools', 'plyr', 'phenoscanner','ggpubr',
+           'biomaRt', 'viridis', 'rdrop2', 'lavaan', 'gprofiler2', 'knitr',
+           'gridExtra', 'CMplot', 'configr', 'purrr', 'TwoSampleMR', 'GOexpress', 'ieugwasr', 'xlsx', 'data.table')
+
+
+install.lib<-load.lib[!load.lib %in% installed.packages()]
+
+# Install missing packages
+for(lib in install.lib) install.packages(lib, dependencies=TRUE)
+# Load all packages
+sapply(load.lib,require,character=TRUE)
 ```
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## Cleaning and Quality Control of Raw Summary Statistics ##
