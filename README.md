@@ -6,39 +6,34 @@ This project uses the [GenomicSEM package](https://github.com/GenomicSEM/Genomic
 
 These analyses were carried out in R version 4.0.3 and GenomicSEM version 0.0.2.
 
-## [Analysis Scripts](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/analysis.md):
-- [Quality Control and Data Preparation Procedures](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/GenSEM%20QC.Rmd)
-- [Linkage Disequilibrium Score Regression (conducted via GenomicSEM) and Correlation Heatmap](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/GenSEM%20LDSC%20and%20Correlations.Rmd)
-- [Exploratory Factor Analysis, Confirmatory Factor Analysis, Genomic Structural Equation Modelling](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/GenSEM%20Factor%20Analysis%20and%20GSEM.md)
-- [Multivariate GWAS](https://github.com/TabeaSchoeler/TS2021_CommonLiabAddiction) (conducted via GenomicSEM using the UCL Myriad Cluster)
-- [Mendelian Randomization](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/Mendelian%20Randomisation.md)
+## Getting Started
+- Refer to the GenomicSEM wiki 
+- Install necessary R Packages
+- Download necessary software tools, e.g., PLINK
+- Download summary statistics files
 
-## Results:
-### LDSC Genetic Correlation
+## [Analysis Scripts](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/analysis.md):
+### [Quality Control and Data Preparation Procedures](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/GenSEM%20QC.Rmd)
+
+### [Linkage Disequilibrium Score Regression (conducted via GenomicSEM) and Correlation Heatmap](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/GenSEM%20LDSC%20and%20Correlations.Rmd)
 ![image](https://user-images.githubusercontent.com/68326791/163831075-aacc035c-ed82-455d-a2ce-25c1f8360a2d.png)
 
-### Confirmatory Factor Analyis and GenomicSEM Path Models
-- [The final 3 factor confirmatory factor analysis model loadings](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/CFA3.csv)
-
-- The multivariate Genomic Structural Equation Model (used for the multivariate GWAS and Mendelian Randomization) [loadings](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/multivarlatent.csv) and the Path Diagram
-![image](https://user-images.githubusercontent.com/68326791/167618348-cf0ef1f8-da99-4731-8489-58c50bdf2781.png)
-- The supplemental figure with pathways between F2/F3 and LONE constrained to 0
+### [Exploratory Factor Analysis, Confirmatory Factor Analysis, Genomic Structural Equation Modelling](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/GenSEM%20Factor%20Analysis%20and%20GSEM.md)
+- The multivariate Genomic Structural Equation Model (used for the multivariate GWAS and Mendelian Randomization) and the Path Diagram
 ![image](https://user-images.githubusercontent.com/68326791/167619089-1e1c1a89-ed61-4e92-a342-8bf0d83bbb00.png)
+- The supplemental figure without path constraints (negative associations between LONE and F2 and LONE and F3)
+![image](https://user-images.githubusercontent.com/68326791/167618348-cf0ef1f8-da99-4731-8489-58c50bdf2781.png)
 
-
-### GWA on F1 (Mood and neurodevelopmental latent factor)
-
+### [Multivariate GWAS](https://github.com/TabeaSchoeler/TS2021_CommonLiabAddiction) (conducted via GenomicSEM using the UCL Myriad Cluster)
 ![ManHplot2_commonLiability](https://user-images.githubusercontent.com/68326791/166987952-c4416ae4-2a64-4562-968c-c54c4fdccf26.jpeg)
 
 |GWAS    | N (sample)| included SNPs| number of LD-independent genome-wide SNPs|smallest p-value | SNPs (shared)| SNPs (non-shared)|
 |:-------|----------:|-------------:|-----------------------------------------:|:----------------|-------------:|-----------------:|
-|F1 LONE |     378755|       1096627|                                        18|3.2e-13          |             3|                15|
-
-![image](https://user-images.githubusercontent.com/68326791/165552480-941a8a6f-bb95-4276-858d-1a74efba3b2d.png)
+|F1      |     378755|       1096627|                                        18|3.2e-13          |             3|                15|
 
 ### Bidirectional Mendelian Randomization
 [Mendelian Randomization Report and Plots](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/Bidirectional%20Mendelian%20Randomization%20Lone%20and%20F1.md)
-
+- [Mendelian Randomization Analysis Script](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/Mendelian%20Randomisation.md)
 - this also includes sensitivity tests 
 - Loneliness on F1
 
