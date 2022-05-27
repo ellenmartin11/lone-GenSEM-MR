@@ -220,9 +220,32 @@ write.table(ASD_Sumstats, paste0(outPath,'/GroveASD.txt'), col.names=T, row.name
 
 ##DemontisADHD.txt##
 
-ADHD_RawSumstats <- fread("D://GSEM//text files//DemontisADHD.txt")
-ADHD_Sumstats <- ADHD_RawSumstats
-head(ADHD_Sumstats) #already QC'ed
+ADHD <- fread("D://GSEM//gz files//DemontisADHD.gz")
+
+head(ADHD)
+summary(ADHD)
+
+ADHD$N <- ADHD$Nca + ADHD$Nco #adding total N
+
+ADHD$BETA <- as.numeric(log(ADHD$OR)) #converting OR to BETA (log odds)
+
+ADHD$CI_upper <- ADHD$OR + 1.96*ADHD$SE
+ADHD$CI_lower <- ADHD$OR - 1.96*ADHD$SE
+
+ADHD$SE_B <- as.numeric((log(ADHD$CI_upper)-log(abs(ADHD$CI_lower)))/(1.96*2))
+ADHD$P <- as.numeric(ADHD$P) #formating pval
+ADHD$SE <- ADHD$SE_B #replacing SE column with BETA SE
+ADHD$MAF <- ADHD$FRQ_A_19099 #MAF creating MAF column
+
+ADHD_clean <- ADHD[,c(1,2,3,4,5,8,10,11,20,21,25)] #selecting relevant columns
+
+ADHD_unique = ADHD_clean[!duplicated(ADHD_clean$SNP)] #remove duplicated SNPs
+
+write.table(ADHD_unique, file = "D:\\GSEM\\processed GSEM data\\GSEMcleansumstats\\DemontisADHD_clean", 
+            sep="\t", 
+            row.names = FALSE, 
+            col.names = TRUE, 
+            quote=F)
 
 ##PardinasSCZ.txt##
 
