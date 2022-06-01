@@ -33,6 +33,7 @@
 
 ## Multivariate GWA
 - for detailed analysis steps for multivariate GWA, see [Schoeler (2021)](https://github.com/TabeaSchoeler/TS2021_CommonLiabAddiction/tree/master/analysis)
+- This was executed using the UCL High-Performance Cluster, the script for which can be found here. The cluster script is dependent on several R scripts that are also included.
 - Multivariate GWA was conducted on F1 (based on the GSEM model which constrained the paths between LONE and F2 and LONE and F3 to be 0)
 - a multivariate GWA was conducted only for F1 (mood and neurodevelopmental disorders) as this factor was the only one that remained significantly positively associated with loneliness in multivariate GenomicSEM
 - for sanity checks of the F1 GWA, [FUMA](https://fuma.ctglab.nl/) was used
