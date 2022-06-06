@@ -90,7 +90,7 @@ length(exposure_loneliness5e8_clumped$SNP)
 ```
 
 ## Mendelian Randomization
-- Results can be found [Here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/MR%20Loneliness%20against%20Internalising.md).
+- Results can be found
 ```r
 #running MR
 (MR_lonelinesstoF1 <- mr(exposure_loneliness5e8_clumped))
