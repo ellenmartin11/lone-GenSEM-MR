@@ -57,14 +57,7 @@ Date: **26 April, 2022**
 
 ### Scatter Plot 
 
-
-
-### Funnel Plot
-
-
----
-
-### Leave-one-out sensitivity analysis
+![image](https://user-images.githubusercontent.com/68326791/172147388-f43daff9-169c-4e8d-99cf-0a9a88ac7854.png)
 
 ---
 
@@ -93,108 +86,82 @@ Date: **26 April, 2022**
 
 ### Results from Two-Sample MR
 
-|outcome    |exposure |method                    | nsnp|          b|        se|      pval|
-|:----------|:--------|:-------------------------|----:|----------:|---------:|---------:|
-|loneliness |F1       |MR Egger                  |    9| -0.1737334| 0.5206376| 0.7483842|
-|loneliness |F1       |Weighted median           |    9|  0.2337610| 0.0742285| 0.0016371|
-|loneliness |F1       |Inverse variance weighted |    9|  0.0835448| 0.1238827| 0.5000659|
-|loneliness |F1       |Simple mode               |    9|  0.3289754| 0.0945554| 0.0083296|
-|loneliness |F1       |Weighted mode             |    9|  0.2958618| 0.0885858| 0.0102337|
+|id.exposure |id.outcome |outcome    |exposure |method                    | nsnp|          b|        se|      pval|
+|:-----------|:----------|:----------|:--------|:-------------------------|----:|----------:|---------:|---------:|
+|zayTw0      |70zEQu     |loneliness |F1       |MR Egger                  |   20| -0.0351787| 0.3222680| 0.9142834|
+|zayTw0      |70zEQu     |loneliness |F1       |Weighted median           |   20|  0.3247741| 0.0527980| 0.0000000|
+|zayTw0      |70zEQu     |loneliness |F1       |Inverse variance weighted |   20|  0.1953648| 0.0772606| 0.0114503|
+|zayTw0      |70zEQu     |loneliness |F1       |Simple mode               |   20|  0.3682482| 0.0674862| 0.0000290|
+|zayTw0      |70zEQu     |loneliness |F1       |Weighted mode             |   20|  0.3583561| 0.0687201| 0.0000493|
 
-- neither IVW or Egger are significant, suggesting that the correct causal direction is likely to be Loneliness to F1 rather than F1 to Loneliness
+- IVW and the other methods significant apart from Egger
 
 ### Heterogeneity Tests
 
 
-|         |method                    |        Q| Q_df| Q_pval|
-|:--------|:-------------------------|--------:|----:|------:|
-|F1       |MR Egger                  | 60.75190|    7|      0|
-|F1       |Inverse variance weighted | 63.01223|    8|      0|
+|id.exposure |id.outcome |outcome    |exposure |method                    |        Q| Q_df| Q_pval|
+|:-----------|:----------|:----------|:--------|:-------------------------|--------:|----:|------:|
+|zayTw0      |70zEQu     |loneliness |F1       |MR Egger                  | 123.7979|   18|      0|
+|zayTw0      |70zEQu     |loneliness |F1       |Inverse variance weighted | 127.5379|   19|      0|
 
 
-- since results do indicate heterogeneity, we have to refer to MR Egger instead of IVW, which is not significant either way
+- since results do indicate heterogeneity, so we have to refer to Egger?
 
 
 ### Test for directional horizontal pleiotropy
 
-|outcome    |exposure | egger_intercept|        se|      pval|
-|:----------|:--------|---------------:|---------:|---------:|
-|loneliness |F1       |       0.0044256| 0.0086719| 0.6255115|
+|id.exposure |id.outcome |outcome    |exposure | egger_intercept|        se|      pval|
+|:-----------|:----------|:----------|:--------|---------------:|---------:|---------:|
+|zayTw0      |70zEQu     |loneliness |F1       |       0.0041158| 0.0055814| 0.4703709|
 
 - there does not seem to be evidence of pleiotropy
 
 ### Test that the F1 exposure is upstream of loneliness outcome
 
-|exposure |outcome    | snp_r2.exposure| snp_r2.outcome|correct_causal_direction | steiger_pval|
-|:--------|:----------|---------------:|--------------:|:------------------------|------------:|
-|F1       |loneliness |       0.0010096|      0.0004938|TRUE                     |     1.53e-05|
+|id.exposure |id.outcome |exposure |outcome    | snp_r2.exposure| snp_r2.outcome|correct_causal_direction | steiger_pval|
+|:-----------|:----------|:--------|:----------|---------------:|--------------:|:------------------------|------------:|
+|zayTw0      |70zEQu     |F1       |loneliness |       0.0020098|      0.0004383|TRUE                     |            0|
 
-- Steiger seems to suggest correct causal direction from F1 to Loneliness 
+- Steiger is significant?
+
 ---
 
 ### MR Steiger
 
 - Steiger SNPS
 
-|exposure |outcome    |snp_r2.exposure |snp_r2.outcome |correct_causal_direction |steiger_pval |
-|:--------|:----------|:---------------|:--------------|:------------------------|:------------|
-|F1       |loneliness |9.813141e-05    |8.502824e-06   |TRUE                     |0.001566527  |
-|F1       |loneliness |8.288929e-05    |2.904829e-05   |TRUE                     |0.09287999   |
-|F1       |loneliness |0.0001401907    |0.0001324908   |TRUE                     |0.881412     |
-|F1       |loneliness |8.625831e-05    |7.75112e-06    |TRUE                     |0.003262243  |
-|F1       |loneliness |0.00012688      |0.0001368143   |FALSE                    |0.8448159    |
-|F1       |loneliness |0.0001036672    |3.919389e-05   |TRUE                     |0.07609016   |
+|id.exposure |id.outcome |exposure |outcome    |snp_r2.exposure |snp_r2.outcome |correct_causal_direction |steiger_pval |
+|:-----------|:----------|:--------|:----------|:---------------|:--------------|:------------------------|:------------|
+|zayTw0      |70zEQu     |F1       |loneliness |9.277061e-05    |2.081419e-05   |TRUE                     |0.02186975   |
+|zayTw0      |70zEQu     |F1       |loneliness |8.105609e-05    |1.245558e-05   |TRUE                     |0.01330606   |
+|zayTw0      |70zEQu     |F1       |loneliness |8.711655e-05    |1.203016e-05   |TRUE                     |0.007991305  |
+|zayTw0      |70zEQu     |F1       |loneliness |9.386044e-05    |2.631801e-05   |TRUE                     |0.03927085   |
+|zayTw0      |70zEQu     |F1       |loneliness |9.742577e-05    |1.75734e-05    |TRUE                     |0.01022911   |
+|zayTw0      |70zEQu     |F1       |loneliness |8.888098e-05    |2.332567e-05   |TRUE                     |0.0375808    |
 
 - MR Steiger
 
-|outcome    |exposure |method                    | nsnp|         b|        se|      pval|
-|:----------|:--------|:-------------------------|----:|---------:|---------:|---------:|
-|loneliness |F1       |MR Egger                  |    8| 0.4582029| 0.3560016| 0.2454859|
-|loneliness |F1       |Weighted median           |    8| 0.2738640| 0.0751421| 0.0002678|
-|loneliness |F1       |Inverse variance weighted |    8| 0.2277049| 0.0834891| 0.0063843|
-|loneliness |F1       |Simple mode               |    8| 0.3286496| 0.1014612| 0.0142696|
-|loneliness |F1       |Weighted mode             |    8| 0.2952316| 0.0918087| 0.0147405|
+|id.exposure |id.outcome |outcome    |exposure |method                    | nsnp|          b|        se|      pval|
+|:-----------|:----------|:----------|:--------|:-------------------------|----:|----------:|---------:|---------:|
+|zayTw0      |70zEQu     |loneliness |F1       |MR Egger                  |   20| -0.0351787| 0.3222680| 0.9142834|
+|zayTw0      |70zEQu     |loneliness |F1       |Weighted median           |   20|  0.3247741| 0.0515304| 0.0000000|
+|zayTw0      |70zEQu     |loneliness |F1       |Inverse variance weighted |   20|  0.1953648| 0.0772606| 0.0114503|
+|zayTw0      |70zEQu     |loneliness |F1       |Simple mode               |   20|  0.3682482| 0.0709911| 0.0000524|
+|zayTw0      |70zEQu     |loneliness |F1       |Weighted mode             |   20|  0.3583561| 0.0679870| 0.0000436|
 
-- As the Steiger results are very different to the initial MR, there seems to be some bias due to revere causation
-- However, Mr Egger is still not significant according to MR Steiger
+- Results are identical to original MR?
 ---
 
 
 ### Forest Plot of Single SNP MR
 
-![MR_F1toloneliness_forest](https://user-images.githubusercontent.com/68326791/165519300-12f5a809-0fc9-4f0a-be86-e03a4ad04252.png)
-
-- Steiger Forest:
-
-![MR_F1toloneliness_forest_Steig](https://user-images.githubusercontent.com/68326791/165521094-5989095f-609a-4b84-96b8-b630df8d934c.png)
+![image](https://user-images.githubusercontent.com/68326791/172147611-8c8b4604-c590-41c0-a5bd-3f2430fed187.png)
 
 
 ### Scatter Plot
 
-![MR_F1toloneliness_IVW_Egger_scatter](https://user-images.githubusercontent.com/68326791/165519372-4e6f4b08-568b-4c67-9d67-ac9f3abe6afb.png)
-
-- Steiger Scatter
-
-![MR_F1toloneliness_IVW_Egger_scatter_Steig](https://user-images.githubusercontent.com/68326791/165521237-7cab469c-8e72-4536-bc20-24b344cacf17.png)
+![image](https://user-images.githubusercontent.com/68326791/172147557-48687cee-678c-417c-9ff2-35d924b1e449.png)
 
 
-### Funnel Plot
-
-![DataMR_F1tolonelinessk_funnel_normal](https://user-images.githubusercontent.com/68326791/165521889-545fe0fe-4d57-4991-ade5-efbe84f1240b.png)
-
-- Steiger Funnel
-
-![DataMR_F1tolonelinessk_funnel_Steig](https://user-images.githubusercontent.com/68326791/165521841-a49fc62e-c0f4-441f-8307-a185c2f216ae.png)
-
----
-
-### Leave-one-out Sensitivity Analysis
-
-|          b|         p|
-|----------:|---------:|
-| -0.8294634| 0.2454859|
-|  0.4582029| 0.9322272|
-
----
 
 
