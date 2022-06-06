@@ -27,7 +27,9 @@ These analyses were carried out in R version 4.0.3 and GenomicSEM version 0.0.2.
 ![image](https://user-images.githubusercontent.com/68326791/167618348-cf0ef1f8-da99-4731-8489-58c50bdf2781.png)
 
 ### [Multivariate GWAS](https://github.com/TabeaSchoeler/TS2021_CommonLiabAddiction) (conducted via GenomicSEM using the UCL Myriad Cluster)
-![ManHplot2_commonLiability](https://user-images.githubusercontent.com/68326791/166987952-c4416ae4-2a64-4562-968c-c54c4fdccf26.jpeg)
+
+![ManHplotGWA](https://user-images.githubusercontent.com/68326791/172226766-16364374-c4b4-4c77-86bb-f5258e5faa29.PNG)
+
 
 |GWAS        | N (sample)| included SNPs| number of LD-independent genome-wide SNPs|smallest p-value | SNPs (shared)| SNPs (non-shared)|
 |:-----------|----------:|-------------:|-----------------------------------------:|:----------------|-------------:|-----------------:|
@@ -40,24 +42,23 @@ These analyses were carried out in R version 4.0.3 and GenomicSEM version 0.0.2.
 - this also includes sensitivity tests 
 - Loneliness on F1
 
-|outcome |exposure   |method                    | nsnp|          b|        se|      pval|
-|:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
-|F1      |loneliness |MR Egger                  |    4| -1.3373398| 1.3802029| 0.4347899|
-|F1      |loneliness |Weighted median           |    4|  0.3164848| 0.1226593| 0.0098745|
-|F1      |loneliness |Inverse variance weighted |    4|  0.4086131| 0.1058460| 0.0001132|
-|F1      |loneliness |Simple mode               |    4|  0.3061203| 0.1750974| 0.1787344|
-|F1      |loneliness |Weighted mode             |    4|  0.2851900| 0.1593545| 0.1714478|
+|outcome |exposure   |method                    | nsnp|         b|        se|      pval|
+|:-------|:----------|:-------------------------|----:|---------:|---------:|---------:|
+|F1      |loneliness |MR Egger                  |   18| 0.6062202| 0.2340154| 0.0197169|
+|F1      |loneliness |Inverse variance weighted |   18| 0.5219772| 0.0444478| 0.0000000|
+|F1      |loneliness |Simple mode               |   18| 0.6509311| 0.1302015| 0.0001097|
+|F1      |loneliness |Weighted median           |   18| 0.5116992| 0.0685280| 0.0000000|
 
 - F1 on Loneliness
 
 |outcome    |exposure |method                    | nsnp|          b|        se|      pval|
 |:----------|:--------|:-------------------------|----:|----------:|---------:|---------:|
-|loneliness |F1       |MR Egger                  |    9| -0.1737334| 0.5206376| 0.7483842|
-|loneliness |F1       |Weighted median           |    9|  0.2337610| 0.0742285| 0.0016371|
-|loneliness |F1       |Inverse variance weighted |    9|  0.0835448| 0.1238827| 0.5000659|
-|loneliness |F1       |Simple mode               |    9|  0.3289754| 0.0945554| 0.0083296|
-|loneliness |F1       |Weighted mode             |    9|  0.2958618| 0.0885858| 0.0102337|
+|loneliness |F1       |MR Egger                  |   20| -0.0351787| 0.3222680| 0.9142834|
+|loneliness |F1       |Weighted median           |   20|  0.3247741| 0.0527980| 0.0000000|
+|loneliness |F1       |Inverse variance weighted |   20|  0.1953648| 0.0772606| 0.0114503|
+|loneliness |F1       |Simple mode               |   20|  0.3682482| 0.0674862| 0.0000290|
+|loneliness |F1       |Weighted mode             |   20|  0.3583561| 0.0687201| 0.0000493|
 
 - Plot of loneliness on F1
 
-![MR_lonelinesstoF1_forest](https://user-images.githubusercontent.com/68326791/165552941-142c5711-ac39-440e-82d0-5a7df048d834.png)
+![image](https://user-images.githubusercontent.com/68326791/172142549-ad867979-2182-43fb-a972-80dd641c64b4.png)
