@@ -33,8 +33,8 @@ These analyses were carried out in R version 4.0.3 and GenomicSEM version 0.0.2.
 
 |GWAS        | N (sample)| included SNPs| number of LD-independent genome-wide SNPs|smallest p-value | SNPs (shared)| SNPs (non-shared)|
 |:-----------|----------:|-------------:|-----------------------------------------:|:----------------|-------------:|-----------------:|
-|F1          |     378755|       1096627|                                        18|3.2e-13          |             3|                15|
-|Loneliness  |     445024|       1096627|                                         6|1.9e-11          |             6|                 0|
+|F1          |     378372|       1968630|                                        22|5.6e-14          |             5|                17|
+|Loneliness  |     445024|       1968630|                                        18|3.8e-17          |            18|                 0|
 
 ### Bidirectional Mendelian Randomization
 - [Mendelian Randomization Report and Plots](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/Bidirectional%20Mendelian%20Randomization%20Lone%20and%20F1.md)
