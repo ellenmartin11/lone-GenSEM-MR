@@ -12,41 +12,39 @@ Date: **26 April, 2022**
 
 ### Results from two sample MR:
 
+|outcome |exposure   |method                    | nsnp|         b|        se|      pval|
+|:-------|:----------|:-------------------------|----:|---------:|---------:|---------:|
+|F1      |loneliness |MR Egger                  |   18| 0.6062202| 0.2340154| 0.0197169|
+|F1      |loneliness |Inverse variance weighted |   18| 0.5219772| 0.0444478| 0.0000000|
+|F1      |loneliness |Simple mode               |   18| 0.6509311| 0.1302015| 0.0001097|
+|F1      |loneliness |Weighted median           |   18| 0.5116992| 0.0685280| 0.0000000|
 
-|outcome |exposure   |method                    | nsnp|          b|        se|      pval|
-|:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
-|F1      |loneliness |MR Egger                  |    4| -1.3373398| 1.3802029| 0.4347899|
-|F1      |loneliness |Weighted median           |    4|  0.3164848| 0.1226593| 0.0098745|
-|F1      |loneliness |Inverse variance weighted |    4|  0.4086131| 0.1058460| 0.0001132|
-|F1      |loneliness |Simple mode               |    4|  0.3061203| 0.1750974| 0.1787344|
-|F1      |loneliness |Weighted mode             |    4|  0.2851900| 0.1593545| 0.1714478|
-
-- IVW suggests beta loneliness to F1 is .41 (se = .11) and is significant (p < .001)
+- All methods are significant
 
 ### Heterogeneity tests
 
-|outcome |exposure   |method                    |        Q| Q_df|    Q_pval|
-|:-------|:----------|:-------------------------|--------:|----:|---------:|
-|F1      |loneliness |MR Egger                  | 2.142708|    2| 0.3425444|
-|F1      |loneliness |Inverse variance weighted | 3.865533|    3| 0.2763550|
+|id.exposure |id.outcome |outcome |exposure   |method                    |        Q| Q_df|    Q_pval|
+|:-----------|:----------|:-------|:----------|:-------------------------|--------:|----:|---------:|
+|vAfkOq      |JtqFLP     |F1      |loneliness |MR Egger                  | 15.98945|   16| 0.4536972|
+|vAfkOq      |JtqFLP     |F1      |loneliness |Inverse variance weighted | 16.12390|   17| 0.5150694|
 
-- since Q is low and not statistically significant, we can assume homogeneity and refer to IVW instead of Egger
+- since Q is low and not statistically significant, we can assume homogeneity
 
 ### Test for directional horizontal pleiotropy
 
 
-|outcome |exposure   | egger_intercept|        se|      pval|
-|:-------|:----------|---------------:|---------:|---------:|
-|F1      |loneliness |         0.02251| 0.0177509| 0.3324007|
+|id.exposure |id.outcome |outcome |exposure   | egger_intercept|        se|      pval|
+|:-----------|:----------|:-------|:----------|---------------:|---------:|---------:|
+|vAfkOq      |JtqFLP     |F1      |loneliness |      -0.0012102| 0.0033005| 0.7186737|
 
-- test for pleiotropy suggests no horizontal pleiotropy, meaning we can continue to refer to IVW
+- test for pleiotropy suggests no horizontal pleiotropy
 
 ### Test that the loneliness exposure is upstream of the F1 outcome
 
 
-| snp_r2.exposure| snp_r2.outcome|correct_causal_direction | steiger_pval|
-|---------------:|--------------:|:------------------------|------------:|
-|       0.0101694|       0.001122|TRUE                     |            0|
+|id.exposure |id.outcome |exposure   |outcome | snp_r2.exposure| snp_r2.outcome|correct_causal_direction | steiger_pval|
+|:-----------|:----------|:----------|:-------|---------------:|--------------:|:------------------------|------------:|
+|vAfkOq      |JtqFLP     |loneliness |F1      |       0.0015155|      0.0004071|TRUE                     |            0|
 
 - Steiger directionality test suggests that we have the correct direction of causal effect from loneliness to F1
 
@@ -54,26 +52,19 @@ Date: **26 April, 2022**
 
 ### Forest plot of single SNP MR
 
-![MR_lonelinesstoF1_forest](https://user-images.githubusercontent.com/68326791/165531974-8358deab-c307-46b7-8856-338d94b0da11.png)
-
+![image](https://user-images.githubusercontent.com/68326791/172142549-ad867979-2182-43fb-a972-80dd641c64b4.png)
 
 
 ### Scatter Plot 
 
-![MR_lonelinesstoF1_IVW_Egger_scatter_](https://user-images.githubusercontent.com/68326791/165532011-bf8e93b9-e312-466f-a959-e7c11752886d.png)
 
 
 ### Funnel Plot
 
-![DataMR_lonelinesstoF1k_funnel](https://user-images.githubusercontent.com/68326791/165532068-b2171958-ff0c-492d-8525-b42ca328eba9.png)
 
 ---
 
 ### Leave-one-out sensitivity analysis
-|          b|         p|
-|----------:|---------:|
-| -2.2245975| 0.3707499|
-| -0.4501856| 0.9110630|
 
 ---
 
@@ -82,29 +73,17 @@ Date: **26 April, 2022**
 - This is useful for detecting any reverse causation in genetic instruments, which could have biased the MR estimate
 - Steiger filtering assumes that the instrument, if truly valid, should explain more variance in the exposure than the outcome, otherwise it removes such variants
 
-- Steiger SNPS
+- MR with Steiger Filtering (very similar to original MR) run on Steiger filtered SNPs
 
-|exposure   |outcome |snp_r2.exposure |snp_r2.outcome |correct_causal_direction |steiger_pval |
-|:----------|:-------|:---------------|:--------------|:------------------------|:------------|
-|loneliness |F1      |7.089193e-05    |2.94108e-05    |TRUE                     |0.1752496    |
-|loneliness |F1      |0.0001012337    |5.066085e-06   |TRUE                     |0.0004105067 |
-|loneliness |F1      |7.838155e-05    |6.355604e-06   |TRUE                     |0.004177349  |
-|loneliness |F1      |8.288739e-05    |2.007288e-05   |TRUE                     |0.036465     |
+|id.exposure |id.outcome |outcome |exposure   |method                    | nsnp|         b|        se|      pval|
+|:-----------|:----------|:-------|:----------|:-------------------------|----:|---------:|---------:|---------:|
+|vAfkOq      |JtqFLP     |F1      |loneliness |MR Egger                  |   18| 0.6062202| 0.2340154| 0.0197169|
+|vAfkOq      |JtqFLP     |F1      |loneliness |Weighted median           |   18| 0.5116992| 0.0641672| 0.0000000|
+|vAfkOq      |JtqFLP     |F1      |loneliness |Inverse variance weighted |   18| 0.5219772| 0.0444478| 0.0000000|
+|vAfkOq      |JtqFLP     |F1      |loneliness |Simple mode               |   18| 0.6509311| 0.1345771| 0.0001544|
+|vAfkOq      |JtqFLP     |F1      |loneliness |Weighted mode             |   18| 0.6053939| 0.1253192| 0.0001564|
 
-- the 4 remaining SNPs are in the correct causal direction and explain more variance in loneliness than in F1
-
-
-- MR with Steiger Filtering (very similar to original MR)
-
-|outcome |exposure   |method                    | nsnp|          b|        se|      pval|
-|:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
-|F1      |loneliness |MR Egger                  |    4| -1.3373398| 1.3802029| 0.4347899|
-|F1      |loneliness |Weighted median           |    4|  0.3164848| 0.1282560| 0.0136021|
-|F1      |loneliness |Inverse variance weighted |    4|  0.4086131| 0.1058460| 0.0001132|
-|F1      |loneliness |Simple mode               |    4|  0.3061203| 0.1872071| 0.2005229|
-|F1      |loneliness |Weighted mode             |    4|  0.2851900| 0.1597900| 0.1722889|
-
-- the results are quite consistent with IVW MR, suggesting that it is unlikely for reverse causation of genetic instruments to have biased the IVW MR estimate
+- the results are quite consistent with original MR, suggesting that it is unlikely for reverse causation of genetic instruments to have biased the IVW MR estimate
 
 ---
 
