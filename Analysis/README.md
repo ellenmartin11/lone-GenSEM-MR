@@ -42,4 +42,5 @@
 ## Mendelian Randomization
 - the script for this can be found [Here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/Mendelian%20Randomisation.md).
 - it includes bidirectional Mendelian Randomisation conducted in R using the [TwoSampleMR](https://mrcieu.github.io/TwoSampleMR/) package alongside sensitivity analyses
+- Results can be found [Here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/Bidirectional%20Mendelian%20Randomization%20Lone%20and%20F1.md)
 - it tests the SNP effects from loneliness (Day et al, 2018) to F1 (output of multivariate GWA) as well as from F1 to loneliness
