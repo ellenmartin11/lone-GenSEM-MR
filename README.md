@@ -35,7 +35,7 @@ These analyses were carried out in R version 4.0.3 and GenomicSEM version 0.0.2.
 |Loneliness  |     445024|       1096627|                                         6|1.9e-11          |             6|                 0|
 
 ### Bidirectional Mendelian Randomization
-[Mendelian Randomization Report and Plots](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/Bidirectional%20Mendelian%20Randomization%20Lone%20and%20F1.md)
+- [Mendelian Randomization Report and Plots](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/Bidirectional%20Mendelian%20Randomization%20Lone%20and%20F1.md)
 - [Mendelian Randomization Analysis Script](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/Mendelian%20Randomisation.md)
 - this also includes sensitivity tests 
 - Loneliness on F1
