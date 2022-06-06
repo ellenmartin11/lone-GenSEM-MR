@@ -37,7 +37,7 @@ outcome_internalising$outcome <- "F1" #Provide a name for the outcome
 #Inspect your uploaded file:
 length(outcome_F1$SNP) 
 
-#Number of SNPs included  = 1096627
+#Number of SNPs included  = 1968630
 
 
 #exposure data
@@ -69,28 +69,23 @@ length(exposure_loneliness$SNP)
 #Select genome-wide significant snps
 exposure_loneliness5e8 <- subset(exposure_loneliness, pval.exposure < 5e-8)
 # Lets have a look at the number of SNPs that we would include:
-length(exposure_loneliness5e8$SNP) # Number of genome-wide significant snps: 1146
+length(exposure_loneliness5e8$SNP) # Number of genome-wide significant snps: 15
 
 #Harmonize
 DataMR_lonelinesstoF1 <- harmonise_data(exposure_dat = exposure_loneliness5e8, outcome_dat = outcome_F1, action=2)
 table(DataMR_lonelinesstoF1$mr_keep) # This columns tells you which SNPs will be kept for the main analysis: All rows that are set to TRUE will be included in the MR analysis. 
 
-# N=133 => Number of SNPs kept for MR analysis after harmonisation
+# N=420 => Number of SNPs kept for MR analysis after harmonisation
 attr(DataMR_lonelinesstoF1, "log") # Detailed summary of what was done and reasons for excluding SNPs 
-# excluded 2 amiguous plaindromic alleles (rs4261900, rs9846319)
+
 
 
 #Clump
-exposure_loneliness5e8_clumped <- clump_data(DataMR_lonelinesstoF1, clump_r2 = 0.001, clump_p1 = 1, clump_p2 = 1, clump_kb = 10000)
+exposure_loneliness5e8_clumped <- clump_data(DataMR_lonelinesstoF1, clump_r2 = 0.05, clump_p1 = 1, clump_p2 = 1, clump_kb = 250)
 # Lets have a look at the number of SNPs we excluded
 length(exposure_loneliness5e8_clumped$SNP) 
 
-# N included = 4
-
-length(exposure_loneliness5e8_clumped$SNP) - length(exposure_loneliness5e8$SNP) 
-
-# N excluded - 1142
-
+# N included = 18
 
 ```
 
@@ -157,7 +152,7 @@ names(SteigerSNPs) <- names(DataMR_lonelinesstoF1_Steiger)
 knitr::kable(head(SteigerSNPs), "markdown")
 save(SteigerSNPs, file = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\MR and GWAS\\SteigerSNPs.RData")
 
-table(SteigerSNPs$correct_causal_direction) # all 4 SNPs in the right direction
+table(SteigerSNPs$correct_causal_direction) # all SNPs in the right direction
 
 exposure_loneliness5e8_clumped$correct_causal_direction <- SteigerSNPs$correct_causal_direction # integrate the correct_causal_direction column into DataMR
 DataMR_lonelinesstoF1_Steigerfiltered <- exposure_loneliness5e8_clumped[exposure_loneliness5e8_clumped$correct_causal_direction == "TRUE",] #create DataMR only with those SNPs
