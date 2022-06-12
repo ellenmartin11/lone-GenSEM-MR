@@ -1,4 +1,4 @@
-###Cluster Work###
+###While this is a shell script, it was executed using the terminal within RStudio. 
 
 # some useful commands
 cd PATHxxx # go to working directory xxx
@@ -14,7 +14,7 @@ jobhist # check finished job
 #========================================================================================#
 #  ======== CONNECT TO CLUSTER  =========================================================#
 #========================================================================================#
-
+set DISPLAY= #for some, this is necessary to allow users to SSH
 #ssh here
 
 # =======Define Home directory ================
@@ -1196,7 +1196,7 @@ GWA_shortSum$GWAS=recodeName(phenoNames)
 # Create new sheet
 GWA_short="sTable 5"
 addWorksheet(wb, GWA_short)
-GWA_short_info=paste0("SNP = single nucleotide polymorphism. The effective sample size of the F1 Neurodevelopmental and Mood  genome-wide association study (GWAS) was calculated using the formula described in the sMethods (Supplement). SNPs (shared) represent SNPs that operate via F1 (i.e., with Qsnp p>5×10???8) versus SNPs (non-shared) that show heterogeneous effects across the individual  phenotyes (i.e., Qsnp p<5×10???8)")
+GWA_short_info=paste0("SNP = single nucleotide polymorphism. The effective sample size of the F1 Neurodevelopmental and Mood  genome-wide association study (GWAS) was calculated using the formula described in the sMethods (Supplement). SNPs (shared) represent SNPs that operate via F1 (i.e., with Qsnp p>5Ã—10???8) versus SNPs (non-shared) that show heterogeneous effects across the individual  phenotyes (i.e., Qsnp p<5Ã—10???8)")
 # Add parameters
 title_name="sTable 5. Overview of the results from the multi- and univariate genome-wide association analyses"
 sheet=GWA_short
@@ -1225,7 +1225,7 @@ colnames(clumpResTable)=c("GWA data","SNP (annotated gene)", "A1", "A2", "BETA",
 # Create new sheet
 GWA_clump="sTable 6"
 addWorksheet(wb, GWA_clump)
-GWA_clump_info="Shown are only lead single nucleotide polymorphisms (SNPs), defined as LD-independent genome-wide significant variants. The columns 'P (chi-square, dichotomized)' indicates whether the genetic variant is likely to operate via the common liability (Q_ns = Qsnp p>5×10???8) or shows heterogeneous effects across the individual phenotyes (Q_sig = Qsnp p<5×10???8)"
+GWA_clump_info="Shown are only lead single nucleotide polymorphisms (SNPs), defined as LD-independent genome-wide significant variants. The columns 'P (chi-square, dichotomized)' indicates whether the genetic variant is likely to operate via the common liability (Q_ns = Qsnp p>5Ã—10???8) or shows heterogeneous effects across the individual phenotyes (Q_sig = Qsnp p<5Ã—10???8)"
 # Add parameters
 title_name="sTable 6. Summary of lead genetic variants associated with the F1 Factor"
 sheet=GWA_clump
