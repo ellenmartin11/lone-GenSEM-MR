@@ -61,5 +61,5 @@ These analyses were carried out in R version 4.0.3 and GenomicSEM version 0.0.2.
 
 - Forest plot of loneliness to F1
 
-![image](https://user-images.githubusercontent.com/68326791/174830547-a9de8b89-bdd7-4116-85f4-fcb0cc01046c.png)
+![image](https://user-images.githubusercontent.com/68326791/174830670-3be455ff-2f44-4582-bf2e-d5da4fb3e84c.png)
 
