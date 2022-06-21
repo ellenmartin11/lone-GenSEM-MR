@@ -40,7 +40,7 @@ These analyses were carried out in R version 4.0.3 and GenomicSEM version 0.0.2.
 - [Mendelian Randomization Report and Plots](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/Bidirectional%20Mendelian%20Randomization%20Lone%20and%20F1.md)
 - [Mendelian Randomization Analysis Script](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/Mendelian%20Randomisation.md)
 - this also includes sensitivity tests 
-- Loneliness on F1
+- Loneliness to F1
 
 |outcome |exposure   |method                    | nsnp|         b|        se|      pval|
 |:-------|:----------|:-------------------------|----:|---------:|---------:|---------:|
@@ -49,7 +49,7 @@ These analyses were carried out in R version 4.0.3 and GenomicSEM version 0.0.2.
 |F1      |loneliness |Simple mode               |   18| 0.6509311| 0.1302015| 0.0001097|
 |F1      |loneliness |Weighted median           |   18| 0.5116992| 0.0685280| 0.0000000|
 
-- F1 on Loneliness
+- F1 to Loneliness
 
 |outcome    |exposure |method                    | nsnp|          b|        se|      pval|
 |:----------|:--------|:-------------------------|----:|----------:|---------:|---------:|
@@ -59,6 +59,6 @@ These analyses were carried out in R version 4.0.3 and GenomicSEM version 0.0.2.
 |loneliness |F1       |Simple mode               |   20|  0.3682482| 0.0674862| 0.0000290|
 |loneliness |F1       |Weighted mode             |   20|  0.3583561| 0.0687201| 0.0000493|
 
-- Plot of loneliness on F1
+- Plot of loneliness to F1
 
 ![image](https://user-images.githubusercontent.com/68326791/172142549-ad867979-2182-43fb-a972-80dd641c64b4.png)
