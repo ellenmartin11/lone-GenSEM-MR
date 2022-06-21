@@ -242,7 +242,7 @@ Date: **6 June, 2022**
 --- 
 
 ### Steiger Filtering
-- 21 (out of 22) SNPS in the correct causal direction
+-  correct causal direction
 
 |exposure |outcome    |snp_r2.exposure |snp_r2.outcome |correct_causal_direction |steiger_pval |
 |:--------|:----------|:---------------|:--------------|:------------------------|:------------|
