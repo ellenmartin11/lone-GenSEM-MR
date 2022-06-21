@@ -40,25 +40,26 @@ These analyses were carried out in R version 4.0.3 and GenomicSEM version 0.0.2.
 - [Mendelian Randomization Report and Plots](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/Bidirectional%20Mendelian%20Randomization%20Lone%20and%20F1.md)
 - [Mendelian Randomization Analysis Script](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/Mendelian%20Randomisation.md)
 - this also includes sensitivity tests 
+
 - Loneliness to F1
 
-|outcome |exposure   |method                    | nsnp|         b|        se|      pval|
-|:-------|:----------|:-------------------------|----:|---------:|---------:|---------:|
-|F1      |loneliness |MR Egger                  |   18| 0.6062202| 0.2340154| 0.0197169|
-|F1      |loneliness |Inverse variance weighted |   18| 0.5219772| 0.0444478| 0.0000000|
-|F1      |loneliness |Simple mode               |   18| 0.6509311| 0.1302015| 0.0001097|
-|F1      |loneliness |Weighted median           |   18| 0.5116992| 0.0685280| 0.0000000|
+ |outcome |exposure   |method                    | nsnp|         b|        se|      pval|
+ |:-------|:----------|:-------------------------|----:|---------:|---------:|---------:|
+ |F1      |loneliness |MR Egger                  |   18| 0.6062202| 0.2340154| 0.0197169|
+ |F1      |loneliness |Inverse variance weighted |   18| 0.5219772| 0.0444478| 0.0000000|
+ |F1      |loneliness |Weighted mode             |   18| 0.6053939| 0.1233620| 0.0001330|
+ |F1      |loneliness |Weighted median           |   18| 0.5116992| 0.0656303| 0.0000000|
 
 - F1 to Loneliness
 
 |outcome    |exposure |method                    | nsnp|          b|        se|      pval|
 |:----------|:--------|:-------------------------|----:|----------:|---------:|---------:|
 |loneliness |F1       |MR Egger                  |   20| -0.0351787| 0.3222680| 0.9142834|
-|loneliness |F1       |Weighted median           |   20|  0.3247741| 0.0527980| 0.0000000|
 |loneliness |F1       |Inverse variance weighted |   20|  0.1953648| 0.0772606| 0.0114503|
-|loneliness |F1       |Simple mode               |   20|  0.3682482| 0.0674862| 0.0000290|
-|loneliness |F1       |Weighted mode             |   20|  0.3583561| 0.0687201| 0.0000493|
+|loneliness |F1       |Weighted mode             |   20|  0.3583561| 0.0648296| 0.0000248|
+|loneliness |F1       |Weighted median           |   20|  0.3247741| 0.0508896| 0.0000000|
 
-- Plot of loneliness to F1
+- Forest plot of loneliness to F1
 
-![image](https://user-images.githubusercontent.com/68326791/172142549-ad867979-2182-43fb-a972-80dd641c64b4.png)
+![image](https://user-images.githubusercontent.com/68326791/174830547-a9de8b89-bdd7-4116-85f4-fcb0cc01046c.png)
+
