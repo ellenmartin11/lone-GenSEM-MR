@@ -120,6 +120,15 @@ Date: **6 June, 2022**
 
 ### Steiger Filtering
 
+|id.exposure |id.outcome |exposure   |outcome |snp_r2.exposure |snp_r2.outcome |correct_causal_direction |steiger_pval |
+|:-----------|:----------|:----------|:-------|:---------------|:--------------|:------------------------|:------------|
+|YWuKOa      |HmJIIS     |loneliness |F1      |8.306257e-05    |3.19655e-05    |TRUE                     |0.1176345    |
+|YWuKOa      |HmJIIS     |loneliness |F1      |7.72194e-05     |2.913312e-05   |TRUE                     |0.1252601    |
+|YWuKOa      |HmJIIS     |loneliness |F1      |6.694028e-05    |3.32602e-05    |TRUE                     |0.2748574    |
+|YWuKOa      |HmJIIS     |loneliness |F1      |7.089193e-05    |2.923562e-05   |TRUE                     |0.173049     |
+|YWuKOa      |HmJIIS     |loneliness |F1      |8.682598e-05    |2.044539e-05   |TRUE                     |0.03007451   |
+|YWuKOa      |HmJIIS     |loneliness |F1      |6.889268e-05    |1.223055e-06   |TRUE                     |0.001140197  |
+
 
 ---
 
