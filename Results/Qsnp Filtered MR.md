@@ -26,7 +26,7 @@
 |10j7vD      |9gZFSZ     |loneliness |F1_Qsnp  |Inverse variance weighted | 67.89847|   17|      0|
 
 - significant, so we have to refer to Egger, which was not significant
-- these findings suggest that Loneliness does causally influence F1 (based on original, non QSnp filtered results), and through means other than F1
+- these findings suggest that Loneliness does causally influence F1 (based on [original, non QSnp filtered results](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/Bidirectional%20Mendelian%20Randomization%20Lone%20and%20F1.md)), and through means other than F1
 
 ### Pleiotropy Test
 
@@ -74,6 +74,7 @@
 |10j7vD      |9gZFSZ     |loneliness |F1_Qsnp  |Weighted median           |   18| 0.3461761| 0.0488614| 0.0000000|
 
 - all significant except egger
+- however, the effect sizes are of a smaller magnitude compared to the original MR for Loneliness to F1 (non Qsnp filtered)
 
 ### Heterogeneity Test
 
