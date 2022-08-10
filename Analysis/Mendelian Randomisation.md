@@ -12,7 +12,7 @@ remotes::install_github("MRCIEU/TwoSampleMR") #TwoSampleMR
 library(data.table)
 library(TwoSampleMR)
 ```
-## Loneliness on F1
+## Loneliness to F1
 ### Processing Outcome and Exposure Data
 - this involves re-naming columns so that they can be read by MR
 ```r
@@ -168,7 +168,7 @@ DataMR_lonelinesstoF1k_single <- mr_singlesnp(exposure_loneliness5e8_clumped, al
 DataMR_lonelinesstoF1k_funnel <- mr_funnel_plot(DataMR_lonelinesstoF1k_single)
 DataMR_lonelinesstoF1k_funnel[[1]]
 ```
-## F1 on Loneliness
+## F1 to Loneliness
 ### Processing Outcome and Exposure Data
 ```r
 ##processing outcome data
@@ -213,6 +213,23 @@ exposure_F1 <- read_exposure_data(
 exposure_F1$exposure <- "F1" # Provide a name for the outcome       
 length(exposure_F1$SNP) #   1968630
 
+#repeat the same for Q SNP filtered F1
+#QSNP F1 exposure
+exposure_F1Qsnp <- read_exposure_data(
+  filename = "C:\\Users\\ellen\\OneDrive\\BSc Psych\\Publication Genetics\\MR and GWAS\\F1_GWAS_Qsnp", # This is the filename of the summary statistics file for your exposure
+  sep = " ",# Specify whether the file is a tab delimited file ("\t") or a space delimited file ("")
+  snp_col = "SNP",           # Insert the name of column that includes the SNP ID's
+  beta_col = "BETA",         # Insert the name of column with effect sizes
+  chr_col = "CHR",
+  pos_col = "BP",
+  se_col = "SE",        # Insert the ame of column with standard errors
+  effect_allele_col = "A1",  # Insert the name of column with the effect allele
+  other_allele_col = "A2",   # Insert the name of column with the non-effect allele
+  pval_col = "P",  # Insert the name of column with p-value
+  eaf_col="MAF", # The effect allele frequency
+  samplesize_col = "N") # Add sample size when availabe, as this is useful for steiger
+
+exposure_F1Qsnp$exposure <- "F1_Qsnp" 
 ```
 
 ### Quality Control, Harmonizing, then Clumping
@@ -223,6 +240,10 @@ exposure_F15e8 <- subset(exposure_F1, pval.exposure < 5e-8)
 # Lets have a look at the number of SNPs that we would include:
 length(exposure_F15e8$SNP) # Number of genome-wide significant snps: 576
 
+#Qsnp sig
+exposure_F1Qsnp5e8 <- subset(exposure_F1Qsnp, pval.exposure < 5e-8)
+length(exposure_F1Qsnp5e8$SNP) #513 SNPs
+
 
 #######Harmonize
 DataMR_F1toloneliness <- harmonise_data(exposure_dat = exposure_F15e8, outcome_dat = outcome_loneliness, action=2)
@@ -230,10 +251,22 @@ table(DataMR_F1toloneliness$mr_keep) # This columns tells you which SNPs will be
 # N=529=> Number of SNPs kept for MR analysis after harmonisation
 attr(DataMR_F1toloneliness, "log") # Detailed summary of what was done and reasons for excluding SNPs 
 
+#QSNP harmonising
+DataMR_F1Qtoloneliness <- harmonise_data(exposure_dat = exposure_F1Qsnp5e8, outcome_dat = outcome_loneliness, action=2)
+table(DataMR_F1Qtoloneliness$mr_keep) # This columns tells you which SNPs will be kept for the main analysis: All rows that are set to TRUE will be included in the MR analysis. 
+# N=47u1=> Number of SNPs kept for MR analysis after harmonisation
+attr(DataMR_F1Qtoloneliness, "log")
+
 # ========= Clump the data =========
 exposure_F15e8_clumped <- clump_data(DataMR_F1toloneliness, clump_r2 = 0.05, clump_p1 = 1, clump_p2 = 1, clump_kb = 250)
 # Lets have a look at the number of SNPs we excluded
 length(exposure_F15e8_clumped$SNP) # N included = 21
+
+#QSNP data clump
+exposure_F1Qsnp5e8_clumped <- clump_data(DataMR_F1Qtoloneliness, clump_r2 = 0.05, clump_p1 = 1, clump_p2 = 1, clump_kb = 250)
+# Lets have a look at the number of SNPs we excluded
+length(exposure_F1Qsnp5e8_clumped$SNP) # N included = 19
+
 
 
 
@@ -245,6 +278,11 @@ length(exposure_F15e8_clumped$SNP) # N included = 21
 
 (MR_F1toloneliness <- mr(exposure_F15e8_clumped))
 knitr::kable(as.data.frame(MR_F1toloneliness), "markdown")
+
+#F1 to Lone QSNP
+# Run MR (on clumped data)
+(MR_F1Qtoloneliness <- mr(exposure_F1Qsnp5e8_clumped, method_list = c("mr_egger_regression","mr_ivw","mr_weighted_mode","mr_weighted_median")))
+knitr::kable(as.data.frame(MR_F1Qtoloneliness), "markdown") 
 ```
 
 ### Sensitivity Analyses
@@ -253,17 +291,33 @@ Cochran Q statistics
 Results_F1toloneliness_heterogeneity <- mr_heterogeneity(exposure_F15e8_clumped)
 Results_F1toloneliness_heterogeneity 
 knitr::kable(as.data.frame(Results_F1toloneliness_heterogeneity), "markdown")
+
+#Cochran Q statistics QSNP
+Results_F1Qtoloneliness_heterogeneity <- mr_heterogeneity(exposure_F1Qsnp5e8_clumped)
+Results_F1Qtoloneliness_heterogeneity 
+knitr::kable(as.data.frame(Results_F1Qtoloneliness_heterogeneity), "markdown")
 ```
 Pleiotropy test
 ```r
 Results_F1toloneliness_pleiotropy <- mr_pleiotropy_test(exposure_F15e8_clumped)
 Results_F1toloneliness_pleiotropy 
 knitr::kable(as.data.frame(Results_F1toloneliness_pleiotropy), "markdown")
+
+# Pleiotropy test QSNP
+Results_F1Qtoloneliness_pleiotropy <- mr_pleiotropy_test(exposure_F1Qsnp5e8_clumped)
+Results_F1Qtoloneliness_pleiotropy #just non sig, suggesting that results are unlikely to be  driven by pleiotropy, IVW is fine, but so is Egger
+knitr::kable(as.data.frame(Results_F1Qtoloneliness_pleiotropy), "markdown")
 ```
 Leave-one-out analysis
 ```r
 DataMR_F1toloneliness_leaveOut_egger<- mr_leaveoneout(exposure_F15e8_clumped, method = mr_egger_regression) # Default: ivw method
 DataMR_F1toloneliness_leaveOut_egger
+
+#QSNP
+DataMR_F1Qtoloneliness_leaveOut_egger<- mr_leaveoneout(exposure_F1Qsnp5e8_clumped, method = mr_egger_regression) # Default: ivw method
+DataMR_F1Qtoloneliness_leaveOut_ivw <- mr_leaveoneout(exposure_F1Qsnp5e8_clumped, method = mr_ivw) # Default: ivw method
+knitr::kable(as.data.frame(DataMR_F1Qtoloneliness_leaveOut_ivw), "markdown")
+knitr::kable(as.data.frame(DataMR_F1Qtoloneliness_leaveOut_egger), "markdown") #n.s
 ```
 ### MR Steiger
 ```r
@@ -305,6 +359,39 @@ dim(DataMR_F1toloneliness_Steigerfiltered) #check that number of rows matches
 # Redo MR with Steiger 
 (MR_F1toloneliness_Steigerfiltered <- mr(DataMR_F1toloneliness_Steigerfiltered))
 knitr::kable(MR_F1toloneliness_Steigerfiltered, "markdown")
+
+
+#QSNP MR Steiger
+DataMR_F1Qtoloneliness_Steiger <- directionality_test(exposure_F1Qsnp5e8_clumped)
+DataMR_F1Qtoloneliness_Steiger #says correct causal direction and highly sig (F1 to LONE)
+knitr::kable(as.data.frame(DataMR_F1Qtoloneliness_Steiger))
+
+# We can apply the test on one SNP
+DataMR_F1Qtoloneliness_Steiger <- directionality_test(exposure_F1Qsnp5e8_clumped[1, ])
+# As can be seen the r2 for the exposure is much bigger than for the outcome (although both of them are very small as this is just one SNP)
+DataMR_F1Qtoloneliness_Steiger$snp_r2.exposure/DataMR_F1Qtoloneliness_Steiger$snp_r2.outcome # effect on the exposure 4.46 times bigger
+
+
+#Loop over all SNPs
+SteigerSNPs= matrix(nrow = dim(exposure_F1Qsnp5e8_clumped)[1], ncol = 8) 
+for (i in 1:dim(exposure_F1Qsnp5e8_clumped)[1]){
+  temp  <- directionality_test(exposure_F1Qsnp5e8_clumped[i, ])
+  SteigerSNPs[i, ] = as.matrix(temp)
+}
+
+SteigerSNPs <- as.data.frame(SteigerSNPs)
+names(SteigerSNPs) <- names(DataMR_F1Qtoloneliness_Steiger)  
+knitr::kable(head(SteigerSNPs), "markdown")
+
+table(SteigerSNPs$correct_causal_direction) # 19 SNPS were valid instruments with the correct causal direction
+
+
+exposure_F1Qsnp5e8_clumped$correct_causal_direction <- SteigerSNPs$correct_causal_direction # integrate the correct_causal_direction column into DataMR
+DataMR_F1Qtoloneliness_Steigerfiltered <- exposure_F1Qsnp5e8_clumped[exposure_F1Qsnp5e8_clumped$correct_causal_direction == "TRUE",] #create DataMR only with those SNPs
+dim(DataMR_F1Qtoloneliness_Steigerfiltered) #check that number of rows matches
+# Redo MR with Steiger 
+(MR_F1Qtoloneliness_Steigerfiltered <- mr(DataMR_F1Qtoloneliness_Steigerfiltered))
+knitr::kable(MR_F1Qtoloneliness_Steigerfiltered, "markdown")
 ```
 ### Plots
 ```r
