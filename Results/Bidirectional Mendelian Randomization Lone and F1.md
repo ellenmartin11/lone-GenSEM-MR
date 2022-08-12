@@ -13,10 +13,10 @@ Date: **6 June, 2022**
 ### Results from two sample MR:
 |outcome |exposure   |method                    | nsnp|         b|        se|      pval|
 |:-------|:----------|:-------------------------|----:|---------:|---------:|---------:|
-|F1      |loneliness |MR Egger                  |   18| 0.6062202| 0.2340154| 0.0197169|
-|F1      |loneliness |Inverse variance weighted |   18| 0.5219772| 0.0444478| 0.0000000|
-|F1      |loneliness |Weighted mode             |   18| 0.6053939| 0.1233620| 0.0001330|
-|F1      |loneliness |Weighted median           |   18| 0.5116992| 0.0656303| 0.0000000|
+|F1      |loneliness |MR Egger                  |   18| 0.6062202| 0.2340154| 1.97x10<sup>-02</sup> |
+|F1      |loneliness |Inverse variance weighted |   18| 0.5219772| 0.0444478| 7.62x10<sup>-32</sup>|
+|F1      |loneliness |Weighted mode             |   18| 0.6053939| 0.1233620| 9.54x10<sup>-05</sup>|
+|F1      |loneliness |Weighted median           |   18| 0.5116992| 0.0656303| 1.09x10<sup>-14</sup>|
 
 - All methods are significant
 
@@ -140,10 +140,10 @@ Date: **6 June, 2022**
 
 |outcome    |exposure |method                    | nsnp|          b|        se|      pval|
 |:----------|:--------|:-------------------------|----:|----------:|---------:|---------:|
-|loneliness |F1       |MR Egger                  |   20| -0.0351787| 0.3222680| 0.9142834|
-|loneliness |F1       |Inverse variance weighted |   20|  0.1953648| 0.0772606| 0.0114503|
-|loneliness |F1       |Weighted mode             |   20|  0.3583561| 0.0648296| 0.0000248|
-|loneliness |F1       |Weighted median           |   20|  0.3247741| 0.0508896| 0.0000000|
+|loneliness |F1       |MR Egger                  |   20| -0.0351787| 0.3222680| 9.14x10<sup>-01</sup>|
+|loneliness |F1       |Inverse variance weighted |   20|  0.1953648| 0.0772606| 1.15x10<sup>-02</sup>|
+|loneliness |F1       |Weighted mode             |   20|  0.3583561| 0.0648296| 2.71x10<sup>-05</sup>|
+|loneliness |F1       |Weighted median           |   20|  0.3247741| 0.0508896| 1.14x10<sup>-10</sup>|
 
 - IVW and the other methods significant apart from Egger
 
@@ -151,8 +151,8 @@ Date: **6 June, 2022**
 
 |outcome    |exposure |method                    |        Q| Q_df| Q_pval|
 |:----------|:--------|:-------------------------|--------:|----:|------:|
-|loneliness |F1       |MR Egger                  | 123.7979|   18|      0|
-|loneliness |F1       |Inverse variance weighted | 127.5379|   19|      0|
+|loneliness |F1       |MR Egger                  | 123.7979|   18|      8.03x10<sup>-18</sup>|
+|loneliness |F1       |Inverse variance weighted | 127.5379|   19|      4.26x10<sup>-18</sup>|
 
 - since results do indicate heterogeneity, so we have to refer to Egger
 
@@ -220,7 +220,7 @@ Date: **6 June, 2022**
 
 |exposure |outcome    | snp_r2.exposure| snp_r2.outcome|correct_causal_direction | steiger_pval|
 |:--------|:----------|---------------:|--------------:|:------------------------|------------:|
-|F1       |loneliness |       0.0020098|      0.0004383|TRUE                     |            0|
+|F1       |loneliness |       0.0020098|      0.0004383|TRUE                     |            2.82x10<sup>-27</sup>|
 
 ### MR Egger Sensitivity Analyses
 - selecting weaker instruments and re-running MR
@@ -264,9 +264,9 @@ Date: **6 June, 2022**
 
 |outcome    |exposure |method                    | nsnp|          b|        se|      pval|
 |:----------|:--------|:-------------------------|----:|----------:|---------:|---------:|
-|loneliness |F1       |MR Egger                  |   20| -0.0351787| 0.3222680| 0.9142834|
-|loneliness |F1       |Weighted median           |   20|  0.3247741| 0.0509153| 0.0000000|
-|loneliness |F1       |Inverse variance weighted |   20|  0.1953648| 0.0772606| 0.0114503|
-|loneliness |F1       |Weighted mode             |   20|  0.3583561| 0.0693145| 0.0000545|
+|loneliness |F1       |MR Egger                  |   20| -0.0351787| 0.3222680| 9.14x10<sup>-01</sup>|
+|loneliness |F1       |Weighted median           |   20|  0.3247741| 0.0509153| 8.15x10<sup>-11</sup>|
+|loneliness |F1       |Inverse variance weighted |   20|  0.1953648| 0.0772606| 1.15x10<sup>-02</sup>|
+|loneliness |F1       |Weighted mode             |   20|  0.3583561| 0.0693145| 6.67x10<sup>-05</sup>
 
 
