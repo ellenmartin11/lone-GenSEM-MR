@@ -4,7 +4,9 @@
 
 ---
 
-## loneliness to F1
+## loneliness to F1/NMD
+
+F1 refers to the Neurodevelopmental and Mood Disorders latent factor (NMD)
 
 Date: **6 June, 2022**
 
