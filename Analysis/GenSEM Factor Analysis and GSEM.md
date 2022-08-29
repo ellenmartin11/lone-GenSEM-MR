@@ -360,6 +360,7 @@ View(fitc$results)
 
 ## GenomicSEM with Loneliness
 - specifying both a multivariate (adjusted) and non-adjusted model
+- in these models, F1 refers to the latent factor for neurodevelopmental and mood disorders (NMD), F2 refers to the latent factor for substance use traits (SUT) and F3 refers to the latent factor for disorders with psychotic features (DPF).
 ### multivariate (adjusted) model
 
 ```r
