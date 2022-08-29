@@ -2,8 +2,9 @@
 
 - Mendelian Randomization was executed using [TwoSampleMR](https://mrcieu.github.io/TwoSampleMR/) in R
 - the loneliness sumstats file (Day et al, 2018) was used as the exposure
-- the Mood and Neurodevelopmental Disorders (F1) sumstats file (generated via multivariate GWA) was used as the outcome
+- the Neurodevelopmental and Mood Disorders (F1) sumstats file was used as the outcome
 - results can be found [Here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/Bidirectional%20Mendelian%20Randomization%20Lone%20and%20F1.md)
+- F1 and NMD are used interchangably to refer to the GWAS data generated using multivariate adjusted GWA
 ### Installing Libraries
 ```r
 #libraries
