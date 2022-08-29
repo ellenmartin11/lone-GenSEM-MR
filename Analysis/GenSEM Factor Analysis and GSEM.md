@@ -428,7 +428,7 @@ fit1constrlatent$modelfit
 
 ```
 Full usermodel results can be found [here](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Results/multivar-latent-constr.csv)
-This is the model on which the multivariate GWA is specified in the next stage of analysis, as F1 is the only latent genetic factor of interest.
+This is the model on which the multivariate GWA is specified in the next stage of analysis, as F1 (NMD) is the only latent genetic factor of interest.
 
 ![image](https://user-images.githubusercontent.com/68326791/168543083-e44c704c-6193-4237-b8d0-48fe05fbc9c8.png)
 
