@@ -22,9 +22,12 @@ These analyses were carried out in R version 4.0.3 and GenomicSEM version 0.0.2.
 
 ### [Exploratory Factor Analysis, Confirmatory Factor Analysis, Genomic Structural Equation Modelling](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/GenSEM%20Factor%20Analysis%20and%20GSEM.md)
 - The multivariate Genomic Structural Equation Model (used for the multivariate GWAS and Mendelian Randomization) and the Path Diagram
-![image](https://user-images.githubusercontent.com/68326791/167619089-1e1c1a89-ed61-4e92-a342-8bf0d83bbb00.png)
-- The supplemental figure without path constraints (negative associations between LONE and F2 and LONE and F3) - the * indicates no statistical significance at 0.05
-![image](https://user-images.githubusercontent.com/68326791/167618348-cf0ef1f8-da99-4731-8489-58c50bdf2781.png)
+F1 = Neurodevelopmental and Mood Disorders (NMD); F2 = Substance Use Traits (SUT); F3 = Disorders with Psychotic Features (DPF)
+
+![image](https://user-images.githubusercontent.com/68326791/187250270-0fe8c239-0aa5-48be-b3d4-b4e5d1116352.png)
+
+- The supplemental figure without path constraints (negative associations between LONE and F2/SUT and LONE and F3/DPF) - the * indicates no statistical significance at 0.05
+![image](https://user-images.githubusercontent.com/68326791/187250423-2ab106c7-5c0c-4ddc-b5ca-d88d4f0e669a.png)
 
 ### [Multivariate GWAS](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/GenSEMcluster.sh) (conducted via GenomicSEM using the UCL Myriad Cluster)
 
@@ -33,7 +36,7 @@ These analyses were carried out in R version 4.0.3 and GenomicSEM version 0.0.2.
 
 |GWAS        | N (sample)| included SNPs| number of LD-independent genome-wide SNPs|smallest p-value | SNPs (shared)| SNPs (non-shared)|
 |:-----------|----------:|-------------:|-----------------------------------------:|:----------------|-------------:|-----------------:|
-|F1          |     378372|       1968630|                                        22|5.6e-14          |             5|                17|
+|F1/NMD         |     378372|       1968630|                                        22|5.6e-14          |             5|                17|
 |Loneliness  |     445024|       1968630|                                        18|3.8e-17          |            18|                 0|
 
 ### Bidirectional Mendelian Randomization
@@ -41,7 +44,7 @@ These analyses were carried out in R version 4.0.3 and GenomicSEM version 0.0.2.
 - [Mendelian Randomization Analysis Script](https://github.com/ellenmartin11/lone-GenSEM-MR/blob/main/Analysis/Mendelian%20Randomisation.md)
 - this also includes sensitivity tests 
 
-- Loneliness to F1
+- Loneliness to F1/NMD
 
  |outcome |exposure   |method                    | nsnp|         b|        se|      pval|
  |:-------|:----------|:-------------------------|----:|---------:|---------:|---------:|
@@ -59,7 +62,7 @@ These analyses were carried out in R version 4.0.3 and GenomicSEM version 0.0.2.
 |loneliness |F1       |Weighted mode             |   20|  0.3583561| 0.0648296| 0.0000248|
 |loneliness |F1       |Weighted median           |   20|  0.3247741| 0.0508896| 0.0000000|
 
-- Forest plot of loneliness to F1
+- Forest plot of loneliness to F1/NMD
 
 ![image](https://user-images.githubusercontent.com/68326791/174830670-3be455ff-2f44-4582-bf2e-d5da4fb3e84c.png)
 
