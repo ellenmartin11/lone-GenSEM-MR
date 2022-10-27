@@ -79,12 +79,12 @@ table(DataMR_lonelinesstoF1$mr_keep) # This columns tells you which SNPs will be
 attr(DataMR_lonelinesstoF1, "log") # Detailed summary of what was done and reasons for excluding SNPs 
 length(DataMR_lonelinesstoF1$SNP) #420 total variants for MR, 15 palindromic, 1011 absent from reference
 
-#Clump
-exposure_loneliness5e8_clumped <- clump_data(DataMR_lonelinesstoF1, clump_r2 = 0.05, clump_p1 = 1, clump_p2 = 1, clump_kb = 250)
+#Clumping
+exposure_loneliness5e8_clumped <- clump_data(DataMR_lonelinesstoF1, clump_r2 = 0.001, clump_p1 = 1, clump_p2 = 1, clump_kb = 10000)
 # Lets have a look at the number of SNPs we excluded
 length(exposure_loneliness5e8_clumped$SNP) 
 
-# N included = 18
+# N included = 11
 
 ```
 
@@ -109,6 +109,7 @@ Results_lonelinesstoF1_pleiotropy
 knitr::kable(as.data.frame(Results_lonelinesstoF1_pleiotropy), "markdown")
 ```
 
+### Leave
 ### MR Steiger
 - this tests whether the directionality we have specified is correct
 - it does this by comparing the independent correlations to see if they are statistically different and, if so, to what degree they statistically differ
@@ -123,8 +124,7 @@ DataMR_lonelinesstoF1_Steiger
 
 # We can apply the test on one SNP
 DataMR_lonelinesstoF1_Steiger <- directionality_test(exposure_loneliness5e8_clumped[1, ])
-# As can be seen the r2 for the exposure is much bigger than for the outcome (although both of them are very small as this is just one SNP)
-DataMR_lonelinesstoF1_Steiger$snp_r2.exposure/DataMR_lonelinesstoF1_Steiger$snp_r2.outcome # effect on the exposure 2.6
+DataMR_lonelinesstoF1_Steiger$snp_r2.exposure/DataMR_lonelinesstoF1_Steiger$snp_r2.outcome 
 
 
 #Loop over all SNPs
@@ -155,17 +155,17 @@ knitr::kable(MR_lonelinesstoF1_Steigerfiltered, "markdown")
 ```r
 #Create forest plot
 #Pick the different methods that you want to compare
-MR_lonelinesstoF1_IVW_Egger_single <- mr_singlesnp(exposure_loneliness5e8_clumped, all_method = c("mr_ivw","mr_egger_regression", "mr_weighted_median", "mr_weighted_mode"))
+MR_lonelinesstoF1_IVW_Egger_single <- mr_singlesnp(exposure_loneliness5e8_clumped, all_method = c("mr_ivw","mr_egger_regression", "mr_weighted_median", "mr_weighted_mode", "mr_egger_regression_bootstrap"))
 MR_lonelinesstoF1_forest <- mr_forest_plot(MR_lonelinesstoF1_IVW_Egger_single)
 MR_lonelinesstoF1_forest[[1]]
 
 #Create scatter plot
-MR_lonelinesstoF1_IVW_Egger <- mr(exposure_loneliness5e8_clumped, method_list = c("mr_egger_regression", "mr_ivw", "mr_weighted_median", "mr_weighted_mode"))
+MR_lonelinesstoF1_IVW_Egger <- mr(exposure_loneliness5e8_clumped, method_list = c("mr_egger_regression", "mr_ivw", "mr_weighted_median", "mr_weighted_mode", "mr_egger_regression_bootstrap"))
 MR_lonelinesstoF1_IVW_Egger_scatter <- mr_scatter_plot(MR_lonelinesstoF1_IVW_Egger, exposure_loneliness5e8_clumped)
 MR_lonelinesstoF1_IVW_Egger_scatter[[1]]
 
 # Funnel plot
-DataMR_lonelinesstoF1k_single <- mr_singlesnp(exposure_loneliness5e8_clumped, all_method = c("mr_ivw","mr_egger_regression", "mr_weighted_median", "mr_weighted_mode"))
+DataMR_lonelinesstoF1k_single <- mr_singlesnp(exposure_loneliness5e8_clumped, all_method = c("mr_ivw","mr_egger_regression", "mr_weighted_median", "mr_weighted_mode", "mr_egger_regression_bootstrap"))
 DataMR_lonelinesstoF1k_funnel <- mr_funnel_plot(DataMR_lonelinesstoF1k_single)
 DataMR_lonelinesstoF1k_funnel[[1]]
 ```
@@ -259,7 +259,7 @@ table(DataMR_F1Qtoloneliness$mr_keep) # This columns tells you which SNPs will b
 attr(DataMR_F1Qtoloneliness, "log")
 
 # ========= Clump the data =========
-exposure_F15e8_clumped <- clump_data(DataMR_F1toloneliness, clump_r2 = 0.05, clump_p1 = 1, clump_p2 = 1, clump_kb = 250)
+exposure_F15e8_clumped <- clump_data(DataMR_F1toloneliness, clump_r2 = 0.001, clump_p1 = 1, clump_p2 = 1, clump_kb = 10000)
 # Lets have a look at the number of SNPs we excluded
 length(exposure_F15e8_clumped$SNP) # N included = 21
 
@@ -282,7 +282,7 @@ knitr::kable(as.data.frame(MR_F1toloneliness), "markdown")
 
 #F1 to Lone QSNP
 # Run MR (on clumped data)
-(MR_F1Qtoloneliness <- mr(exposure_F1Qsnp5e8_clumped, method_list = c("mr_egger_regression","mr_ivw","mr_weighted_mode","mr_weighted_median")))
+(MR_F1Qtoloneliness <- mr(exposure_F1Qsnp5e8_clumped, method_list = c("mr_egger_regression","mr_ivw","mr_weighted_mode","mr_weighted_median", "mr_egger_regression_bootstrap")))
 knitr::kable(as.data.frame(MR_F1Qtoloneliness), "markdown") 
 ```
 
@@ -398,18 +398,18 @@ knitr::kable(MR_F1Qtoloneliness_Steigerfiltered, "markdown")
 ```r
 # Create forest plot
 # Pick the different methods that you want to compare
-MR_F1toloneliness_IVW_Egger_single <- mr_singlesnp(exposure_F15e8_clumped, all_method = c("mr_ivw","mr_egger_regression", "mr_weighted_median", "mr_weighted_mode"))
+MR_F1toloneliness_IVW_Egger_single <- mr_singlesnp(exposure_F15e8_clumped, all_method = c("mr_ivw","mr_egger_regression", "mr_weighted_median", "mr_weighted_mode", "mr_egger_regression_bootstrap"))
 MR_F1toloneliness_forest <- mr_forest_plot(MR_F1toloneliness_IVW_Egger_single)
 MR_F1toloneliness_forest[[1]]
 
 # Create scatter plot
-MR_F1toloneliness_IVW_Egger <- mr(exposure_F15e8_clumped, method_list = c("mr_egger_regression", "mr_ivw"))
+MR_F1toloneliness_IVW_Egger <- mr(exposure_F15e8_clumped, method_list = c("mr_egger_regression", "mr_ivw", "mr_weighted_median", "mr_weighted_mode", "mr_egger_regression_bootstrap"))
 MR_F1toloneliness_IVW_Egger_scatter <- mr_scatter_plot(MR_F1toloneliness_IVW_Egger, exposure_F15e8_clumped)
 MR_F1toloneliness_IVW_Egger_scatter[[1]]
 
 # Normal Funnel plot
 
-DataMR_F1tolonelinessk_single <- mr_singlesnp(exposure_F15e8_clumped, all_method = c("mr_ivw","mr_egger_regression", "mr_weighted_median", "mr_weighted_mode"))
+DataMR_F1tolonelinessk_single <- mr_singlesnp(exposure_F15e8_clumped, all_method = c("mr_ivw","mr_egger_regression", "mr_weighted_median", "mr_weighted_mode","mr_regger_regression_bootstrap"))
 DataMR_F1tolonelinessk_funnel <- mr_funnel_plot(DataMR_F1tolonelinessk_single)
 DataMR_F1tolonelinessk_funnel[[1]]
 ```
