@@ -255,16 +255,16 @@ attr(DataMR_F1toloneliness, "log") # Detailed summary of what was done and reaso
 #QSNP harmonising
 DataMR_F1Qtoloneliness <- harmonise_data(exposure_dat = exposure_F1Qsnp5e8, outcome_dat = outcome_loneliness, action=2)
 table(DataMR_F1Qtoloneliness$mr_keep) # This columns tells you which SNPs will be kept for the main analysis: All rows that are set to TRUE will be included in the MR analysis. 
-# N=47u1=> Number of SNPs kept for MR analysis after harmonisation
+# N=471=> Number of SNPs kept for MR analysis after harmonisation
 attr(DataMR_F1Qtoloneliness, "log")
 
 # ========= Clump the data =========
 exposure_F15e8_clumped <- clump_data(DataMR_F1toloneliness, clump_r2 = 0.001, clump_p1 = 1, clump_p2 = 1, clump_kb = 10000)
 # Lets have a look at the number of SNPs we excluded
-length(exposure_F15e8_clumped$SNP) # N included = 21
+length(exposure_F15e8_clumped$SNP) # N included = 15
 
 #QSNP data clump
-exposure_F1Qsnp5e8_clumped <- clump_data(DataMR_F1Qtoloneliness, clump_r2 = 0.05, clump_p1 = 1, clump_p2 = 1, clump_kb = 250)
+exposure_F1Qsnp5e8_clumped <- clump_data(DataMR_F1Qtoloneliness, clump_r2 = 0.001, clump_p1 = 1, clump_p2 = 1, clump_kb = 10000)
 # Lets have a look at the number of SNPs we excluded
 length(exposure_F1Qsnp5e8_clumped$SNP) # N included = 19
 
