@@ -70,7 +70,7 @@ length(exposure_loneliness$SNP)
 #Select genome-wide significant snps
 exposure_loneliness5e8 <- subset(exposure_loneliness, pval.exposure < 5e-8)
 # Lets have a look at the number of SNPs that we would include:
-length(exposure_loneliness5e8$SNP) # Number of genome-wide significant snps: 15
+length(exposure_loneliness5e8$SNP) # Number of genome-wide significant snps: 1146
 
 #Harmonize
 DataMR_lonelinesstoF1 <- harmonise_data(exposure_dat = exposure_loneliness5e8, outcome_dat = outcome_F1, action=2) #e-8
@@ -266,7 +266,7 @@ length(exposure_F15e8_clumped$SNP) # N included = 15
 #QSNP data clump
 exposure_F1Qsnp5e8_clumped <- clump_data(DataMR_F1Qtoloneliness, clump_r2 = 0.001, clump_p1 = 1, clump_p2 = 1, clump_kb = 10000)
 # Lets have a look at the number of SNPs we excluded
-length(exposure_F1Qsnp5e8_clumped$SNP) # N included = 19
+length(exposure_F1Qsnp5e8_clumped$SNP) # N included = 10
 
 
 
@@ -412,4 +412,11 @@ MR_F1toloneliness_IVW_Egger_scatter[[1]]
 DataMR_F1tolonelinessk_single <- mr_singlesnp(exposure_F15e8_clumped, all_method = c("mr_ivw","mr_egger_regression", "mr_weighted_median", "mr_weighted_mode","mr_regger_regression_bootstrap"))
 DataMR_F1tolonelinessk_funnel <- mr_funnel_plot(DataMR_F1tolonelinessk_single)
 DataMR_F1tolonelinessk_funnel[[1]]
+```
+### MR with reduced p-value threshold
+```r
+# Select genome-wide significant snps
+exposure_loneliness5e7 <- subset(exposure_loneliness, pval.exposure < 5e-7)
+# Lets have a look at the number of SNPs that we would include:
+length(exposure_loneliness5e7$SNP) # Number of genome-wide significant snps: 576
 ```
