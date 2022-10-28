@@ -312,3 +312,194 @@ Date: **6 June, 2022**
 |k7gnkc      |hK2UjT     |loneliness |F1_Qsnp  |Simple mode               |   10| 0.3882365| 0.0895519| 0.0018903|
 |k7gnkc      |hK2UjT     |loneliness |F1_Qsnp  |Weighted mode             |   10| 0.3857237| 0.0826944| 0.0011778|
 
+
+---
+
+## Loneliness to F1/NMD with reduced p-value threshold
+
+MR using a p-value threshold of p < 5x10<sup>-07</sup> to increase instruments for MR
+
+---
+
+### Results from Two Sample MR
+
+|id.exposure |id.outcome |outcome |exposure   |method                    | nsnp|          b|        se|      pval|
+|:-----------|:----------|:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
+|gTcrej      |ihPf73     |F1      |loneliness |MR Egger                  |   24|  0.2901209| 0.3827217| 0.4564671|
+|gTcrej      |ihPf73     |F1      |loneliness |Inverse variance weighted |   24|  0.4898733| 0.0741826| 4.01x10<sup>-11</sup>|
+|gTcrej      |ihPf73     |F1      |loneliness |Weighted mode             |   24|  0.5341551| 0.1055374| 4.01x10<sup>-05</sup>|
+|gTcrej      |ihPf73     |F1      |loneliness |Weighted median           |   24|  0.4828668| 0.0623770| 9.86x10<sup>-15</sup>|
+|gTcrej      |ihPf73     |F1      |loneliness |MR Egger (bootstrap)      |   24| -0.0835106| 0.2224388| 0.3450000|
+
+- similar pattern of results to main MR analysis with 11 instruments
+
+### Hetereogeneity
+
+|id.exposure |id.outcome |outcome |exposure   |method                    |        Q| Q_df| Q_pval|
+|:-----------|:----------|:-------|:----------|:-------------------------|--------:|----:|------:|
+|gTcrej      |ihPf73     |F1      |loneliness |MR Egger                  | 74.76671|   22|  1e-07|
+|gTcrej      |ihPf73     |F1      |loneliness |Inverse variance weighted | 75.72983|   23|  2e-07|
+
+- Q for both Egger and IVW are significant, so there is evidence of heterogeneity and we must refer to MR Egger
+
+### Horizontal Directional Pleiotropy
+
+|id.exposure |id.outcome |outcome |exposure   | egger_intercept|       se|      pval|
+|:-----------|:----------|:-------|:----------|---------------:|--------:|---------:|
+|gTcrej      |ihPf73     |F1      |loneliness |       0.0026415| 0.004962| 0.5998197|
+
+- no evidence of directional horizontal pleiotropy
+
+### Leave-one-out analysis
+
+- IVW
+
+|exposure   |outcome |id.exposure |id.outcome | samplesize|SNP        |         b|        se|  p|
+|:----------|:-------|:-----------|:----------|----------:|:----------|---------:|---------:|--:|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs1025574  | 0.4846116| 0.0768955|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs10490220 | 0.5246607| 0.0666960|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs11022762 | 0.4931892| 0.0772158|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs11867618 | 0.4818872| 0.0773593|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs12136689 | 0.4817650| 0.0766510|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs13001416 | 0.5108076| 0.0742082|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs1439252  | 0.4814763| 0.0767057|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs1463979  | 0.4699515| 0.0727423|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs1966836  | 0.4913318| 0.0775754|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs2069117  | 0.5061777| 0.0768803|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs2273146  | 0.4992952| 0.0771221|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs2539926  | 0.4889982| 0.0771421|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs4462992  | 0.4993094| 0.0772144|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs4572147  | 0.5089001| 0.0745629|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs4872006  | 0.4888581| 0.0770846|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs4899292  | 0.4855192| 0.0770971|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs495146   | 0.4861492| 0.0773009|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs60271    | 0.4569648| 0.0620272|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs613872   | 0.4916067| 0.0793791|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs7044244  | 0.4802155| 0.0778871|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs7105282  | 0.4794193| 0.0764171|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs868708   | 0.4821220| 0.0766015|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs9388863  | 0.4887254| 0.0777045|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs9596054  | 0.4961095| 0.0769039|  0|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|All        | 0.4898733| 0.0741826|  0|
+
+- Egger 
+
+|exposure   |outcome |id.exposure |id.outcome | samplesize|SNP        |         b|        se|         p|
+|:----------|:-------|:-----------|:----------|----------:|:----------|---------:|---------:|---------:|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs1025574  | 0.2352437| 0.4039896| 0.5665638|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs10490220 | 0.5347430| 0.3529820| 0.1446978|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs11022762 | 0.2710759| 0.3951447| 0.5002070|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs11867618 | 0.1932214| 0.4140342| 0.6455343|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs12136689 | 0.3132977| 0.3926458| 0.4338510|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs13001416 | 0.2053668| 0.3759013| 0.5905958|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs1439252  | 0.3034321| 0.3902095| 0.4454696|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs1463979  | 0.3844936| 0.3774225| 0.3199225|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs1966836  | 0.2911579| 0.3917930| 0.4656287|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs2069117  | 0.3335756| 0.3894246| 0.4013430|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs2273146  | 0.2777091| 0.3888178| 0.4829432|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs2539926  | 0.2847327| 0.3947327| 0.4786610|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs4462992  | 0.2794221| 0.3888475| 0.4803131|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs4572147  | 0.2069630| 0.3786740| 0.5904507|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs4872006  | 0.2878691| 0.3971713| 0.4765748|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs4899292  | 0.2990352| 0.3933657| 0.4555879|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs495146   | 0.2882660| 0.3913315| 0.4694982|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs60271    | 0.3576130| 0.3183884| 0.2740309|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs613872   | 0.1680079| 0.5273387| 0.7531801|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs7044244  | 0.2324616| 0.3999356| 0.5672605|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs7105282  | 0.3054952| 0.3885836| 0.4405459|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs868708   | 0.3129219| 0.3927646| 0.4345314|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs9388863  | 0.2898601| 0.3917385| 0.4675330|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs9596054  | 0.2432696| 0.3972329| 0.5468410|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|All        | 0.2901209| 0.3827217| 0.4564671|
+
+- Egger Bootstrap
+
+|exposure   |outcome |id.exposure |id.outcome | samplesize|SNP        |          b|        se|     p|
+|:----------|:-------|:-----------|:----------|----------:|:----------|----------:|---------:|-----:|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs1025574  | -0.1184719| 0.2416300| 0.291|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs10490220 | -0.2789227| 0.2147044| 0.088|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs11022762 | -0.0978779| 0.2149125| 0.320|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs11867618 | -0.0751428| 0.2243947| 0.372|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs12136689 | -0.0907754| 0.2138550| 0.340|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs13001416 | -0.0315462| 0.2083160| 0.428|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs1439252  | -0.0777920| 0.2256316| 0.353|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs1463979  | -0.0379354| 0.2105371| 0.425|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs1966836  | -0.0823918| 0.2171967| 0.348|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs2069117  | -0.0632813| 0.2311050| 0.386|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs2273146  | -0.0824723| 0.2224536| 0.353|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs2539926  | -0.1216004| 0.2149064| 0.298|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs4462992  | -0.0753256| 0.2161825| 0.362|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs4572147  | -0.0613765| 0.2130221| 0.376|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs4872006  | -0.0846515| 0.2234329| 0.344|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs4899292  | -0.0771897| 0.2202884| 0.346|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs495146   | -0.0808801| 0.2152801| 0.357|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs60271    |  0.0662504| 0.2249635| 0.373|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs613872   | -0.1056389| 0.2123451| 0.291|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs7044244  | -0.1455320| 0.2263154| 0.255|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs7105282  | -0.0842111| 0.2123491| 0.329|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs868708   | -0.0779329| 0.2237072| 0.345|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs9388863  | -0.1090645| 0.2148781| 0.291|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|rs9596054  | -0.0834202| 0.2217165| 0.330|
+|loneliness |F1      |gTcrej      |ihPf73     |     378372|All        | -0.0880735| 0.2090445| 0.332|
+
+### MR Egger Sensitivity Analysis
+
+|id.exposure |id.outcome |outcome |exposure   |method                    | nsnp|         b|        se|      pval|
+|:-----------|:----------|:-------|:----------|:-------------------------|----:|---------:|---------:|---------:|
+|gTcrej      |ihPf73     |F1      |loneliness |MR Egger                  |  139| 0.7990098| 0.2366442| 0.0009559|
+|gTcrej      |ihPf73     |F1      |loneliness |Inverse variance weighted |  139| 0.4228029| 0.0337056| 0.0000000|
+|gTcrej      |ihPf73     |F1      |loneliness |Weighted mode             |  139| 0.6591925| 0.1130996| 0.0000000|
+|gTcrej      |ihPf73     |F1      |loneliness |Weighted median           |  139| 0.4874169| 0.0289665| 0.0000000|
+|gTcrej      |ihPf73     |F1      |loneliness |MR Egger (bootstrap)      |  139| 0.1279381| 0.1266754| 0.1560000|
+
+- I2 of all instruments = 0.970, I2 of weak instruments = 0.970, so no correction is needed
+
+---
+
+### Forest Plot
+
+![image](https://user-images.githubusercontent.com/68326791/198681335-196a5016-8acc-4c5c-8587-2313599e26fe.png)
+
+### Scatter Plot
+
+![image](https://user-images.githubusercontent.com/68326791/198681665-1203cae7-68a3-49f7-9958-4958cc314532.png)
+
+---
+
+### Steiger Directionality Test
+
+|id.exposure |id.outcome |exposure   |outcome | snp_r2.exposure| snp_r2.outcome|correct_causal_direction | steiger_pval|
+|:-----------|:----------|:----------|:-------|---------------:|--------------:|:------------------------|------------:|
+|gTcrej      |ihPf73     |loneliness |F1      |       0.0017882|      0.0005796|TRUE                     |            0|
+
+- 2 instruments were found to be in the incorrect direction
+
+### MR Steiger
+|id.exposure |id.outcome |outcome |exposure   |method                    | nsnp|         b|        se|      pval|
+|:-----------|:----------|:-------|:----------|:-------------------------|----:|---------:|---------:|---------:|
+|gTcrej      |ihPf73     |F1      |loneliness |MR Egger                  |   22| 0.4625481| 0.3004663| 0.1393710|
+|gTcrej      |ihPf73     |F1      |loneliness |Inverse variance weighted |   22| 0.4355445| 0.0583633| 8.48x10<sup>-14</sup>|
+|gTcrej      |ihPf73     |F1      |loneliness |Weighted mode             |   22| 0.5412482| 0.1115567| 8.51x10<sup>-05</sup>|
+|gTcrej      |ihPf73     |F1      |loneliness |Weighted median           |   22| 0.4741883| 0.0645738| 2.08x10<sup>-13</sup>|
+|gTcrej      |ihPf73     |F1      |loneliness |MR Egger (bootstrap)      |   22| 0.1380797| 0.2257816| 0.2810000|
+
+---
+
+### Steiger Forest Plot
+
+![image](https://user-images.githubusercontent.com/68326791/198682179-09abde67-76cc-4130-842b-7d86cacf5d98.png)
+
+### Steiger Scatter Plot
+
+![image](https://user-images.githubusercontent.com/68326791/198682374-483332af-1db7-40a0-b7d5-3754d2ebca55.png)
+
+---
+
+## NMD/F1 to Loneliness with Reduced p-value threshold (e<sup>-07</sup>)
+
+---
+
+### Two Sample MR Results
+
+
+
