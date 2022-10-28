@@ -501,5 +501,73 @@ MR using a p-value threshold of p < 5x10<sup>-07</sup> to increase instruments f
 
 ### Two Sample MR Results
 
+|id.exposure |id.outcome |outcome    |exposure |method                    | nsnp|          b|        se|      pval|
+|:-----------|:----------|:----------|:--------|:-------------------------|----:|----------:|---------:|---------:|
+|vvA60E      |0oxnSr     |loneliness |F1       |MR Egger                  |   35| -0.3333987| 0.3011675| 0.2762892|
+|vvA60E      |0oxnSr     |loneliness |F1       |Inverse variance weighted |   35|  0.2574628| 0.0551922| 3.09x10<sup>-06</sup>|
+|vvA60E      |0oxnSr     |loneliness |F1       |Weighted mode             |   35|  0.2941663| 0.0727519| 2.86x10<sup>-04</sup>|
+|vvA60E      |0oxnSr     |loneliness |F1       |Weighted median           |   35|  0.2890684| 0.0412860| 2.53x10<sup>-12</sup>|
+|vvA60E      |0oxnSr     |loneliness |F1       |MR Egger (bootstrap)      |   35| -0.1645353| 0.1996521| 0.1950000|
+
+- significant across IVW, weighted mode and weighted median
+
+### Heterogeneity
+
+|id.exposure |id.outcome |outcome    |exposure |method                    |        Q| Q_df| Q_pval|
+|:-----------|:----------|:----------|:--------|:-------------------------|--------:|----:|------:|
+|vvA60E      |0oxnSr     |loneliness |F1       |MR Egger                  | 152.1081|   33|3.23x10<sup>-17</sup>|
+|vvA60E      |0oxnSr     |loneliness |F1       |Inverse variance weighted | 170.4151|   34|4.47x10<sup>-20</sup>|
+
+- evidence of heterogeneity so must refer to MR Egger, which is n.s.
+
+### Test of directional horizontal pleiotropy
+
+|id.exposure |id.outcome |outcome    |exposure | egger_intercept|        se|     pval|
+|:-----------|:----------|:----------|:--------|---------------:|---------:|--------:|
+|vvA60E      |0oxnSr     |loneliness |F1       |       0.0091299| 0.0045812| 0.054593|
+
+- n.s. but only just
+
+### Mr Egger Sensitivity Analysis
+
+|id.exposure |id.outcome |outcome    |exposure |method                    | nsnp|         b|        se|      pval|
+|:-----------|:----------|:----------|:--------|:-------------------------|----:|---------:|---------:|---------:|
+|vvA60E      |0oxnSr     |loneliness |F1       |MR Egger                  |  188| 0.2995167| 0.1007209| 0.0033319|
+|vvA60E      |0oxnSr     |loneliness |F1       |Inverse variance weighted |  188| 0.2826353| 0.0171767| 7.78x10<sup>-61</sup>|
+|vvA60E      |0oxnSr     |loneliness |F1       |Weighted mode             |  188| 0.1957380| 0.0506386| 1.53x10<sup>-04</sup>|
+|vvA60E      |0oxnSr     |loneliness |F1       |Weighted median           |  188| 0.2974803| 0.0165897| 6.68x10<sup>-72</sup>|
+|vvA60E      |0oxnSr     |loneliness |F1       |MR Egger (bootstrap)      |  188| 0.1161874| 0.0638577| 0.0340000|
+
+- I2 all instruments = .968
+- I2 weak instruments = .967, so no weak instrument bias
+
+### Testing that F1 is upstream of loneliness
+
+|id.exposure |id.outcome |exposure |outcome    | snp_r2.exposure| snp_r2.outcome|correct_causal_direction | steiger_pval|
+|:-----------|:----------|:--------|:----------|---------------:|--------------:|:------------------------|------------:|
+|vvA60E      |0oxnSr     |F1       |loneliness |       0.0029892|      0.0006832|TRUE                     |            0|
 
 
+
+---
+### Forest Plot
+
+![image](https://user-images.githubusercontent.com/68326791/198688515-2a0c6f52-f9dc-4f76-a5ab-9ccacec1de96.png)
+
+### Scatter Plot
+
+![image](https://user-images.githubusercontent.com/68326791/198688656-db6168cb-e560-4792-863a-3f45725f00b0.png)
+
+---
+
+### MR Steiger
+
+|id.exposure |id.outcome |outcome    |exposure |method                    | nsnp|          b|        se|      pval|
+|:-----------|:----------|:----------|:--------|:-------------------------|----:|----------:|---------:|---------:|
+|vvA60E      |0oxnSr     |loneliness |F1       |MR Egger                  |   34| -0.1866047| 0.3033239| 0.5427736|
+|vvA60E      |0oxnSr     |loneliness |F1       |Inverse variance weighted |   34|  0.2427261| 0.0525080| 0.0000038|
+|vvA60E      |0oxnSr     |loneliness |F1       |Weighted mode             |   34|  0.2936696| 0.0710177| 0.0002289|
+|vvA60E      |0oxnSr     |loneliness |F1       |Weighted median           |   34|  0.2866372| 0.0416342| 0.0000000|
+|vvA60E      |0oxnSr     |loneliness |F1       |MR Egger (bootstrap)      |   34| -0.0909525| 0.1924328| 0.3150000|
+
+- results are very similar to normal MR 
