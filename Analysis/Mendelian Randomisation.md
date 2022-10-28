@@ -414,9 +414,5 @@ DataMR_F1tolonelinessk_funnel <- mr_funnel_plot(DataMR_F1tolonelinessk_single)
 DataMR_F1tolonelinessk_funnel[[1]]
 ```
 ### MR with reduced p-value threshold
-```r
-# Select genome-wide significant snps
-exposure_loneliness5e7 <- subset(exposure_loneliness, pval.exposure < 5e-7)
-# Lets have a look at the number of SNPs that we would include:
-length(exposure_loneliness5e7$SNP) # Number of genome-wide significant snps: 576
-```
+
+- the above steps are all repeated, but when selecting SNPs, a threshold of p < 5x10<sup>-07</sup> instead of genome-wide significance
