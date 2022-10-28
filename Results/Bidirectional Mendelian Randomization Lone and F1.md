@@ -212,13 +212,7 @@ Date: **6 June, 2022**
 |k7gnkc      |hK2UjT     |F1_Qsnp  |loneliness |       0.0011072|      0.0002447|TRUE                     |1.49x10<sup>-15</sup>|
 
 
-|id.exposure |id.outcome |outcome    |exposure |method                    | nsnp|         b|        se|      pval|
-|:-----------|:----------|:----------|:--------|:-------------------------|----:|---------:|---------:|---------:|
-|k7gnkc      |hK2UjT     |loneliness |F1_Qsnp  |MR Egger                  |   10| 0.4439023| 0.3011940| 0.1787594|
-|k7gnkc      |hK2UjT     |loneliness |F1_Qsnp  |Weighted median           |   10| 0.3826074| 0.0656935| 0.0000000|
-|k7gnkc      |hK2UjT     |loneliness |F1_Qsnp  |Inverse variance weighted |   10| 0.3393446| 0.0654521| 0.0000002|
-|k7gnkc      |hK2UjT     |loneliness |F1_Qsnp  |Simple mode               |   10| 0.3882365| 0.0895519| 0.0018903|
-|k7gnkc      |hK2UjT     |loneliness |F1_Qsnp  |Weighted mode             |   10| 0.3857237| 0.0826944| 0.0011778|
+- all SNPs operating in the right direction
 
 
 ---
