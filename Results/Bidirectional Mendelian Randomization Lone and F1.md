@@ -7,22 +7,23 @@
 ## loneliness to F1/NMD
 
 F1 refers to the Neurodevelopmental and Mood Disorders latent factor (NMD)
-
-Date: **6 June, 2022**
-
+- clumping parameters: r<sup>2</sup> < 0.001, kb = 10,000
+- p-value threshold: p < 5x10<sup>-08</sup>
+- 11 instruments
 ---
 
 ### Results from two sample MR:
 
-|id.exposure |id.outcome |outcome |exposure   |method                    | nsnp|          b|        se|      pval|
-|:-----------|:----------|:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
-|zekZiO      |bCloOr     |F1      |loneliness |MR Egger                  |   11|  0.5443916| 0.2789841| 8.28x10<sup>-02</sup>|
-|zekZiO      |bCloOr     |F1      |loneliness |Inverse variance weighted |   11|  0.4956359| 0.0547951| 1.49x10<sup>-19</sup>|
-|zekZiO      |bCloOr     |F1      |loneliness |Weighted mode             |   11|  0.5238836| 0.1343346| 2.96x10<sup>-03</sup>|
-|zekZiO      |bCloOr     |F1      |loneliness |Weighted median           |   11|  0.4810642| 0.0803782| 2.16x10<sup>-09</sup>|
-|zekZiO      |bCloOr     |F1      |loneliness |MR Egger (bootstrap)      |   11| -0.1618239| 0.3356590| 3.00x10<sup>-01</sup>|
+|outcome |exposure   |method                    | nsnp|          b|        se|      pval|
+|:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
+|F1      |loneliness |MR Egger                  |   11|  0.5443916| 0.2789841| 8.28x10<sup>-02</sup>|
+|F1      |loneliness |Inverse variance weighted |   11|  0.4956359| 0.0547951| 1.49x10<sup>-19</sup>|
+|F1      |loneliness |Weighted mode             |   11|  0.5238836| 0.1343346| 2.96x10<sup>-03</sup>|
+|F1      |loneliness |Weighted median           |   11|  0.4810642| 0.0803782| 2.16x10<sup>-09</sup>|
+|F1      |loneliness |MR Egger (bootstrap)      |   11| -0.1618239| 0.3356590| 3.00x10<sup>-01</sup>|
 
 - All methods except for Egger and Egger Boostrap are significant 
+- Egger bootstrap is in the negative direction
 
 ### Heterogeneity tests
 
@@ -46,23 +47,24 @@ Date: **6 June, 2022**
 
 ### Test that the loneliness exposure is upstream of the F1 outcome
 
-|id.exposure |id.outcome |exposure   |outcome | snp_r2.exposure| snp_r2.outcome|correct_causal_direction | steiger_pval|
-|:-----------|:----------|:----------|:-------|---------------:|--------------:|:------------------------|------------:|
-|zekZiO      |bCloOr     |loneliness |F1      |       0.0009896|      0.0002397|TRUE                     |4.87x10<sup>-13</sup>|
+|exposure   |outcome | snp_r2.exposure| snp_r2.outcome|correct_causal_direction | steiger_pval|
+|:----------|:-------|---------------:|--------------:|:------------------------|------------:|
+|loneliness |F1      |       0.0009896|      0.0002397|TRUE                     |4.87x10<sup>-13</sup>|
 
 - Steiger directionality test suggests that we have the correct direction of causal effect from loneliness to F1
 
 ### MR Egger Sensitivity Test
-|id.exposure |id.outcome |outcome |exposure   |method                    | nsnp|         b|        se|      pval|
-|:-----------|:----------|:-------|:----------|:-------------------------|----:|---------:|---------:|---------:|
-|zekZiO      |bCloOr     |F1      |loneliness |MR Egger                  |   77| 1.4606595| 0.3571151| 1.07x10<sup>-04</sup>|
-|zekZiO      |bCloOr     |F1      |loneliness |Inverse variance weighted |   77| 0.4687211| 0.0449261| 1.75x10<sup>-25</sup>|
-|zekZiO      |bCloOr     |F1      |loneliness |Weighted mode             |   77| 0.6736313| 0.1070706| 1.84x10<sup>-08</sup>|
-|zekZiO      |bCloOr     |F1      |loneliness |Weighted median           |   77| 0.5464386| 0.0363076| 3.44x10<sup>-51</sup>|
-|zekZiO      |bCloOr     |F1      |loneliness |MR Egger (bootstrap)      |   77| 0.2411901| 0.1979520| 1.13x10<sup>-01</sup>|
+|outcome |exposure   |method                    | nsnp|         b|        se|      pval|
+|:-------|:----------|:-------------------------|----:|---------:|---------:|---------:|
+|F1      |loneliness |MR Egger                  |   77| 1.4606595| 0.3571151| 1.07x10<sup>-04</sup>|
+|F1      |loneliness |Inverse variance weighted |   77| 0.4687211| 0.0449261| 1.75x10<sup>-25</sup>|
+|F1      |loneliness |Weighted mode             |   77| 0.6736313| 0.1070706| 1.84x10<sup>-08</sup>|
+|F1      |loneliness |Weighted median           |   77| 0.5464386| 0.0363076| 3.44x10<sup>-51</sup>|
+|F1      |loneliness |MR Egger (bootstrap)      |   77| 0.2411901| 0.1979520| 1.13x10<sup>-01</sup>|
 
 - still significant and consistent across MR methods
 - I2 of all instruments = .972, I2 of weaker instruments .972
+- not suggestive of weak instrument bias
 ---
 
 ### Forest plot of single SNP MR
@@ -77,71 +79,68 @@ Date: **6 June, 2022**
 
 ### Steiger Filtering
 
-|id.exposure |id.outcome |exposure   |outcome |snp_r2.exposure |snp_r2.outcome |correct_causal_direction |steiger_pval |
-|:-----------|:----------|:----------|:-------|:---------------|:--------------|:------------------------|:------------|
-|zekZiO      |bCloOr     |loneliness |F1      |8.306257e-05    |3.19655e-05    |TRUE                     |0.1176345    |
-|zekZiO      |bCloOr     |loneliness |F1      |7.089193e-05    |2.923562e-05   |TRUE                     |0.173049     |
-|zekZiO      |bCloOr     |loneliness |F1      |7.481954e-05    |1.473583e-05   |TRUE                     |0.02957451   |
-|zekZiO      |bCloOr     |loneliness |F1      |0.0001012337    |4.970203e-06   |TRUE                     |0.0003971839 |
-|zekZiO      |bCloOr     |loneliness |F1      |7.854718e-05    |6.505678e-06   |TRUE                     |0.004310286  |
-|zekZiO      |bCloOr     |loneliness |F1      |7.838155e-05    |7.084081e-06   |TRUE                     |0.005108644  |
-
-- results of MR Steiger are the same as normal MR
+- all SNPs were found to be operating in the correct causal direction
+- so results of MR steiger are the same as normal MR
 
 ---
 
-## F1 to Loneliness
-
+## F1/NMD to Loneliness
+- now evaluates the effect of neurodevelopmental/mood disorders on loneliness
+- clumping parameters: r<sup>2</sup> < 0.001, kb = 10,000
+- p-value threshold: p < 5x10<sup>-08</sup>
+- 14 instruments
 ---
 
 ### Results from Two-Sample MR
 
-|id.exposure |id.outcome |outcome    |exposure |method                    | nsnp|          b|        se|      pval|
-|:-----------|:----------|:----------|:--------|:-------------------------|----:|----------:|---------:|---------:|
-|eOlwoU      |hK2UjT     |loneliness |F1       |MR Egger                  |   14| -0.2495892| 0.4675338| 6.03x10<sup>-01</sup>|
-|eOlwoU      |hK2UjT     |loneliness |F1       |Inverse variance weighted |   14|  0.2087931| 0.0983364| 3.37x10<sup>-02</sup>|
-|eOlwoU      |hK2UjT     |loneliness |F1       |Weighted mode             |   14|  0.3570321| 0.0836802| 9.18x10<sup>-04</sup>|
-|eOlwoU      |hK2UjT     |loneliness |F1       |Weighted median           |   14|  0.3232340| 0.0604615| 8.99x10<sup>-08</sup>|
-|eOlwoU      |hK2UjT     |loneliness |F1       |MR Egger (bootstrap)      |   14| -0.2617346| 0.3267510| 1.98x10<sup>-01</sup>|
+|outcome    |exposure |method                    | nsnp|          b|        se|      pval|
+|:----------|:--------|:-------------------------|----:|----------:|---------:|---------:|
+|loneliness |F1       |MR Egger                  |   14| -0.2495892| 0.4675338| 6.03x10<sup>-01</sup>|
+|loneliness |F1       |Inverse variance weighted |   14|  0.2087931| 0.0983364| 3.37x10<sup>-02</sup>|
+|loneliness |F1       |Weighted mode             |   14|  0.3570321| 0.0836802| 9.18x10<sup>-04</sup>|
+|loneliness |F1       |Weighted median           |   14|  0.3232340| 0.0604615| 8.99x10<sup>-08</sup>|
+|loneliness |F1       |MR Egger (bootstrap)      |   14| -0.2617346| 0.3267510| 1.98x10<sup>-01</sup>|
 
-- IVW and the other methods significant apart from Egger
+- consistency across MR methods excluding MR Egger and MR Egger bootstrap
+- MR Egger and MR Egger bootstrap are both in the negative direction
 
 ### Heterogeneity Tests
 
-|id.exposure |id.outcome |outcome    |exposure |method                    |        Q| Q_df| Q_pval|
-|:-----------|:----------|:----------|:--------|:-------------------------|--------:|----:|------:|
-|eOlwoU      |hK2UjT     |loneliness |F1       |MR Egger                  | 88.39920|   12|1.00x10<sup>-13</sup>|
-|eOlwoU      |hK2UjT     |loneliness |F1       |Inverse variance weighted | 95.80784|   13|1.07x10<sup>-14</sup>|
+|outcome    |exposure |method                    |        Q| Q_df| Q_pval|
+|:----------|:--------|:-------------------------|--------:|----:|------:|
+|loneliness |F1       |MR Egger                  | 88.39920|   12|1.00x10<sup>-13</sup>|
+|loneliness |F1       |Inverse variance weighted | 95.80784|   13|1.07x10<sup>-14</sup>|
 
-- since results do indicate heterogeneity, so we have to refer to Egger, which is n.s.
+- cannot assume homogeneity, there is evidence of heterogeneity
 
 ### Test for directional horizontal pleiotropy
-|id.exposure |id.outcome |outcome    |exposure | egger_intercept|        se|      pval|
-|:-----------|:----------|:----------|:--------|---------------:|---------:|---------:|
-|eOlwoU      |hK2UjT     |loneliness |F1       |       0.0076312| 0.0076095| 0.3357276|
 
-- there does not seem to be evidence of pleiotropy
+|outcome    |exposure | egger_intercept|        se|      pval|
+|:----------|:--------|---------------:|---------:|---------:|
+|loneliness |F1       |       0.0076312| 0.0076095| 0.3357276|
+
+- there does not seem to be evidence of directional horizontal pleiotropy
 
 ### Test that the F1 exposure is upstream of loneliness outcome
 
 |exposure |outcome    | snp_r2.exposure| snp_r2.outcome|correct_causal_direction | steiger_pval|
 |:--------|:----------|---------------:|--------------:|:------------------------|------------:|
-|F1       |loneliness |       0.0020098|      0.0004383|TRUE                     |            2.82x10<sup>-27</sup>|
+|F1       |loneliness |       0.0020098|      0.0004383|TRUE                     |2.82x10<sup>-27</sup>|
 
 ### MR Egger Sensitivity Analyses
 - selecting weaker instruments and re-running MR
 
-|id.exposure |id.outcome |outcome    |exposure |method                    | nsnp|         b|        se|      pval|
-|:-----------|:----------|:----------|:--------|:-------------------------|----:|---------:|---------:|---------:|
-|eOlwoU      |hK2UjT     |loneliness |F1       |MR Egger                  |  103| 0.4037587| 0.1210831| 1.20x10<sup>-03</sup>|
-|eOlwoU      |hK2UjT     |loneliness |F1       |Inverse variance weighted |  103| 0.2927095| 0.0211061| 9.83x10<sup>-44</sup>|
-|eOlwoU      |hK2UjT     |loneliness |F1       |Weighted mode             |  103| 0.3767557| 0.0577646| 2.70x10<sup>-09</sup>|
-|eOlwoU      |hK2UjT     |loneliness |F1       |Weighted median           |  103| 0.3151128| 0.0205324| 3.70x10<sup>-53</sup>|
-|eOlwoU      |hK2UjT     |loneliness |F1       |MR Egger (bootstrap)      |  103| 0.2593580| 0.0823343| 2.00x10<sup>-03</sup>|
+|outcome    |exposure |method                    | nsnp|         b|        se|      pval|
+|:----------|:--------|:-------------------------|----:|---------:|---------:|---------:|
+|loneliness |F1       |MR Egger                  |  103| 0.4037587| 0.1210831| 1.20x10<sup>-03</sup>|
+|loneliness |F1       |Inverse variance weighted |  103| 0.2927095| 0.0211061| 9.83x10<sup>-44</sup>|
+|loneliness |F1       |Weighted mode             |  103| 0.3767557| 0.0577646| 2.70x10<sup>-09</sup>|
+|loneliness |F1       |Weighted median           |  103| 0.3151128| 0.0205324| 3.70x10<sup>-53</sup>|
+|loneliness |F1       |MR Egger (bootstrap)      |  103| 0.2593580| 0.0823343| 2.00x10<sup>-03</sup>|
 
-- problem does not seem to be weak SNPS
-- I2 all instruments = .970
-- I2 weak instruments = .969
+- all MR methods are significant 
+- the I<sup>2</sup> suggests that there is no weak instrument bias
+- I<sup>2</sup> all instruments = .970, I<sup>2</sup> weak instruments = .969
 
 ---
 
@@ -158,91 +157,91 @@ Date: **6 June, 2022**
 --- 
 
 ### Steiger Filtering
--  correct causal direction
 
-|id.exposure |id.outcome |exposure |outcome    |snp_r2.exposure |snp_r2.outcome |correct_causal_direction |steiger_pval |
-|:-----------|:----------|:--------|:----------|:---------------|:--------------|:------------------------|:------------|
-|eOlwoU      |hK2UjT     |F1       |loneliness |9.277061e-05    |2.081419e-05   |TRUE                     |0.02186975   |
-|eOlwoU      |hK2UjT     |F1       |loneliness |8.105609e-05    |1.245558e-05   |TRUE                     |0.01330606   |
-|eOlwoU      |hK2UjT     |F1       |loneliness |8.711655e-05    |1.203016e-05   |TRUE                     |0.007991305  |
-|eOlwoU      |hK2UjT     |F1       |loneliness |9.386044e-05    |2.631801e-05   |TRUE                     |0.03927085   |
-|eOlwoU      |hK2UjT     |F1       |loneliness |8.442823e-05    |5.981661e-06   |TRUE                     |0.002293868  |
-|eOlwoU      |hK2UjT     |F1       |loneliness |8.222106e-05    |3.21007e-06    |TRUE                     |0.001000479  |
-
-- results of MR Steiger are the same as normal MR
+- all SNPs were found to be operating in the correct causal direction
+- so results of MR Steiger are the same as normal MR
 
 ---
 
 ## F1 QSNP filtered to Loneliness
-
+- clumping parameters: r<sup>2</sup> < 0.001, kb = 10,000
+- p-value threshold: p < 5x10<sup>-08</sup>
+- 10 instruments
 ---
 
 ### Results from Two Sample MR
+|outcome    |exposure |method                    | nsnp|         b|        se|      pval|
+|:----------|:--------|:-------------------------|----:|---------:|---------:|---------:|
+|loneliness |F1_Qsnp  |MR Egger                  |   10| 0.4439023| 0.3011940| 1.79x10<sup>-01</sup>|
+|loneliness |F1_Qsnp  |Inverse variance weighted |   10| 0.3393446| 0.0654521| 2.16x10<sup>-07</sup>|
+|loneliness |F1_Qsnp  |Weighted mode             |   10| 0.3857237| 0.0880167| 1.76x10<sup>-03</sup>|
+|loneliness |F1_Qsnp  |Weighted median           |   10| 0.3826074| 0.0639450| 2.19x10<sup>-09</sup>|
+|loneliness |F1_Qsnp  |MR Egger (bootstrap)      |   10| 0.3582235| 0.2508896| 5.8x10<sup>-02</sup>|
 
-|id.exposure |id.outcome |outcome    |exposure |method                    | nsnp|         b|        se|      pval|
-|:-----------|:----------|:----------|:--------|:-------------------------|----:|---------:|---------:|---------:|
-|k7gnkc      |hK2UjT     |loneliness |F1_Qsnp  |MR Egger                  |   10| 0.4439023| 0.3011940| 1.79x10<sup>-01</sup>|
-|k7gnkc      |hK2UjT     |loneliness |F1_Qsnp  |Inverse variance weighted |   10| 0.3393446| 0.0654521| 2.16x10<sup>-07</sup>|
-|k7gnkc      |hK2UjT     |loneliness |F1_Qsnp  |Weighted mode             |   10| 0.3857237| 0.0880167| 1.76x10<sup>-03</sup>|
-|k7gnkc      |hK2UjT     |loneliness |F1_Qsnp  |Weighted median           |   10| 0.3826074| 0.0639450| 2.19x10<sup>-09</sup>|
-|k7gnkc      |hK2UjT     |loneliness |F1_Qsnp  |MR Egger (bootstrap)      |   10| 0.3582235| 0.2508896| 5.8x10<sup>-02</sup>|
-
-- all significant except for egger
+- MR methods are significant except for MR Egger and MR Egger bootstrap
+- MR Egger and MR Egger bootstrap effects are now, however, in the positive direction (for the non-QSNP filtered analysis, they were in the negative direction)
+- instability of effect estimates is likely due to the small number of instruments
 
 ### Heterogeneity Test
 
-|id.exposure |id.outcome |outcome    |exposure |method                    |        Q| Q_df|    Q_pval|
-|:-----------|:----------|:----------|:--------|:-------------------------|--------:|----:|---------:|
-|k7gnkc      |hK2UjT     |loneliness |F1_Qsnp  |MR Egger                  | 20.81972|    8| 0.0076421|
-|k7gnkc      |hK2UjT     |loneliness |F1_Qsnp  |Inverse variance weighted | 21.15064|    9| 0.0119981|
+|outcome    |exposure |method                    |        Q| Q_df|    Q_pval|
+|:----------|:--------|:-------------------------|--------:|----:|---------:|
+|loneliness |F1_Qsnp  |MR Egger                  | 20.81972|    8| 0.0076421|
+|loneliness |F1_Qsnp  |Inverse variance weighted | 21.15064|    9| 0.0119981|
 
-- evidence of heterogeneity, therefore we must refer to Egger
+- cannot assume homogeneity, there is evidence of heterogeneity
 
 ### Test for Directional Horizontal Pleiotropy
 
-|id.exposure |id.outcome |outcome    |exposure | egger_intercept|        se|      pval|
-|:-----------|:----------|:----------|:--------|---------------:|---------:|---------:|
-|k7gnkc      |hK2UjT     |loneliness |F1_Qsnp  |      -0.0017578| 0.0049295| 0.7306186|
+|outcome    |exposure | egger_intercept|        se|      pval|
+|:----------|:--------|---------------:|---------:|---------:|
+|loneliness |F1_Qsnp  |      -0.0017578| 0.0049295| 0.7306186|
+
+- no evidence of directional horizontal pleiotropy 
+
+### Test that F1/NMD QSNP is upstream of loneliness
+
+|exposure |outcome    | snp_r2.exposure| snp_r2.outcome|correct_causal_direction | steiger_pval|
+|:--------|:----------|---------------:|--------------:|:------------------------|------------:|
+|F1_Qsnp  |loneliness |       0.0011072|      0.0002447|TRUE                     |1.49x10<sup>-15</sup>|
 
 
-### Steiger
+### MR Steiger
 
-|id.exposure |id.outcome |exposure |outcome    | snp_r2.exposure| snp_r2.outcome|correct_causal_direction | steiger_pval|
-|:-----------|:----------|:--------|:----------|---------------:|--------------:|:------------------------|------------:|
-|k7gnkc      |hK2UjT     |F1_Qsnp  |loneliness |       0.0011072|      0.0002447|TRUE                     |1.49x10<sup>-15</sup>|
-
-
-- all SNPs operating in the right direction
-
+- all SNPs were found to be operating in the correct causal direction
+- so results of MR Steiger are identical to that of the normal MR
 
 ---
 
 ## Loneliness to F1/NMD with reduced p-value threshold
 
-MR using a p-value threshold of p < 5x10<sup>-07</sup> to increase instruments for MR
+- clumping parameters: r<sup>2</sup> < 0.001, kb = 10,000
+- p-value threshold: p < 5x10<sup>-07</sup>
+- 24 instruments
 
 ---
 
 ### Results from Two Sample MR
 
-|id.exposure |id.outcome |outcome |exposure   |method                    | nsnp|          b|        se|      pval|
-|:-----------|:----------|:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
-|gTcrej      |ihPf73     |F1      |loneliness |MR Egger                  |   24|  0.2901209| 0.3827217| 0.4564671|
-|gTcrej      |ihPf73     |F1      |loneliness |Inverse variance weighted |   24|  0.4898733| 0.0741826| 4.01x10<sup>-11</sup>|
-|gTcrej      |ihPf73     |F1      |loneliness |Weighted mode             |   24|  0.5341551| 0.1055374| 4.01x10<sup>-05</sup>|
-|gTcrej      |ihPf73     |F1      |loneliness |Weighted median           |   24|  0.4828668| 0.0623770| 9.86x10<sup>-15</sup>|
-|gTcrej      |ihPf73     |F1      |loneliness |MR Egger (bootstrap)      |   24| -0.0835106| 0.2224388| 0.3450000|
+|outcome |exposure   |method                    | nsnp|          b|        se|      pval|
+|:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
+|F1      |loneliness |MR Egger                  |   24|  0.2901209| 0.3827217| 0.4564671|
+|F1      |loneliness |Inverse variance weighted |   24|  0.4898733| 0.0741826| 4.01x10<sup>-11</sup>|
+|F1      |loneliness |Weighted mode             |   24|  0.5341551| 0.1055374| 4.01x10<sup>-05</sup>|
+|F1      |loneliness |Weighted median           |   24|  0.4828668| 0.0623770| 9.86x10<sup>-15</sup>|
+|F1      |loneliness |MR Egger (bootstrap)      |   24| -0.0835106| 0.2224388| 0.3450000|
 
-- similar pattern of results to main MR analysis with 11 instruments
+- MR methods significant and consistent apart from MR Egger and MR Egger Bootstrap
+- Like the Lone to NMD analysis using a genome-wide significance p-value threshold, the MR Egger bootstrap effect is also in the negative direction
 
 ### Hetereogeneity
 
-|id.exposure |id.outcome |outcome |exposure   |method                    |        Q| Q_df| Q_pval|
-|:-----------|:----------|:-------|:----------|:-------------------------|--------:|----:|------:|
-|gTcrej      |ihPf73     |F1      |loneliness |MR Egger                  | 74.76671|   22|  1e-07|
-|gTcrej      |ihPf73     |F1      |loneliness |Inverse variance weighted | 75.72983|   23|  2e-07|
+|outcome |exposure   |method                    |        Q| Q_df| Q_pval|
+|:-------|:----------|:-------------------------|--------:|----:|------:|
+|F1      |loneliness |MR Egger                  | 74.76671|   22|  1e-07|
+|F1      |loneliness |Inverse variance weighted | 75.72983|   23|  2e-07|
 
-- Q for both Egger and IVW are significant, so there is evidence of heterogeneity and we must refer to MR Egger
+- we cannot assume homogeneity
 
 ### Horizontal Directional Pleiotropy
 
@@ -263,7 +262,8 @@ MR using a p-value threshold of p < 5x10<sup>-07</sup> to increase instruments f
 |gTcrej      |ihPf73     |F1      |loneliness |Weighted median           |  139| 0.4874169| 0.0289665| 0.0000000|
 |gTcrej      |ihPf73     |F1      |loneliness |MR Egger (bootstrap)      |  139| 0.1279381| 0.1266754| 0.1560000|
 
-- I2 of all instruments = 0.970, I2 of weak instruments = 0.970, so no correction is needed
+- all MR methods signficant and consistent, except for MR Egger bootstrap
+- I<sup>2</sup> of all instruments = 0.970, I2 of weak instruments = 0.970, so there does not seem to be weak instrument bias
 
 ---
 
@@ -277,23 +277,24 @@ MR using a p-value threshold of p < 5x10<sup>-07</sup> to increase instruments f
 
 ---
 
-### Steiger Directionality Test
+### Test that loneliness is upstream of F1/NMD
 
-|id.exposure |id.outcome |exposure   |outcome | snp_r2.exposure| snp_r2.outcome|correct_causal_direction | steiger_pval|
-|:-----------|:----------|:----------|:-------|---------------:|--------------:|:------------------------|------------:|
-|gTcrej      |ihPf73     |loneliness |F1      |       0.0017882|      0.0005796|TRUE                     |            0|
+|exposure   |outcome | snp_r2.exposure| snp_r2.outcome|correct_causal_direction | steiger_pval|
+|:----------|:-------|---------------:|--------------:|:------------------------|------------:|
+|loneliness |F1      |       0.0017882|      0.0005796|TRUE                     |            0|
 
-- 2 instruments were found to be in the incorrect direction
+- 2 instruments were found to be operating in the incorrect direction
 
 ### MR Steiger
-|id.exposure |id.outcome |outcome |exposure   |method                    | nsnp|         b|        se|      pval|
-|:-----------|:----------|:-------|:----------|:-------------------------|----:|---------:|---------:|---------:|
-|gTcrej      |ihPf73     |F1      |loneliness |MR Egger                  |   22| 0.4625481| 0.3004663| 0.1393710|
-|gTcrej      |ihPf73     |F1      |loneliness |Inverse variance weighted |   22| 0.4355445| 0.0583633| 8.48x10<sup>-14</sup>|
-|gTcrej      |ihPf73     |F1      |loneliness |Weighted mode             |   22| 0.5412482| 0.1115567| 8.51x10<sup>-05</sup>|
-|gTcrej      |ihPf73     |F1      |loneliness |Weighted median           |   22| 0.4741883| 0.0645738| 2.08x10<sup>-13</sup>|
-|gTcrej      |ihPf73     |F1      |loneliness |MR Egger (bootstrap)      |   22| 0.1380797| 0.2257816| 0.2810000|
+|outcome |exposure   |method                    | nsnp|         b|        se|      pval|
+|:-------|:----------|:-------------------------|----:|---------:|---------:|---------:|
+|F1      |loneliness |MR Egger                  |   22| 0.4625481| 0.3004663| 0.1393710|
+|F1      |loneliness |Inverse variance weighted |   22| 0.4355445| 0.0583633| 8.48x10<sup>-14</sup>|
+|F1      |loneliness |Weighted mode             |   22| 0.5412482| 0.1115567| 8.51x10<sup>-05</sup>|
+|F1      |loneliness |Weighted median           |   22| 0.4741883| 0.0645738| 2.08x10<sup>-13</sup>|
+|F1      |loneliness |MR Egger (bootstrap)      |   22| 0.1380797| 0.2257816| 0.2810000|
 
+- results are still consistent with the original MR analysis, except that the MR Egger Bootstrapped effect is no longer in the negative direction
 ---
 
 ### Steiger Forest Plot
@@ -304,39 +305,42 @@ MR using a p-value threshold of p < 5x10<sup>-07</sup> to increase instruments f
 
 ![image](https://user-images.githubusercontent.com/68326791/198682374-483332af-1db7-40a0-b7d5-3754d2ebca55.png)
 
-### MR Raps
+### MR RAPS
 
 - beta hat (causal effect) = 0.5128462
 - beta se = 0.06853184
 - beta p value = 7.238654e-14
 
-- indicates a causal association from loneliness to F1
 ---
 
-## NMD/F1 to Loneliness with Reduced p-value threshold (e<sup>-07</sup>)
+## NMD/F1 to Loneliness with Reduced p-value threshold
+- clumping parameters: r<sup>2</sup> < 0.001, kb = 10,000
+- p-value threshold: p < 5x10<sup>-07</sup>
+- 35 instruments
 
 ---
 
 ### Two Sample MR Results
 
-|id.exposure |id.outcome |outcome    |exposure |method                    | nsnp|          b|        se|      pval|
-|:-----------|:----------|:----------|:--------|:-------------------------|----:|----------:|---------:|---------:|
-|vvA60E      |0oxnSr     |loneliness |F1       |MR Egger                  |   35| -0.3333987| 0.3011675| 0.2762892|
-|vvA60E      |0oxnSr     |loneliness |F1       |Inverse variance weighted |   35|  0.2574628| 0.0551922| 3.09x10<sup>-06</sup>|
-|vvA60E      |0oxnSr     |loneliness |F1       |Weighted mode             |   35|  0.2941663| 0.0727519| 2.86x10<sup>-04</sup>|
-|vvA60E      |0oxnSr     |loneliness |F1       |Weighted median           |   35|  0.2890684| 0.0412860| 2.53x10<sup>-12</sup>|
-|vvA60E      |0oxnSr     |loneliness |F1       |MR Egger (bootstrap)      |   35| -0.1645353| 0.1996521| 0.1950000|
+|outcome    |exposure |method                    | nsnp|          b|        se|      pval|
+|:----------|:--------|:-------------------------|----:|----------:|---------:|---------:|
+|loneliness |F1       |MR Egger                  |   35| -0.3333987| 0.3011675| 0.2762892|
+|loneliness |F1       |Inverse variance weighted |   35|  0.2574628| 0.0551922| 3.09x10<sup>-06</sup>|
+|loneliness |F1       |Weighted mode             |   35|  0.2941663| 0.0727519| 2.86x10<sup>-04</sup>|
+|loneliness |F1       |Weighted median           |   35|  0.2890684| 0.0412860| 2.53x10<sup>-12</sup>|
+|loneliness |F1       |MR Egger (bootstrap)      |   35| -0.1645353| 0.1996521| 0.1950000|
 
-- significant across IVW, weighted mode and weighted median
+- pattern of results is similar to the original MR, where MR methods apart from Egger and Egger bootstrap are significant and consisent
+- similarly, both Egger and Egger bootstrap are in the negative direction, like they are in the NMD/F1 to loneliness MR analysis using genome-wide significant instruments only
 
 ### Heterogeneity
 
-|id.exposure |id.outcome |outcome    |exposure |method                    |        Q| Q_df| Q_pval|
-|:-----------|:----------|:----------|:--------|:-------------------------|--------:|----:|------:|
-|vvA60E      |0oxnSr     |loneliness |F1       |MR Egger                  | 152.1081|   33|3.23x10<sup>-17</sup>|
-|vvA60E      |0oxnSr     |loneliness |F1       |Inverse variance weighted | 170.4151|   34|4.47x10<sup>-20</sup>|
+|outcome    |exposure |method                    |        Q| Q_df| Q_pval|
+|:----------|:--------|:-------------------------|--------:|----:|------:|
+|loneliness |F1       |MR Egger                  | 152.1081|   33|3.23x10<sup>-17</sup>|
+|loneliness |F1       |Inverse variance weighted | 170.4151|   34|4.47x10<sup>-20</sup>|
 
-- evidence of heterogeneity so must refer to MR Egger, which is n.s.
+- we cannot assume homogeneity 
 
 ### Test of directional horizontal pleiotropy
 
@@ -344,20 +348,20 @@ MR using a p-value threshold of p < 5x10<sup>-07</sup> to increase instruments f
 |:-----------|:----------|:----------|:--------|---------------:|---------:|--------:|
 |vvA60E      |0oxnSr     |loneliness |F1       |       0.0091299| 0.0045812| 0.054593|
 
-- n.s. but only just
+- no evidence of directional horizontal pleiotropy (though it is near-significant)
 
 ### Mr Egger Sensitivity Analysis
 
-|id.exposure |id.outcome |outcome    |exposure |method                    | nsnp|         b|        se|      pval|
-|:-----------|:----------|:----------|:--------|:-------------------------|----:|---------:|---------:|---------:|
-|vvA60E      |0oxnSr     |loneliness |F1       |MR Egger                  |  188| 0.2995167| 0.1007209| 0.0033319|
-|vvA60E      |0oxnSr     |loneliness |F1       |Inverse variance weighted |  188| 0.2826353| 0.0171767| 7.78x10<sup>-61</sup>|
-|vvA60E      |0oxnSr     |loneliness |F1       |Weighted mode             |  188| 0.1957380| 0.0506386| 1.53x10<sup>-04</sup>|
-|vvA60E      |0oxnSr     |loneliness |F1       |Weighted median           |  188| 0.2974803| 0.0165897| 6.68x10<sup>-72</sup>|
-|vvA60E      |0oxnSr     |loneliness |F1       |MR Egger (bootstrap)      |  188| 0.1161874| 0.0638577| 0.0340000|
+|outcome    |exposure |method                    | nsnp|         b|        se|      pval|
+|:----------|:--------|:-------------------------|----:|---------:|---------:|---------:|
+|loneliness |F1       |MR Egger                  |  188| 0.2995167| 0.1007209| 0.0033319|
+|loneliness |F1       |Inverse variance weighted |  188| 0.2826353| 0.0171767| 7.78x10<sup>-61</sup>|
+|loneliness |F1       |Weighted mode             |  188| 0.1957380| 0.0506386| 1.53x10<sup>-04</sup>|
+|loneliness |F1       |Weighted median           |  188| 0.2974803| 0.0165897| 6.68x10<sup>-72</sup>|
+|loneliness |F1       |MR Egger (bootstrap)      |  188| 0.1161874| 0.0638577| 0.0340000|
 
-- I2 all instruments = .968
-- I2 weak instruments = .967, so no weak instrument bias and no need to adjust
+- all MR methods are significant and consistent and this pattern of results is similar to that of the original MR analysis for F1/NMD to loneliness
+- I<sup>2</sup> all instruments = .968, I<sup>2</sup> weak instruments = .967, so no weak instrument bias
 
 ### Testing that F1 is upstream of loneliness
 
@@ -365,7 +369,7 @@ MR using a p-value threshold of p < 5x10<sup>-07</sup> to increase instruments f
 |:-----------|:----------|:--------|:----------|---------------:|--------------:|:------------------------|------------:|
 |vvA60E      |0oxnSr     |F1       |loneliness |       0.0029892|      0.0006832|TRUE                     |            0|
 
-
+- 1 SNP was found to be operating in the incorrect causal direction
 
 ---
 ### Forest Plot
