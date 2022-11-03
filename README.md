@@ -46,23 +46,24 @@ F1 = Neurodevelopmental and Mood Disorders (NMD); F2 = Substance Use Traits (SUT
 
 - Loneliness to F1/NMD
 
- |outcome |exposure   |method                    | nsnp|         b|        se|      pval|
- |:-------|:----------|:-------------------------|----:|---------:|---------:|---------:|
- |F1      |loneliness |MR Egger                  |   18| 0.6062202| 0.2340154| 0.0197169|
- |F1      |loneliness |Inverse variance weighted |   18| 0.5219772| 0.0444478| 0.0000000|
- |F1      |loneliness |Weighted mode             |   18| 0.6053939| 0.1233620| 0.0001330|
- |F1      |loneliness |Weighted median           |   18| 0.5116992| 0.0656303| 0.0000000|
+|outcome |exposure   |method                    | nsnp|          b|        se|      pval|
+|:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
+|F1      |loneliness |MR Egger                  |   11|  0.5443916| 0.2789841| 8.28x10<sup>-02</sup>|
+|F1      |loneliness |Inverse variance weighted |   11|  0.4956359| 0.0547951| 1.49x10<sup>-19</sup>|
+|F1      |loneliness |Weighted mode             |   11|  0.5238836| 0.1343346| 2.96x10<sup>-03</sup>|
+|F1      |loneliness |Weighted median           |   11|  0.4810642| 0.0803782| 2.16x10<sup>-09</sup>|
+|F1      |loneliness |MR Egger (bootstrap)      |   11| -0.1618239| 0.3356590| 3.00x10<sup>-01</sup>|
 
 - F1 to Loneliness
 
 |outcome    |exposure |method                    | nsnp|          b|        se|      pval|
 |:----------|:--------|:-------------------------|----:|----------:|---------:|---------:|
-|loneliness |F1       |MR Egger                  |   20| -0.0351787| 0.3222680| 0.9142834|
-|loneliness |F1       |Inverse variance weighted |   20|  0.1953648| 0.0772606| 0.0114503|
-|loneliness |F1       |Weighted mode             |   20|  0.3583561| 0.0648296| 0.0000248|
-|loneliness |F1       |Weighted median           |   20|  0.3247741| 0.0508896| 0.0000000|
+|loneliness |F1       |MR Egger                  |   14| -0.2495892| 0.4675338| 6.03x10<sup>-01</sup>|
+|loneliness |F1       |Inverse variance weighted |   14|  0.2087931| 0.0983364| 3.37x10<sup>-02</sup>|
+|loneliness |F1       |Weighted mode             |   14|  0.3570321| 0.0836802| 9.18x10<sup>-04</sup>|
+|loneliness |F1       |Weighted median           |   14|  0.3232340| 0.0604615| 8.99x10<sup>-08</sup>|
+|loneliness |F1       |MR Egger (bootstrap)      |   14| -0.2617346| 0.3267510| 1.98x10<sup>-01</sup>|
 
 - Forest plot of loneliness to F1/NMD
 
-![image](https://user-images.githubusercontent.com/68326791/174830670-3be455ff-2f44-4582-bf2e-d5da4fb3e84c.png)
-
+![image](https://user-images.githubusercontent.com/68326791/198327856-a6862c01-ce57-4d14-9afa-c40d07eb6a67.png)
