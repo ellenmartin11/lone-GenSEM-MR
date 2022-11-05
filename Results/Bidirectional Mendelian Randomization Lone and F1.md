@@ -18,12 +18,10 @@ F1 refers to the Neurodevelopmental and Mood Disorders latent factor (NMD)
 |:-------|:----------|:-------------------------|----:|----------:|---------:|---------:|
 |F1      |loneliness |MR Egger                  |   11|  0.5443916| 0.2789841| 8.28x10<sup>-02</sup>|
 |F1      |loneliness |Inverse variance weighted |   11|  0.4956359| 0.0547951| 1.49x10<sup>-19</sup>|
-|F1      |loneliness |Weighted mode             |   11|  0.5238836| 0.1343346| 2.96x10<sup>-03</sup>|
-|F1      |loneliness |Weighted median           |   11|  0.4810642| 0.0803782| 2.16x10<sup>-09</sup>|
-|F1      |loneliness |MR Egger (bootstrap)      |   11| -0.1618239| 0.3356590| 3.00x10<sup>-01</sup>|
+|F1      |loneliness |Weighted mode             |   11|  0.5238836| 0.1343346| 2.36x10<sup>-03</sup>|
+|F1      |loneliness |Weighted median           |   11|  0.4810642| 0.0803782| 7.22x10<sup>-09</sup>|
 
-- All methods except for Egger and Egger Boostrap are significant 
-- Egger bootstrap is in the negative direction
+- All methods except for Egger are significant
 
 ### Heterogeneity tests
 
@@ -32,7 +30,7 @@ F1 refers to the Neurodevelopmental and Mood Disorders latent factor (NMD)
 |zekZiO      |bCloOr     |F1      |loneliness |MR Egger                  | 8.840471|    9| 0.4521287|
 |zekZiO      |bCloOr     |F1      |loneliness |Inverse variance weighted | 8.872238|   10| 0.5442702|
 
-- since Q is low and not statistically significant, we can assume homogeneity and refer to IVW
+- since Q is low and not statistically significant, there is no evidence of heterogeneity
 
 ### Test for directional horizontal pleiotropy
 
@@ -42,7 +40,6 @@ F1 refers to the Neurodevelopmental and Mood Disorders latent factor (NMD)
 |zekZiO      |bCloOr     |F1      |loneliness |      -0.0007018| 0.0039373| 0.8624872|
 
 - test for pleiotropy suggests no horizontal pleiotropy
-
 
 
 ### Test that the loneliness exposure is upstream of the F1 outcome
@@ -60,7 +57,6 @@ F1 refers to the Neurodevelopmental and Mood Disorders latent factor (NMD)
 |F1      |loneliness |Inverse variance weighted |   77| 0.4687211| 0.0449261| 1.75x10<sup>-25</sup>|
 |F1      |loneliness |Weighted mode             |   77| 0.6736313| 0.1070706| 1.84x10<sup>-08</sup>|
 |F1      |loneliness |Weighted median           |   77| 0.5464386| 0.0363076| 3.44x10<sup>-51</sup>|
-|F1      |loneliness |MR Egger (bootstrap)      |   77| 0.2411901| 0.1979520| 1.13x10<sup>-01</sup>|
 
 - still significant and consistent across MR methods
 - I2 of all instruments = .972, I2 of weaker instruments .972
