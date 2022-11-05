@@ -53,13 +53,24 @@ F1 = Neurodevelopmental and Mood Disorders (NMD); F2 = Substance Use Traits (SUT
 |F1      |loneliness |Weighted mode             |   11|  0.5238836| 0.1343346| 2.96x10<sup>-03</sup>|
 |F1      |loneliness |Weighted median           |   11|  0.4810642| 0.0803782| 2.16x10<sup>-09</sup>|
 
-- F1 to Loneliness
+- Forest plot
 
-|outcome    |exposure |method                    | nsnp|          b|        se|      pval|
-|:----------|:--------|:-------------------------|----:|----------:|---------:|---------:|
-|loneliness |F1       |MR Egger                  |   14| -0.2495892| 0.4675338| 6.03x10<sup>-01</sup>|
-|loneliness |F1       |Inverse variance weighted |   14|  0.2087931| 0.0983364| 3.37x10<sup>-02</sup>|
-|loneliness |F1       |Weighted mode             |   14|  0.3570321| 0.0836802| 9.18x10<sup>-04</sup>|
-|loneliness |F1       |Weighted median           |   14|  0.3232340| 0.0604615| 8.99x10<sup>-08</sup>|
+![image](https://user-images.githubusercontent.com/68326791/200131221-6b6add7b-711f-4945-9e26-33c681c43049.png)
+
+
+- NMD/F1 (Qsnp filtered) to Loneliness
+
+|outcome    |exposure |method                    | nsnp|         b|        se|      pval|
+|:----------|:--------|:-------------------------|----:|---------:|---------:|---------:|
+|loneliness |F1_Qsnp  |MR Egger                  |   10| 0.4439023| 0.3011940| 1.79x10<sup>-01</sup>|
+|loneliness |F1_Qsnp  |Inverse variance weighted |   10| 0.3393446| 0.0654521| 2.16x10<sup>-07</sup>|
+|loneliness |F1_Qsnp  |Weighted mode             |   10| 0.3857237| 0.0880167| 2.61x10<sup>-03</sup>|
+|loneliness |F1_Qsnp  |Weighted median           |   10| 0.3826074| 0.0639450| 3.60x10<sup>-09</sup>|
+
+- Forest Plot
+
+![image](https://user-images.githubusercontent.com/68326791/200128097-e09cecab-fd6a-418d-90d2-4a3b99625254.png)
+
+
 
 
