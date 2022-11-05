@@ -113,6 +113,17 @@ F1 refers to the Neurodevelopmental and Mood Disorders latent factor (NMD)
 
 - no evidence of directional horizontal pleiotropy 
 
+### MR Egger Sensitivity Test
+
+|id.exposure |id.outcome |outcome    |exposure |method                    | nsnp|         b|        se|      pval|
+|:-----------|:----------|:----------|:--------|:-------------------------|----:|---------:|---------:|---------:|
+|AzksNX      |7Tkurt     |loneliness |F1_Qsnp  |MR Egger                  |   91| 0.3000644| 0.1401681| 0.0350286|
+|AzksNX      |7Tkurt     |loneliness |F1_Qsnp  |Inverse variance weighted |   91| 0.2963937| 0.0230410| 0.0000000|
+|AzksNX      |7Tkurt     |loneliness |F1_Qsnp  |Weighted mode             |   91| 0.3596411| 0.0527016| 0.0000000|
+|AzksNX      |7Tkurt     |loneliness |F1_Qsnp  |Weighted median           |   91| 0.3189740| 0.0213165| 0.0000000|
+
+- I<sup>2</sup> all instruments = .971, weak instruments = .970
+
 ### Test that F1/NMD QSNP is upstream of loneliness
 
 |exposure |outcome    | snp_r2.exposure| snp_r2.outcome|correct_causal_direction | steiger_pval|
