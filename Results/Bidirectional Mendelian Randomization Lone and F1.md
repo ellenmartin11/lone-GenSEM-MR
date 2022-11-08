@@ -10,7 +10,7 @@ F1 refers to the Neurodevelopmental and Mood Disorders latent factor (NMD)
 - clumping parameters: r<sup>2</sup> < 0.001, kb = 10,000
 - p-value threshold: p < 5x10<sup>-08</sup>
 - 11 instruments
----
+
 
 ### Results from two sample MR:
 
@@ -61,7 +61,6 @@ F1 refers to the Neurodevelopmental and Mood Disorders latent factor (NMD)
 - still significant and consistent across MR methods
 - I2 of all instruments = .972, I2 of weaker instruments .972
 - not suggestive of weak instrument bias
----
 
 ### Forest plot of single SNP MR
 
@@ -70,8 +69,6 @@ F1 refers to the Neurodevelopmental and Mood Disorders latent factor (NMD)
 ### Scatter Plot 
 
 ![image](https://user-images.githubusercontent.com/68326791/200127197-76fb510d-0288-4ca3-8f0b-9812ad7875ce.png)
-
----
 
 ### Steiger Filtering
 
@@ -84,7 +81,7 @@ F1 refers to the Neurodevelopmental and Mood Disorders latent factor (NMD)
 - clumping parameters: r<sup>2</sup> < 0.001, kb = 10,000
 - p-value threshold: p < 5x10<sup>-08</sup>
 - 11 instruments
----
+
 
 ### Results from Two Sample MR
 |outcome    |exposure |method                    | nsnp|         b|        se|      pval|
@@ -154,7 +151,6 @@ F1 refers to the Neurodevelopmental and Mood Disorders latent factor (NMD)
 - p-value threshold: p < 5x10<sup>-07</sup>
 - 24 instruments
 
----
 
 ### Results from Two Sample MR
 
@@ -196,7 +192,6 @@ F1 refers to the Neurodevelopmental and Mood Disorders latent factor (NMD)
 
 - I<sup>2</sup> of all instruments = 0.970, I2 of weak instruments = 0.970, so there does not seem to be weak instrument bias
 
----
 
 ### Forest Plot
 
@@ -206,7 +201,6 @@ F1 refers to the Neurodevelopmental and Mood Disorders latent factor (NMD)
 
 ![image](https://user-images.githubusercontent.com/68326791/200129783-ea819f2d-e238-4bbc-b7be-5edcf84f5066.png)
 
----
 
 ### Test that loneliness is upstream of F1/NMD
 
@@ -225,7 +219,6 @@ F1 refers to the Neurodevelopmental and Mood Disorders latent factor (NMD)
 |F1      |loneliness |Weighted median           |   22| 0.4741883| 0.0645738| 2.08x10<sup>-13</sup>|
 
 - results are still consistent with the original MR analysis, except that the MR Egger Bootstrapped effect is no longer in the negative direction
----
 
 ### MR RAPS
 
@@ -241,7 +234,6 @@ F1 refers to the Neurodevelopmental and Mood Disorders latent factor (NMD)
 - p-value threshold: p < 5x10<sup>-07</sup>
 - 19 instruments
 
----
 
 ### Two Sample MR Results
 
