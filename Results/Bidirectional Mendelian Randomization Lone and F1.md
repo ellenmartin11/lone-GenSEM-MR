@@ -237,7 +237,6 @@ F1 refers to the Neurodevelopmental and Mood Disorders latent factor (NMD)
 
 ## NMD/F1 Qsnp to Loneliness with Reduced p-value threshold
 
-## F1 QSNP MR Results with Reduced p-value threshold
 - clumping parameters: r<sup>2</sup> < 0.001, kb = 10,000
 - p-value threshold: p < 5x10<sup>-07</sup>
 - 19 instruments
